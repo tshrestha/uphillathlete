@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R2R2R · A Training Plan for the Grand Canyon</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,0..100,0..1&family=Newsreader:opsz,wght@6..72,300..700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1410;
+  --ink-soft: #2d2520;
+  --bg: #f3ece0;
+  --bg-warm: #ede4d2;
+  --bg-card: #e6dcc6;
+  --bg-deep: #ddd0b3;
+  --rust: #a8431f;
+  --rust-deep: #7a3214;
+  --clay: #c97b4c;
+  --sage: #5d6b4f;
+  --amber: #b8782b;
+  --amber-bg: #f0deb6;
+  --rim: #6b5840;
+  --rim-soft: #8a7860;
+  --line: #c4b896;
+  --line-soft: #d4c9a8;
+
+  --fs-display: clamp(2.5rem, 7vw, 5.5rem);
+  --fs-h1: clamp(2rem, 4vw, 3.25rem);
+  --fs-h2: clamp(1.5rem, 2.8vw, 2.25rem);
+  --fs-h3: clamp(1.15rem, 1.8vw, 1.4rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-tiny: 0.75rem;
+
+  --container: 1280px;
+  --content: 720px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(circle at 20% 10%, rgba(168, 67, 31, 0.04) 0, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(93, 107, 79, 0.04) 0, transparent 50%);
+}
+
+::selection { background: var(--rust); color: var(--bg); }
+
+/* ───── Typography ───── */
+h1, h2, h3, h4, .display {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+h1 { font-size: var(--fs-h1); font-variation-settings: "opsz" 96, "SOFT" 50; }
+h2 { font-size: var(--fs-h2); font-weight: 500; font-variation-settings: "opsz" 72, "SOFT" 30; margin-bottom: 0.5em; }
+h3 { font-size: var(--fs-h3); font-weight: 600; margin: 2em 0 0.5em; }
+h4 { font-size: 1.05rem; font-weight: 600; margin: 1.5em 0 0.4em; font-family: 'Newsreader', serif; letter-spacing: 0.02em; text-transform: uppercase; color: var(--rust-deep); }
+
+p { margin-bottom: 1.1em; }
+p + p { margin-top: 0; }
+
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+a { color: var(--rust); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; transition: color 0.2s; }
+a:hover { color: var(--rust-deep); }
+
+code, .mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  background: var(--bg-card);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+}
+
+ul, ol { margin: 0 0 1.1em 1.4em; }
+li { margin-bottom: 0.4em; }
+li::marker { color: var(--rust); }
+
+blockquote {
+  border-left: 3px solid var(--rust);
+  padding: 0.4em 0 0.4em 1.2em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ───── Header / Nav ───── */
+.topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(243, 236, 224, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  height: 64px;
+}
+.topbar-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+.brand-mark {
+  display: inline-block;
+  width: 8px; height: 8px;
+  background: var(--rust);
+  border-radius: 50%;
+  margin-right: 0.6em;
+  vertical-align: middle;
+}
+.nav-progress {
+  flex: 1;
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--rim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'JetBrains Mono', monospace;
+  overflow: hidden;
+}
+.nav-progress a {
+  color: var(--rim);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.nav-progress a:hover { color: var(--rust); }
+.nav-progress a.active { color: var(--ink); font-weight: 700; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--rim);
+  padding: 0.4em 0.8em;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+/* ───── Hero ───── */
+.hero {
+  padding-top: 130px;
+  padding-bottom: 5rem;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+}
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content: '';
+  height: 1px;
+  background: var(--rust);
+  flex: 0 0 30px;
+}
+.hero-eyebrow::after { flex: 1; }
+.hero h1.display {
+  font-size: var(--fs-display);
+  font-weight: 350;
+  font-variation-settings: "opsz" 144, "SOFT" 80, "WONK" 0;
+  line-height: 0.95;
+  margin-bottom: 0.4em;
+  letter-spacing: -0.025em;
+}
+.hero h1.display em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  font-weight: 300;
+  color: var(--rust);
+}
+.hero-sub {
+  font-size: 1.25rem;
+  color: var(--ink-soft);
+  max-width: 600px;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 2rem 0 3rem;
+}
+.stat {
+  padding: 1.2rem 1.5rem;
+  border-right: 1px solid var(--line);
+}
+.stat:last-child { border-right: none; }
+.stat-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rim);
+  margin-bottom: 0.4em;
+}
+.stat-value {
+  font-family: 'Fraunces', serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+  font-variation-settings: "opsz" 72;
+}
+.stat-value .unit {
+  font-size: 0.9rem;
+  color: var(--rim);
+  margin-left: 0.2em;
+}
+
+/* ───── Elevation profile ───── */
+.profile-container {
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.profile-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rim);
+  margin-bottom: 0.8rem;
+}
+.profile-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ───── Layout ───── */
+.section {
+  padding: 5rem 2rem;
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+}
+.section + .section { border-top: 1px solid var(--line-soft); }
+
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 1.5em;
+  display: flex;
+  align-items: baseline;
+  gap: 1em;
+}
+.section-num {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--clay);
+  line-height: 1;
+  font-variation-settings: "opsz" 72, "WONK" 1;
+}
+
+.lede {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: var(--content);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.prose {
+  max-width: var(--content);
+}
+.prose-wide {
+  max-width: 880px;
+}
+
+/* ───── Cards / Callouts ───── */
+.callout {
+  background: var(--bg-warm);
+  border-left: 3px solid var(--rust);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+  border-radius: 0 4px 4px 0;
+}
+.callout-warning {
+  background: var(--amber-bg);
+  border-left-color: var(--amber);
+}
+.callout-good {
+  background: #e3e8db;
+  border-left-color: var(--sage);
+}
+.callout-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust-deep);
+  margin-bottom: 0.6em;
+  font-weight: 700;
+}
+.callout-warning .callout-title { color: var(--amber); }
+.callout-good .callout-title { color: var(--sage); }
+.callout p:last-child { margin-bottom: 0; }
+
+/* ───── Tables ───── */
+.tbl-wrap {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+th {
+  background: var(--bg-deep);
+  color: var(--ink);
+  text-align: left;
+  padding: 0.7em 1em;
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rim);
+}
+td {
+  padding: 0.7em 1em;
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(168, 67, 31, 0.04); }
+
+/* ───── TOC ───── */
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.toc-card {
+  background: var(--bg-warm);
+  padding: 1.5rem;
+  border: 1px solid var(--line-soft);
+  text-decoration: none;
+  color: var(--ink);
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.toc-card:hover {
+  background: var(--bg-card);
+  border-color: var(--rust);
+  transform: translateY(-2px);
+  color: var(--ink);
+}
+.toc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 0;
+  background: var(--rust);
+  transition: height 0.3s;
+}
+.toc-card:hover::before { height: 100%; }
+.toc-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--rim);
+  margin-bottom: 0.6em;
+}
+.toc-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0.4em;
+  line-height: 1.2;
+}
+.toc-desc {
+  font-size: 0.9rem;
+  color: var(--rim);
+  line-height: 1.4;
+}
+
+/* ───── Phase tabs ───── */
+.phase-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 2rem 0 0;
+  border-bottom: 2px solid var(--line);
+}
+.phase-tab {
+  background: none;
+  border: none;
+  padding: 1rem 1.4rem;
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--rim);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+  position: relative;
+}
+.phase-tab small {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rim-soft);
+  margin-bottom: 0.2em;
+  font-weight: 400;
+}
+.phase-tab.active {
+  color: var(--rust);
+  border-bottom-color: var(--rust);
+}
+.phase-tab.active small { color: var(--rust); }
+.phase-tab:hover { color: var(--ink); }
+
+.phase-content { display: none; padding: 2rem 0; }
+.phase-content.active { display: block; }
+
+.phase-summary {
+  background: var(--bg-warm);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--rust);
+  font-size: 1rem;
+}
+
+/* ───── Week cards ───── */
+.weeks-grid {
+  display: grid;
+  gap: 1rem;
+}
+.week {
+  background: var(--bg-warm);
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.week-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  background: var(--bg-warm);
+  border-bottom: 1px solid transparent;
+  transition: background 0.2s;
+  user-select: none;
+}
+.week-header:hover { background: var(--bg-card); }
+.week.open .week-header { border-bottom-color: var(--line); }
+.week-title {
+  font-family: 'Fraunces', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.week-num {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  color: var(--rust);
+  margin-right: 0.8em;
+  font-weight: 700;
+}
+.week-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--rim);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.week-toggle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.2rem;
+  color: var(--rust);
+  transition: transform 0.2s;
+}
+.week.open .week-toggle { transform: rotate(45deg); }
+.week-body {
+  display: none;
+  padding: 1.25rem;
+  background: var(--bg);
+}
+.week.open .week-body { display: block; }
+.week-body table { font-size: 0.9rem; }
+.week-body th { background: var(--bg-warm); }
+
+.day-row td:first-child {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rust);
+  font-weight: 700;
+  width: 80px;
+}
+
+/* ───── Principles ───── */
+.principles {
+  display: grid;
+  gap: 0;
+  margin: 2rem 0;
+  counter-reset: principle;
+}
+.principle {
+  padding: 2rem 0;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+.principle:last-child { border-bottom: 1px solid var(--line-soft); }
+.principle-num {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144, "WONK" 1;
+  color: var(--clay);
+  line-height: 1;
+  font-style: italic;
+}
+.principle-body h3 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+.principle-body p:last-child { margin-bottom: 0; }
+
+/* ───── Phase overview cards ───── */
+.phase-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.phase-card {
+  background: var(--bg-warm);
+  padding: 1.5rem;
+  border-top: 4px solid var(--rust);
+}
+.phase-card-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rim);
+  margin-bottom: 0.6em;
+}
+.phase-card h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-transform: none;
+  color: var(--ink);
+  margin: 0 0 0.8em;
+  letter-spacing: 0;
+}
+.phase-card .phase-stat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  padding: 0.35em 0;
+  border-bottom: 1px dotted var(--line);
+}
+.phase-card .phase-stat:last-child { border-bottom: none; }
+.phase-card .phase-stat-label { color: var(--rim); }
+.phase-card .phase-stat-value { font-weight: 600; }
+
+.phase-card.p1 { border-top-color: var(--sage); }
+.phase-card.p2 { border-top-color: var(--clay); }
+.phase-card.p3 { border-top-color: var(--rust); }
+.phase-card.p4 { border-top-color: var(--rust-deep); }
+
+/* ───── Segment grid (race day pacing) ───── */
+.segments {
+  display: grid;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.segment {
+  background: var(--bg-warm);
+  padding: 1.5rem;
+  border-left: 4px solid var(--clay);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+}
+@media (min-width: 768px) {
+  .segment { grid-template-columns: 200px 1fr; gap: 2rem; }
+}
+.segment-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--rust);
+  margin-bottom: 0.3em;
+}
+.segment-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4em;
+}
+.segment-stats {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--rim);
+  line-height: 1.6;
+}
+.segment-stats span { display: block; }
+.segment-body p:last-child { margin-bottom: 0; }
+.segment-body ul { margin-bottom: 0; }
+
+/* ───── Footer ───── */
+.footer {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 4rem 2rem 3rem;
+  margin-top: 4rem;
+}
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.footer h2, .footer h3 {
+  color: var(--bg);
+}
+.footer h3 { margin-top: 2.5em; color: var(--clay); }
+.footer p, .footer li { color: rgba(243, 236, 224, 0.85); }
+.footer a { color: var(--clay); }
+.footer a:hover { color: var(--bg); }
+.footer strong { color: var(--bg); }
+.footer .bib-list {
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.footer .bib-list li { margin-bottom: 0.8em; }
+
+.signoff {
+  border-top: 1px solid rgba(243, 236, 224, 0.2);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: rgba(243, 236, 224, 0.6);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.05em;
+}
+
+/* ───── Mobile ───── */
+@media (max-width: 768px) {
+  .topbar-inner { padding: 0 1.25rem; }
+  .nav-progress { display: none; }
+  .menu-toggle { display: block; }
+  .nav-progress.open {
+    display: flex;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--bg);
+    flex-direction: column;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    gap: 1rem;
+  }
+  .hero { padding: 110px 1.25rem 3rem; }
+  .section { padding: 3.5rem 1.25rem; }
+  .stat { padding: 1rem; }
+  .stat-value { font-size: 1.5rem; }
+  .principle { grid-template-columns: 60px 1fr; gap: 1rem; }
+  .principle-num { font-size: 2.2rem; }
+  .footer { padding: 3rem 1.25rem 2rem; }
+}
+
+/* ───── Print ───── */
+@media print {
+  .topbar, .menu-toggle { display: none; }
+  body { background: white; }
+  .hero { padding-top: 1rem; }
+  .week-body { display: block !important; }
+  .week-toggle { display: none; }
+  .phase-content { display: block !important; }
+  .phase-tabs { display: none; }
+  .phase-content::before {
+    content: attr(data-label);
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    margin: 2em 0 1em;
+    border-bottom: 2px solid var(--rust);
+    padding-bottom: 0.3em;
+  }
+}
+
+/* ───── Subtle animations ───── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-eyebrow, .hero h1, .hero-sub, .hero-stats, .profile-container {
+  animation: fadeUp 0.8s ease-out backwards;
+}
+.hero h1 { animation-delay: 0.1s; }
+.hero-sub { animation-delay: 0.25s; }
+.hero-stats { animation-delay: 0.4s; }
+.profile-container { animation-delay: 0.55s; }
+</style>
+</head>
+<body>
+
+<!-- ─────────── TOP NAV ─────────── -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark"></span>R2R2R / 2026</div>
+    <nav class="nav-progress" id="navLinks">
+      <a href="#orientation">01 · Orient</a>
+      <a href="#course">02 · Course</a>
+      <a href="#principles">03 · Principles</a>
+      <a href="#tendon">04 · Tendon</a>
+      <a href="#phases">05 · Phases</a>
+      <a href="#schedule">06 · Schedule</a>
+      <a href="#programs">07 · Programs</a>
+      <a href="#raceday">08 · Race Day</a>
+    </nav>
+    <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">Menu</button>
+  </div>
+</header>
+
+<!-- ─────────── HERO ─────────── -->
+<section class="hero">
+  <div class="hero-eyebrow">A Field Manual · Twenty-Four Weeks</div>
+  <h1 class="display">Rim to Rim<br>to <em>Rim</em>.</h1>
+  <p class="hero-sub">A science-backed, injury-aware training plan for the Grand Canyon's mythic out-and-back: forty-two miles, eleven thousand feet, both directions, in a day.</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-label">Distance</div>
+      <div class="stat-value">42<span class="unit">mi</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Gain / Loss</div>
+      <div class="stat-value">11k<span class="unit">ft</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Plan length</div>
+      <div class="stat-value">24<span class="unit">wks</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Time in motion</div>
+      <div class="stat-value">12–20<span class="unit">hr</span></div>
+    </div>
+  </div>
+
+  <div class="profile-container">
+    <div class="profile-label">
+      <span>South Kaibab → North Kaibab → South Kaibab · Elevation Profile</span>
+      <span>21,000 ft total elevation change</span>
+    </div>
+    <svg class="profile-svg" viewBox="0 0 1200 240" preserveAspectRatio="none" aria-label="Elevation profile">
+      <defs>
+        <linearGradient id="canyongrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#a8431f" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#a8431f" stop-opacity="0.0"/>
+        </linearGradient>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#c4b896" stroke-width="0.5" opacity="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="1200" height="240" fill="url(#grid)" />
+
+      <!-- Elevation reference lines -->
+      <line x1="0" y1="30" x2="1200" y2="30" stroke="#c4b896" stroke-dasharray="2 4" opacity="0.5"/>
+      <line x1="0" y1="200" x2="1200" y2="200" stroke="#c4b896" stroke-dasharray="2 4" opacity="0.5"/>
+
+      <!-- The profile: S Rim (high) -> river (low) -> N Rim (highest) -> river -> S Rim -->
+      <!-- S Rim 7260, river 2460, N Rim 8240, scaled: high=30, low=200 -->
+      <path d="M 0,55 L 200,200 L 400,200 L 600,30 L 800,200 L 1000,200 L 1200,55"
+            fill="url(#canyongrad)" stroke="none"/>
+      <path d="M 0,55 L 200,200 L 400,200 L 600,30 L 800,200 L 1000,200 L 1200,55"
+            fill="none" stroke="#a8431f" stroke-width="2"/>
+
+      <!-- Markers -->
+      <circle cx="0" cy="55" r="4" fill="#1a1410"/>
+      <circle cx="200" cy="200" r="4" fill="#1a1410"/>
+      <circle cx="600" cy="30" r="4" fill="#a8431f"/>
+      <circle cx="1000" cy="200" r="4" fill="#1a1410"/>
+      <circle cx="1200" cy="55" r="4" fill="#1a1410"/>
+
+      <!-- Labels -->
+      <text x="0" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1410" font-weight="700">S Rim</text>
+      <text x="0" y="58" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b5840">7,260 ft</text>
+
+      <text x="200" y="220" font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1410" text-anchor="middle" font-weight="700">River</text>
+      <text x="200" y="233" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b5840" text-anchor="middle">2,460 ft</text>
+
+      <text x="600" y="20" font-family="JetBrains Mono, monospace" font-size="11" fill="#a8431f" text-anchor="middle" font-weight="700">N Rim · Turnaround</text>
+      <text x="600" y="50" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b5840" text-anchor="middle">8,240 ft</text>
+
+      <text x="1000" y="220" font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1410" text-anchor="middle" font-weight="700">River</text>
+      <text x="1000" y="233" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b5840" text-anchor="middle">2,460 ft</text>
+
+      <text x="1200" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#1a1410" text-anchor="end" font-weight="700">S Rim</text>
+      <text x="1200" y="58" font-family="JetBrains Mono, monospace" font-size="9" fill="#6b5840" text-anchor="end">7,260 ft</text>
+
+      <!-- Segment labels -->
+      <text x="100" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a3214" text-anchor="middle" font-style="italic">SEG 1 · 7mi</text>
+      <text x="400" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a3214" text-anchor="middle" font-style="italic">SEG 2 · 14mi</text>
+      <text x="800" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a3214" text-anchor="middle" font-style="italic">SEG 3 · 14mi</text>
+      <text x="1100" y="135" font-family="JetBrains Mono, monospace" font-size="9" fill="#7a3214" text-anchor="middle" font-style="italic">SEG 4 · 7mi</text>
+    </svg>
+  </div>
+
+  <div class="toc-grid">
+    <a href="#orientation" class="toc-card">
+      <div class="toc-num">PART 01</div>
+      <div class="toc-title">Orientation</div>
+      <div class="toc-desc">Your starting point, the gap, and the plan's logic.</div>
+    </a>
+    <a href="#course" class="toc-card">
+      <div class="toc-num">PART 02</div>
+      <div class="toc-title">Course Demands</div>
+      <div class="toc-desc">What R2R2R actually asks of the body, segment by segment.</div>
+    </a>
+    <a href="#principles" class="toc-card">
+      <div class="toc-num">PART 03</div>
+      <div class="toc-title">Training Principles</div>
+      <div class="toc-desc">The ten ideas that drive every decision in this plan.</div>
+    </a>
+    <a href="#tendon" class="toc-card">
+      <div class="toc-num">PART 04</div>
+      <div class="toc-title">Tendon Rehab</div>
+      <div class="toc-desc">The most important section — everything else depends on this.</div>
+    </a>
+    <a href="#phases" class="toc-card">
+      <div class="toc-num">PART 05</div>
+      <div class="toc-title">Phase Overview</div>
+      <div class="toc-desc">Four blocks of training, each targeting a different limiter.</div>
+    </a>
+    <a href="#schedule" class="toc-card">
+      <div class="toc-num">PART 06</div>
+      <div class="toc-title">Weekly Schedule</div>
+      <div class="toc-desc">Twenty-four weeks, day by day.</div>
+    </a>
+    <a href="#programs" class="toc-card">
+      <div class="toc-num">PART 07</div>
+      <div class="toc-title">Supporting Programs</div>
+      <div class="toc-desc">Strength, prehab, heat acclimation, fueling, monitoring.</div>
+    </a>
+    <a href="#raceday" class="toc-card">
+      <div class="toc-num">PART 08</div>
+      <div class="toc-title">Taper &amp; Race Day</div>
+      <div class="toc-desc">Pacing strategy, gear, logistics, the final 48 hours.</div>
+    </a>
+  </div>
+</section>
+
+<!-- ─────────── PART 1: ORIENTATION ─────────── -->
+<section class="section" id="orientation">
+  <div class="section-eyebrow"><span class="section-num">01</span> Quick Orientation</div>
+  <h2>Where you are, where the canyon is, and how this plan closes the gap.</h2>
+
+  <div class="prose">
+    <p class="lede">This plan assumes <strong>24 weeks</strong> to race day. That length isn't arbitrary — it reflects what the body actually needs: 12–16 weeks for aerobic adaptations to mature, 8–12 weeks minimum for tendon remodeling, and 2–3 weeks for heat acclimation at the end. If you have more time, extend the base period. If you have less, the honest answer is to push the date or downgrade to a single R2R.</p>
+
+    <h3>Your starting point</h3>
+    <ul>
+      <li>~12–15 mpw running, 3 sessions/week</li>
+      <li>Excellent recent vertical capacity: 40k ft in 4 weeks, peaking at 42k ft in week 4</li>
+      <li>Recovering from right posterior tibial tendinopathy (Sept 2025, aggravated by completing a marathon)</li>
+      <li>Aerobic and overall endurance under-developed; speed under-developed (lower priority)</li>
+    </ul>
+
+    <h3>What R2R2R demands</h3>
+    <ul>
+      <li>12–20 hours of continuous moving time</li>
+      <li>~21,000 ft of total elevation change (11,000 up + 11,000 down)</li>
+      <li>Sustained eccentric loading on the descents — the part your training mostly hasn't included</li>
+      <li>Aerobic system running near AeT for many hours</li>
+      <li>Heat exposure at the canyon floor; cold and altitude at the rims</li>
+      <li>Self-supported logistics, limited bail-out options</li>
+    </ul>
+
+    <h3>The gap</h3>
+    <p>Two engines drive R2R2R success: the <strong>aerobic engine</strong> (cardiovascular machinery) and the <strong>muscular durability engine</strong> (legs' ability to keep producing force when damaged). Your vertical-gain background suggests decent local muscular endurance on climbs and a respectable cardiovascular ceiling. Your gap is fourfold:</p>
+    <ol>
+      <li>Sustained aerobic capacity at <em>running</em> paces, not just power-hiking pace</li>
+      <li>Tissue durability for repetitive impact — the loading the marathon aggravated</li>
+      <li>Eccentric / descent capacity — the historic destroyer of R2R2R finishers</li>
+      <li>Tendon health and the strength infrastructure around the medial ankle</li>
+    </ol>
+    <p>This plan builds those four things while protecting your right tendon.</p>
+
+    <div class="callout">
+      <div class="callout-title">The two rules that override everything</div>
+      <p><strong>1. The tendon's voice wins.</strong> Every time. The training schedule is a suggestion; the tendon's response is data.</p>
+      <p><strong>2. Easy days are easy. Hard days are hard. Nothing lives in the middle.</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 2: COURSE ─────────── -->
+<section class="section" id="course">
+  <div class="section-eyebrow"><span class="section-num">02</span> Course Demands</div>
+  <h2>The canyon, segment by segment.</h2>
+
+  <div class="prose">
+    <p class="lede">The most common and shortest R2R2R, and the one matching the standard ~42 mi / 11,000 ft figures, is <strong>South Kaibab → North Kaibab → South Kaibab</strong>. The plan assumes this route. If you take Bright Angel either direction, add 3–5 miles.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-title">⚠ 2025–26 Closures</div>
+      <p>As of late 2025, the North Rim and North Kaibab Trail are closed due to wildfire damage. When the North Rim is closed, R2R2R as a true rim-to-rim is not possible. <strong>Confirm trail status at the NPS Grand Canyon site before committing to a date.</strong></p>
+    </div>
+
+    <h3>The four segments</h3>
+  </div>
+
+  <div class="prose-wide">
+    <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Segment</th><th>Miles</th><th>Vertical</th><th>Character</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>1.</strong> SK descent</td><td>~7</td><td>−4,800 ft</td><td>Steep, rocky, sustained eccentric, quad-busting</td></tr>
+        <tr><td><strong>2.</strong> River corridor → N Rim climb</td><td>~14</td><td>+5,800 ft</td><td>Mild grade across the bottom, then sustained climb</td></tr>
+        <tr><td><strong>3.</strong> N Rim descent back to river</td><td>~14</td><td>−5,800 ft</td><td>Reverse of segment 2; second long sustained eccentric load</td></tr>
+        <tr><td><strong>4.</strong> SK climb back to S Rim</td><td>~7</td><td>+4,800 ft</td><td>The crux. Hottest part of day, on accumulated fatigue</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>What this means for training</h3>
+    <ol>
+      <li><strong>Half the day is descent.</strong> ~11,000 ft of it. This is the single biggest reason runners under-perform or DNF. Eccentric load tolerance must be specifically trained.</li>
+      <li><strong>The hardest climb comes last.</strong> You need fatigue resistance, not fresh-legged climbing power.</li>
+      <li><strong>The canyon inverts mountain logic.</strong> You start the hardest climb when your legs are already cooked and the temperature is highest.</li>
+      <li><strong>Heat changes everything.</strong> The inner corridor can hit 100°F+ even when the rims are 60°F.</li>
+      <li><strong>Aerobic threshold pace, not race pace, is the relevant ceiling.</strong> Above AeT, you cannot sustain effort for 12+ hours.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ─────────── PART 3: PRINCIPLES ─────────── -->
+<section class="section" id="principles">
+  <div class="section-eyebrow"><span class="section-num">03</span> Training Principles</div>
+  <h2>Ten ideas that drive every workout in this plan.</h2>
+
+  <div class="prose">
+    <p class="lede">Drawn from Scott Johnston (Evoke Endurance, coach of 2025 UTMB champions Tom Evans &amp; Ruth Croft), Jay Dicharry (<em>Running Rewired</em>), House &amp; Jornet (<em>Training for the Uphill Athlete</em>), Jason Koop, and the peer-reviewed sports medicine literature.</p>
+  </div>
+
+  <div class="principles">
+    <div class="principle">
+      <div class="principle-num">1</div>
+      <div class="principle-body">
+        <h3>Train the limiter, not the strength.</h3>
+        <p>You have a vertical strength. You have aerobic, durability, and eccentric weaknesses. Most of this plan will not feel "cool." That's the point. Johnston: doing only what you're good at is the most reliable way to underperform.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">2</div>
+      <div class="principle-body">
+        <h3>The aerobic base is the foundation, and yours needs the most work.</h3>
+        <p>For events over ~2 hours, performance is dominated by <strong>aerobic threshold (AeT)</strong> — the intensity where fat oxidation still dominates. Three takeaways:</p>
+        <ul>
+          <li><strong>Most running should be very easy.</strong> Elites spend 75–85% below AeT.</li>
+          <li><strong>Test your AeT, don't guess it.</strong> Nose-breathing pace works as a rough guide; a 60-minute heart-rate drift test (HR rise &lt;5% at constant pace) is better.</li>
+          <li><strong>The 10% spread test.</strong> When AeT and lactate threshold (LT) are within 10% of each other, you've built a strong base. Most returning-from-injury runners have wide spreads.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">3</div>
+      <div class="principle-body">
+        <h3>Polarized intensity distribution.</h3>
+        <p>~80% of training below AeT, ~15–20% high intensity, very little in the middle. This pattern (Seiler and colleagues, replicated across endurance sports) beats more time at moderate intensity in nearly every controlled comparison. <strong>Z3 is the "no man's land" trap</strong>: too hard to maintain volume safely, not hard enough to drive top-end adaptation. Most days: Z2 or Z4. Not in between.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">4</div>
+      <div class="principle-body">
+        <h3>Muscular Endurance is the canyon's true currency.</h3>
+        <p>Johnston's recent work with elite ultra athletes emphasizes that for long mountain events, <strong>local muscular endurance — legs producing force when the aerobic engine still has plenty in the tank — is the limiting factor late in the race</strong>. ME work stresses legs locally without driving HR high enough for systemic fatigue. The cue: legs feel worked, breathing comfortable.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">5</div>
+      <div class="principle-body">
+        <h3>Strength training is non-negotiable.</h3>
+        <p>The 2024 Llanos-Lagos meta-analysis (38 studies): <strong>heavy strength training (≥80% 1RM) improves time trial and TTE performance</strong>. Blagrove's 2025 RCT showed strength training improves <strong>running economy durability</strong> — exactly the trait that matters at hour 10 of an ultra. Two sessions per week, throughout.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">6</div>
+      <div class="principle-body">
+        <h3>Movement quality matters as much as load.</h3>
+        <p>Jay Dicharry's central thesis: strength training without movement quality just trains compensations. For a runner returning from posterior tibial tendinopathy, common upstream culprits include weak gluteus medius (→ hip drop → tibial rotation → medial ankle overload), stiff big toe, foot intrinsic weakness, and poor single-leg stability. The prehab routine targets these specifically.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">7</div>
+      <div class="principle-body">
+        <h3>Tendons need progressive load, not rest.</h3>
+        <p>Modern tendinopathy management (Cook &amp; Purdam continuum; Silbernagel, Beyer, Kongsgaard, Alfredson protocols) is unambiguous: <strong>rest does not heal a degenerative tendon</strong>. Progressive mechanical loading — gradually increasing, with adequate recovery — drives remodeling. Heavy-slow resistance (HSR) is the primary modality; current best evidence shows it's at least as effective as eccentric-only protocols, with better adherence.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">8</div>
+      <div class="principle-body">
+        <h3>Eccentric/downhill training has powerful protective effects.</h3>
+        <p>The "repeated bout effect" is one of the most robust findings in exercise physiology: a single bout of eccentric exercise provides substantial protection against damage from subsequent bouts, lasting weeks. <strong>Without specific downhill work, you'll get to mile 25 with quads that have never absorbed that magnitude of eccentric load — and they will fail.</strong></p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">9</div>
+      <div class="principle-body">
+        <h3>Heat acclimation is a free performance gain.</h3>
+        <p>Even 6–7 consecutive days of heat exposure (≥30 min, core temp ~38.5°C, via exercise-in-heat or post-exercise sauna) produces measurable plasma volume expansion, lower exercise HR, and improved performance in <em>both</em> hot and temperate conditions. The plan includes a 14-day heat block in the final 2.5 weeks.</p>
+      </div>
+    </div>
+
+    <div class="principle">
+      <div class="principle-num">10</div>
+      <div class="principle-body">
+        <h3>Conservative progression, with recovery cycles.</h3>
+        <p>The single best predictor of running injury is sudden load spikes. The plan uses <strong>3-weeks-on, 1-week-off</strong> cycles with recovery weeks at ~60–70% of prior week's volume. Single-week increases stay ≤15%. Acute:Chronic Workload Ratio between 0.8 and 1.3 is the safer zone; &gt;1.5 spikes risk. Never increase volume and intensity simultaneously.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 4: TENDON ─────────── -->
+<section class="section" id="tendon">
+  <div class="section-eyebrow"><span class="section-num">04</span> Tendon Rehab Framework</div>
+  <h2>Posterior tibial tendinopathy. The gating section.</h2>
+
+  <div class="prose">
+    <p class="lede">Read this before any other section. Your right tendon is the gating factor for everything else in this plan.</p>
+
+    <div class="callout callout-warning">
+      <div class="callout-title">⚠ Step Zero</div>
+      <p>If you have not seen a sports-focused PT in the last 3 months, <strong>see one before starting this plan</strong>. They will confirm the diagnosis, assess single-leg heel-raise capacity, identify upstream contributors (hip control, big toe mobility, foot intrinsics), and determine if you should use an orthotic or rocker shoe. Nothing here substitutes for that assessment.</p>
+    </div>
+
+    <h3>How tendons heal: the load–pain–response framework</h3>
+    <p>The Cook &amp; Purdam continuum model places tendons on a spectrum: <em>normal</em> → <em>reactive</em> → <em>disrepair</em> → <em>degenerative</em>. Tendons heal by being <strong>loaded in a way just below the threshold that worsens symptoms</strong>, repeatedly, over months. They do not heal by being rested.</p>
+
+    <div class="callout">
+      <div class="callout-title">The 24-Hour Rule</div>
+      <p>The standard for tendinopathy rehab in sports medicine:</p>
+      <ul>
+        <li>Symptoms during loading at <strong>≤3/10 pain</strong> are acceptable</li>
+        <li>Symptoms within 24 hours after loading should <strong>return to baseline</strong> (your starting morning pain)</li>
+        <li>Morning pain higher than baseline the next day → that session was too much; <strong>back off 20–30%</strong> next time</li>
+        <li>Morning pain elevated for 24+ hours → drop further, reassess</li>
+      </ul>
+      <p>You're aiming for: discomfort <em>during</em> loading, no flare in the 24 hours after.</p>
+    </div>
+
+    <h3>The four phases of tendon loading</h3>
+
+    <h4>Phase A — Isometric calming (Wks 1–3 if symptomatic)</h4>
+    <p>If your tendon is currently painful with daily activity, start here. Isometric loading reduces pain in many tendinopathies.</p>
+    <ul>
+      <li><strong>Heavy isometric calf hold, knee straight:</strong> 5 × 30–45 sec at 80%+ effort, 1–2× daily</li>
+      <li><strong>Heavy isometric calf hold, knee bent</strong> (soleus focus): same dosing</li>
+      <li><strong>Resisted inversion isometric</strong> (band, foot turned inward): 5 × 30 sec</li>
+    </ul>
+
+    <h4>Phase B — Heavy Slow Resistance (Wks 4–14)</h4>
+    <p>The workhorse phase. <strong>Tempo:</strong> 3 sec up, 3 sec down. <strong>Frequency:</strong> 3×/week, 48+ hours between. <strong>Loading:</strong> Start at 12RM, do 3–4 sets of 12 reps. Every 2 weeks, increase load and reduce reps: 12RM → 10RM → 8RM → 6RM.</p>
+    <p><strong>Core HSR exercises (all three each session):</strong></p>
+    <ol>
+      <li>Bilateral heel raise on a step, slow lower into dorsiflexion, knee straight</li>
+      <li>Bilateral heel raise on a step, knee bent ~30° (soleus emphasis)</li>
+      <li>Single-leg heel raise on a step (once cleared) — most tib-post-specific</li>
+    </ol>
+    <p><strong>Adjunct (rotate 1–2 per session):</strong> Resisted ankle inversion (band), foot doming / short foot.</p>
+
+    <h4>Phase C — Elastic / functional loading (Wks 12–18)</h4>
+    <p>Once HSR at ~8RM is tolerated, add SSC work to prepare for impact loading.</p>
+    <ul>
+      <li>Pogo hops 3 × 20, minimal contact time</li>
+      <li>Single-leg pogo hops 3 × 15 each</li>
+      <li>Skipping for height: A-skips, B-skips, 3 × 30 m</li>
+      <li>Low-amplitude lateral hops: 3 × 15 each direction</li>
+    </ul>
+
+    <h4>Phase D — Sport-specific maintenance (Wks 18+)</h4>
+    <p>Once HSR is heavy (6RM) and elastic work is tolerated, explicit tendon work transitions to maintenance: usually 1×/week single-leg HSR + elastic drills in warmup. The bulk of the stimulus by this point is the running and strength work itself.</p>
+
+    <h3>Running technique modifications</h3>
+    <p>Three small cues that reduce tibialis posterior demand during the rebuild:</p>
+    <ol>
+      <li><strong>Slightly wider stance width.</strong> If your feet cross over, widen by ~½ shoe. Imagine running on train tracks, not a tightrope.</li>
+      <li><strong>Cadence ~5% higher than default.</strong> If you're at 165 spm, aim for 170–175. Shorter, quicker steps reduce peak loads.</li>
+      <li><strong>Softer, smoother surfaces.</strong> Packed trail, treadmill, dirt road, track. Avoid steep cambered roads and gnarly off-camber terrain until late phases.</li>
+    </ol>
+
+    <div class="callout callout-warning">
+      <div class="callout-title">⚠ When to stop and consult your PT</div>
+      <ul>
+        <li>Sharp pain (vs. dull ache) along the medial ankle/foot</li>
+        <li>Pain that makes you alter your gait</li>
+        <li>Swelling that doesn't resolve overnight</li>
+        <li>A new "popping" or "snapping" sensation</li>
+        <li>Loss of single-leg heel raise capacity</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 5: PHASES ─────────── -->
+<section class="section" id="phases">
+  <div class="section-eyebrow"><span class="section-num">05</span> Phase Overview</div>
+  <h2>Four blocks. Each one targets a different limiter.</h2>
+
+  <div class="prose">
+    <p class="lede">The 24 weeks divide into four phases. Each block targets a different limiter, but they overlap — you don't suddenly stop doing aerobic base in Phase 3; you just shift emphasis.</p>
+  </div>
+
+  <div class="phase-cards">
+    <div class="phase-card p1">
+      <div class="phase-card-tag">Phase 1 · Weeks 1–6</div>
+      <h4>Reintroduction</h4>
+      <div class="phase-stat"><span class="phase-stat-label">Focus</span><span class="phase-stat-value">Tendon · Aerobic</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Volume</span><span class="phase-stat-value">15 → 25 mi</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Vertical</span><span class="phase-stat-value">1,500 → 3,000 ft</span></div>
+      <p style="font-size:0.92rem;margin-top:1em;color:var(--ink-soft);">The goal is <em>not</em> fitness. It's rebuilding the infrastructure that lets you build fitness.</p>
+    </div>
+
+    <div class="phase-card p2">
+      <div class="phase-card-tag">Phase 2 · Weeks 7–12</div>
+      <h4>Base</h4>
+      <div class="phase-stat"><span class="phase-stat-label">Focus</span><span class="phase-stat-value">Aerobic · Strength</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Volume</span><span class="phase-stat-value">25 → 38 mi</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Vertical</span><span class="phase-stat-value">3,000 → 6,000 ft</span></div>
+      <p style="font-size:0.92rem;margin-top:1em;color:var(--ink-soft);">Aerobic volume increases meaningfully. Strength shifts to heavy compound lifts.</p>
+    </div>
+
+    <div class="phase-card p3">
+      <div class="phase-card-tag">Phase 3 · Weeks 13–18</div>
+      <h4>Specific Build</h4>
+      <div class="phase-stat"><span class="phase-stat-label">Focus</span><span class="phase-stat-value">ME · Descent · Heat</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Volume</span><span class="phase-stat-value">35 → 50 mi</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Vertical</span><span class="phase-stat-value">6,000 → 10,000 ft</span></div>
+      <p style="font-size:0.92rem;margin-top:1em;color:var(--ink-soft);">Plan begins to look like R2R2R. Back-to-back weekends. Weighted ME. Descent focus.</p>
+    </div>
+
+    <div class="phase-card p4">
+      <div class="phase-card-tag">Phase 4 · Weeks 19–24</div>
+      <h4>Peak &amp; Taper</h4>
+      <div class="phase-stat"><span class="phase-stat-label">Focus</span><span class="phase-stat-value">Specificity · Taper</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Volume</span><span class="phase-stat-value">55 → taper to 25</span></div>
+      <div class="phase-stat"><span class="phase-stat-label">Vertical</span><span class="phase-stat-value">12,000 → taper</span></div>
+      <p style="font-size:0.92rem;margin-top:1em;color:var(--ink-soft);">Two peak weeks (19, 21) around a recovery week. Heat block runs through the last 2.5 weeks.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 6: SCHEDULE ─────────── -->
+<section class="section" id="schedule">
+  <div class="section-eyebrow"><span class="section-num">06</span> Weekly Schedule</div>
+  <h2>Twenty-four weeks, day by day.</h2>
+
+  <div class="prose">
+    <p class="lede">Click any week to expand. Notation: <code>Z1/Z2/Z3/Z4</code> = intensity zones · <code>TP</code> = trekking poles · <code>SL</code> = single leg · <code>HSR</code> = heavy slow resistance · <code>ME</code> = muscular endurance · <code>B2B</code> = back-to-back. Miles are equivalent-flat; respect time on feet and the tendon over mile targets.</p>
+  </div>
+
+  <div class="phase-tabs">
+    <button class="phase-tab active" data-phase="1"><small>Phase 1</small>Reintroduction</button>
+    <button class="phase-tab" data-phase="2"><small>Phase 2</small>Base</button>
+    <button class="phase-tab" data-phase="3"><small>Phase 3</small>Specific Build</button>
+    <button class="phase-tab" data-phase="4"><small>Phase 4</small>Peak &amp; Taper</button>
+  </div>
+
+  <!-- PHASE 1 CONTENT -->
+  <div class="phase-content active" data-phase="1" data-label="Phase 1 — Reintroduction (Weeks 1–6)">
+    <div class="phase-summary">
+      <strong>Phase 1 goal:</strong> Establish capacity. 4 runs/week by end of phase. 100% of running in Z2 or easier. No structured intensity. Tendon-loading 3×/week is the main "work" of this block.
+    </div>
+
+    <div class="weeks-grid">
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 01</span> Establish Baseline</div>
+          <div class="week-meta"><span>15 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (45 min) + Tendon HSR session 1</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 3 mi Z2 + 10-min mobility</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (45 min) + HSR session 2</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 3 mi Z2 + mobility</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest or 20-min easy walk + foot/ankle prehab</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 5 mi rolling, comfortable + HSR session 3</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2 (or cross-train 45 min if tendon talking)</td></tr>
+            </tbody>
+          </table>
+          <p style="margin-top:1em;font-style:italic;color:var(--rim);font-size:0.9rem;">End-of-week check: Did the tendon stay quiet? Morning pain at baseline? If yes → proceed to Week 2.</p>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 02</span> Confirm Capacity</div>
+          <div class="week-meta"><span>17 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR 1 (add 1 set or 5% load if Wk 1 felt good)</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 4 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR 2</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 4 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest or 30-min walk</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 5 mi rolling + HSR 3 in evening</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 03</span> First Build Peak</div>
+          <div class="week-meta"><span>20 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR 1 (progress to 10RM if comfortable)</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 4 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR 2 + 4 × 20-sec strides (easy, form focus)</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest or walk + mobility</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 7 mi, up to 800 ft vert (TP optional for downhills)</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 04</span> Recovery</div>
+          <div class="week-meta"><span>13 mi · recovery</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (light, 70%) + HSR (no joint deload — keep loading)</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 3 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (light) + HSR</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Run 4 mi Z2</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 5 mi</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Rest or 30-min easy walk</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 05</span> Second Build</div>
+          <div class="week-meta"><span>22 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR (progress to 8RM if comfortable)</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR + 6 strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 8 mi, 1,500 ft vert. Walk steep ups. Practice easy downhills.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 06</span> End of Reintroduction</div>
+          <div class="week-meta"><span>25 mi · test</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR + 6 strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Long Z2: 10 mi, 2,000 ft vert</strong> — this is your test: did the longer descent stay quiet?</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 5 mi Z2</td></tr>
+            </tbody>
+          </table>
+          <div class="callout callout-good" style="margin-top:1.5em;">
+            <div class="callout-title">End-of-phase check</div>
+            <p style="font-size:0.92rem;">Tendon at baseline · SL heel raise pain-free · 15+ reps · Training sustainable, not survival · Sleep undisturbed. Any "no" → repeat Week 6.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 2 CONTENT -->
+  <div class="phase-content" data-phase="2" data-label="Phase 2 — Base (Weeks 7–12)">
+    <div class="phase-summary">
+      <strong>Phase 2 goal:</strong> Increase aerobic capacity at Z2, introduce structured climbing and downhill work, build strength foundation with heavy compound lifts.
+    </div>
+
+    <div class="weeks-grid">
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 07</span> Open Base</div>
+          <div class="week-meta"><span>28 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (Max-Strength block) + HSR maintenance</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 6 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR + 8 × strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td><strong>Hill intro:</strong> 5 mi. Warm up 20 min, 4 × 90 sec uphill at Z3, jog/walk down. Cool down.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 11 mi, 2,000 ft vert</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2 (recovery shake-out)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 08</span> Build</div>
+          <div class="week-meta"><span>31 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 6 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR + strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Hills: 6 mi total, 5 × 90 sec uphill Z3</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 13 mi, 2,500 ft vert</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 5 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 09</span> Build · Poles Intro</div>
+          <div class="week-meta"><span>34 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 7 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + HSR</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Hills: 6 mi, 6 × 2 min uphill Z3, downhill jog as recovery</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Long Z2: 14 mi, 3,000 ft vert.</strong> First time using trekking poles for sustained climb.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 6 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 10</span> Recovery</div>
+          <div class="week-meta"><span>22 mi · recovery</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (light) + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (light) + HSR</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 4 mi Z2 (no hills)</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 9 mi, 1,500 ft vert</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Rest or 45-min easy walk</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 11</span> Build</div>
+          <div class="week-meta"><span>35 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 7 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + 8 strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Hills: 7 mi, 5 × 3 min uphill Z3</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 15 mi, 3,500 ft vert. Deliberate 1-mi descent at controlled pace.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 6 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 12</span> Top of Base</div>
+          <div class="week-meta"><span>38 mi · test</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 7 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Hills: 7 mi, 4 × 4 min uphill Z3</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 17 mi, 4,000 ft vert. TP for ups. 2 mi of focused downhill cruising in middle/end.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 7 mi Z2</td></tr>
+            </tbody>
+          </table>
+          <div class="callout callout-good" style="margin-top:1.5em;">
+            <div class="callout-title">End-of-phase check</div>
+            <p style="font-size:0.92rem;">AeT drift test on a Tue Z2 run (60 min flat): drift &lt;5% means base is responding · Tendon quiet · Long-run recovery within 2 days · Hitting projected strength loads.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 3 CONTENT -->
+  <div class="phase-content" data-phase="3" data-label="Phase 3 — Specific Build (Weeks 13–18)">
+    <div class="phase-summary">
+      <strong>Phase 3 goal:</strong> Stress canyon-specific systems — muscular endurance on climbs, descent durability, long time-on-feet. Most weekends now feature back-to-back long days. Heat block begins Week 17.
+    </div>
+
+    <div class="weeks-grid">
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 13</span> First ME · First B2B</div>
+          <div class="week-meta"><span>40 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength shifts to ME block + HSR maintenance</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 7 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (ME) + 8 strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td><strong>ME session 1:</strong> 7 mi. 4 × 8 min uphill at Z2 with 15 lb pack/vest. Easy jog down.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 16 mi, 4,000 ft. TP for ups.</td></tr>
+              <tr class="day-row"><td>Sun</td><td><strong>B2B:</strong> 6 mi Z2 on tired legs, 1,000 ft. First B2B. Walk if needed.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 14</span> ME Build</div>
+          <div class="week-meta"><span>44 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (ME) + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 8 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (ME) + strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 8 mi. 5 × 8 min uphill Z2 with 15 lb pack.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 18 mi, 4,500 ft. Include 3 mi sustained downhill at controlled pace.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 7 mi Z2 / 1,500 ft</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 15</span> First Canyon-Equivalent Day</div>
+          <div class="week-meta"><span>48 mi</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (ME) + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 8 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (ME) + strides</td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 8 mi. 4 × 12 min uphill Z2 with 18 lb pack.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Long Z2: 20 mi, 5,000 ft vert.</strong> First canyon-equivalent vertical day. TP.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 8 mi Z2 / 1,500 ft</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 16</span> Recovery</div>
+          <div class="week-meta"><span>28 mi · recovery</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (light) + HSR</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (light)</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 12 mi, 2,500 ft</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 5 mi Z2</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 17</span> Heat Block Begins</div>
+          <div class="week-meta"><span>50 mi · heat</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <p style="margin-bottom:1em;font-size:0.92rem;color:var(--ink-soft);"><em>Heat acclimation begins. Add 4 sauna sessions/week, 20–30 min each, post-exercise.</em></p>
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (ME) + HSR + <strong>sauna 1</strong></td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 8 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + <strong>sauna 2</strong></td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 9 mi. 5 × 10 min uphill Z2 with 20 lb pack + <strong>sauna 3</strong></td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Long Z2: 22 mi, 5,500 ft.</strong> TP. Practice race-day fueling: 60–80 g carbs/hr.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 8 mi Z2 / 2,000 ft + <strong>sauna 4</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 18</span> Top of Specific Build</div>
+          <div class="week-meta"><span>52 mi · gear sim</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (ME) + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 9 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 9 mi. 4 × 15 min uphill Z2 with 20 lb pack.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Long Z2: 24 mi, 6,000 ft.</strong> TP. Race-day fueling rehearsal. Bring all gear you'd carry race day.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 10 mi Z2 / 2,000 ft + sauna</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PHASE 4 CONTENT -->
+  <div class="phase-content" data-phase="4" data-label="Phase 4 — Peak &amp; Taper (Weeks 19–24)">
+    <div class="phase-summary">
+      <strong>Phase 4 goal:</strong> Two peak weeks (19, 21) bracketing one recovery week (20). Heat acclimation continues. Final 10 days are taper. The biggest single days are now.
+    </div>
+
+    <div class="weeks-grid">
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 19</span> First Peak</div>
+          <div class="week-meta"><span>55 mi · peak</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (ME) + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 8 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 8 mi. 3 × 20 min uphill Z2 with 20 lb pack.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest. Sauna.</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Big day: 26 mi, 7,000 ft.</strong> Biggest single training day. TP. Full fueling + gear simulation. Start before dawn.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 12 mi Z2, 2,500 ft. Walk if needed; time on feet on damaged legs.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 20</span> Recovery Week</div>
+          <div class="week-meta"><span>30 mi · recovery</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (light) + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (light) + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 6 mi Z2</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest + sauna</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 14 mi, 3,000 ft. Easy.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 5 mi Z2 + sauna</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 21</span> Peak Week</div>
+          <div class="week-meta"><span>60 mi · ultimate peak</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 8 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>ME: 8 mi. 4 × 15 min uphill Z2 with 20 lb pack.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest + sauna</td></tr>
+              <tr class="day-row"><td>Sat</td><td><strong>Peak day: 28 mi, 8,000 ft.</strong> Last full rehearsal. TP. All race-day gear. Try to run in hottest part of day if safe.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>B2B: 12 mi Z2, 2,500 ft. Last hard B2B before race.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 22</span> Begin Taper</div>
+          <div class="week-meta"><span>40 mi · taper begins</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength A (light maintenance) + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 6 mi Z2</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Strength B (light) + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Light ME: 6 mi. 3 × 8 min uphill Z2 with 15 lb pack. Sauna.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest + sauna</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 18 mi, 4,000 ft. Comfortable, not stressful.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 6 mi Z2 + sauna</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 23</span> Deep Taper</div>
+          <div class="week-meta"><span>25 mi · deep taper</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Strength (very light, 50%, movement quality) + HSR + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 5 mi Z2 + 4 strides</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Rest + sauna</td></tr>
+              <tr class="day-row"><td>Thu</td><td>Run 4 mi Z2 + 4 strides</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest + sauna</td></tr>
+              <tr class="day-row"><td>Sat</td><td>Long Z2: 10 mi, 2,000 ft. Easy.</td></tr>
+              <tr class="day-row"><td>Sun</td><td>Run 4 mi Z2 + sauna</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="week">
+        <div class="week-header"><div class="week-title"><span class="week-num">WK 24</span> Race Week</div>
+          <div class="week-meta"><span>race week</span><span class="week-toggle">+</span></div>
+        </div>
+        <div class="week-body">
+          <table>
+            <tbody>
+              <tr class="day-row"><td>Mon</td><td>Run 4 mi Z2 + strides + sauna</td></tr>
+              <tr class="day-row"><td>Tue</td><td>Run 3 mi Z2 (very easy) + sauna</td></tr>
+              <tr class="day-row"><td>Wed</td><td>Travel to Grand Canyon. 2-mi shakeout at trailhead. Hydrate.</td></tr>
+              <tr class="day-row"><td>Thu</td><td>2-mi shakeout. Final gear check. 30-min rim hike. 8–10 g/kg carbs.</td></tr>
+              <tr class="day-row"><td>Fri</td><td>Rest. Sleep early. Lay out everything.</td></tr>
+              <tr class="day-row"><td>Sat</td><td style="background:rgba(168,67,31,0.08);"><strong>R2R2R · Race Day.</strong></td></tr>
+              <tr class="day-row"><td>Sun</td><td>Rest. Walk only.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 7: PROGRAMS ─────────── -->
+<section class="section" id="programs">
+  <div class="section-eyebrow"><span class="section-num">07</span> Supporting Programs</div>
+  <h2>Strength, prehab, heat, fueling, monitoring.</h2>
+
+  <div class="prose">
+    <p class="lede">The programs that sit under and around the running schedule. Every one of these is calibrated to the phase you're in.</p>
+
+    <h3>A · Strength Training</h3>
+    <p>Two 45–60 min sessions per week, separated by ≥48 hours. Always preceded by the dynamic warm-up and the prehab routine. The structure shifts across phases:</p>
+
+    <h4>Block 1: Foundation (Wks 1–6) — Tissue Prep</h4>
+    <p>Loads light to moderate. Groove patterns, tolerate basic loading.</p>
+    <ul>
+      <li><strong>Day A:</strong> Goblet squat 3×8 · Romanian deadlift 3×8 · Bulgarian split squat 3×8 each · Single-leg glute bridge 3×12 · Side plank 3×30 sec · HSR calf circuit</li>
+      <li><strong>Day B:</strong> Reverse lunge 3×8 each · Step-up 3×8 each · Dead bug 3×10 each · Pallof press 3×10 each · SL balance 3×30 sec each · HSR calf circuit</li>
+    </ul>
+
+    <h4>Block 2: Max Strength (Wks 7–12) — Drive Force Production</h4>
+    <p>Heavy compound lifts produce the running-economy benefits documented in Blagrove's work. Build to ~80–85% 1RM by Wk 12.</p>
+    <ul>
+      <li><strong>Day A:</strong> Back squat 4×5 · Romanian deadlift 4×5 · Bulgarian split squat (weighted) 3×6 each · Single-leg deadlift 3×6 each · Side plank with hip abduction 3×10 each · HSR calf</li>
+      <li><strong>Day B:</strong> Front squat or trap-bar deadlift 4×5 · Weighted step-up 4×5 each · SL calf raise off step (weighted) 4×8 each · Cable pull-through 3×8 · Hollow body 3×30 sec · Foot intrinsic work 5 min</li>
+      <li><strong>Plyometric primer (1×/wk):</strong> Pogo hops 3×20 · Box jumps (low, soft) 3×6 · Skipping for height 3×30 m</li>
+    </ul>
+
+    <h4>Block 3: Muscular Endurance (Wks 13–18) — Canyon-Specific</h4>
+    <p>Reps go up, loads stay moderate-heavy, tempo controlled. Sessions feel like the strength version of an ultra: long, sustained, eventually grinding.</p>
+    <ul>
+      <li><strong>Day A — Heavy + ME circuit:</strong> Back squat 3×6 at 75% · Romanian deadlift 3×6 · <em>ME circuit, 3 rounds:</em> Walking lunge ×20 (loaded), Step-up ×12 each, SL calf raise ×15 each, Plank with reach ×10 each</li>
+      <li><strong>Day B — Single-leg emphasis:</strong> Front squat 3×6 · Trap-bar deadlift 3×6 · <em>ME circuit, 3 rounds:</em> Bulgarian split squat ×12 each (weighted), Backward lunge ×12 each (specifically protects quads for downhill), SL Romanian deadlift ×10 each, SL pogo hops ×15 each</li>
+    </ul>
+
+    <h4>Block 4: Maintenance (Wks 19–24)</h4>
+    <p>Reduce volume ~30%; preserve neural patterns. Drop heaviest sets, keep one heavy and one ME session weekly. By Wk 23, sessions are 30 min, light, movement-quality. Wk 24: no strength.</p>
+
+    <h3>B · Dynamic Warm-up (5–10 min, every session)</h3>
+    <p>Hip circles 10 each direction each leg · Leg swings (forward/back, side/side) · Walking lunges with rotation ×10 · Lateral lunges ×8 each · A-skips 30 m · B-skips 30 m · High knees 30 m · Butt kicks 30 m · Cariocas 30 m each direction · 4 × 20-sec strides (gradual acceleration, form focus).</p>
+
+    <h3>C · Prehab / Mobility Routine (10–15 min, daily)</h3>
+    <p>The ankle-foot-hip routine that protects the tibialis posterior. Non-negotiable.</p>
+    <ol>
+      <li>Ankle alphabet — write the alphabet with the foot, each leg</li>
+      <li>Toe yoga — lift big toe with others down, then reverse · 3 × 10 each</li>
+      <li>Foot doming / short foot — 5-sec hold × 10 reps each</li>
+      <li>Marble pickups or towel scrunches — 1 min each foot</li>
+      <li>Single-leg balance — 30 sec each, then 30 sec eyes-closed, progress to unstable surface</li>
+      <li>Wall ankle dorsiflexion mobilization — knee toward wall over toe, ×10 each</li>
+      <li>Calf stretch (knee straight) — 2 × 30 sec each</li>
+      <li>Calf stretch (knee bent, soleus) — 2 × 30 sec each</li>
+      <li>Hip flexor stretch (couch) — 2 × 30 sec each</li>
+      <li>Glute med activation — banded clamshells 2 × 15 each, side-lying hip abduction 2 × 12 each</li>
+    </ol>
+
+    <h3>D · Heat Acclimation Protocol (Wk 17 onward)</h3>
+    <p>Even 6–7 sessions produce meaningful adaptation; 10–14 sessions produce more. Begin Week 17, continue through race week.</p>
+
+    <div class="callout">
+      <div class="callout-title">Option 1 · Sauna (most studied)</div>
+      <p>4 sessions/week, immediately post-exercise. Traditional sauna 80–90°C / 175–195°F. Start 15 min, progress to 30 min by Wk 19. Target: pleasantly hot, sweating heavily, nose-breathable. If dizzy/nauseous, exit immediately. Hydrate 0.5 L (w/ electrolytes) before, 0.5–1 L after.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Option 2 · Hot bath</div>
+      <p>4 sessions/week post-exercise. ~40°C / 104°F. Submerge to shoulders, 30–40 min. Same hydration.</p>
+    </div>
+    <div class="callout">
+      <div class="callout-title">Option 3 · Outdoor heat run</div>
+      <p>1–2 runs/wk in midday heat, easy Z1–Z2, 40–60 min. More than this risks training stress + heat stress overlap → injury.</p>
+    </div>
+
+    <h3>E · Trekking Pole Training</h3>
+    <p>Reduce leg load on descents, improve climbing economy ~5%. Standard R2R2R equipment. <strong>Don't use them for the first time on race day.</strong> Introduce Wk 9. Use on ≥2 long runs/week starting Wk 13. Practice: quick setup (race day will be cold), stowing for runnable sections, plant timing on steep ups, defensive use on steep downs (in front, light touch, to brake/balance, not bear weight).</p>
+
+    <h3>F · Fueling Strategy</h3>
+    <p>Bonking and GI failure are the most common in-race issues after quad failure.</p>
+    <h4>Training fueling targets (long runs &gt;2 hr)</h4>
+    <ul>
+      <li><strong>60–80 g carbs/hr</strong> for 2–4 hr runs</li>
+      <li><strong>80–100 g carbs/hr</strong> for 4+ hr runs (use glucose+fructose blends)</li>
+      <li>500–750 mL fluid/hr (more in heat)</li>
+      <li>500–1,000 mg sodium/hr (more for salty sweaters)</li>
+      <li><strong>Practice every long run from Wk 9. Train the gut like the legs.</strong></li>
+    </ul>
+    <h4>Sweat rate test (Wks 14, 17, 20)</h4>
+    <p>Empty bladder, weigh nude, run 60 min Z2, drink known fluid amount, weigh again. Sweat rate (L/hr) = body weight loss (kg) + fluid drunk (L) ÷ duration. Multiply by 1.1 for canyon heat estimate.</p>
+    <h4>Carb-loading</h4>
+    <p>3 days out: 8–10 g carbs/kg/day. Avoid fiber/fat overload day before; plain, familiar food.</p>
+
+    <h3>G · Daily Monitoring</h3>
+    <p>Track in a notebook or app:</p>
+    <ol>
+      <li>Morning resting HR — persistent +5 bpm = fatigue accumulating</li>
+      <li>Subjective energy (1–10) — below 6 for 3+ days = back off</li>
+      <li>Right ankle pain (0–10 at first weight-bearing step) — anything &gt;2 trending up = scale back</li>
+      <li>Sleep duration and quality</li>
+      <li>Mood and motivation</li>
+    </ol>
+
+    <h4>The Four-Rule Traffic Light</h4>
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>If…</th><th>Then</th></tr></thead>
+      <tbody>
+        <tr><td>Tendon at baseline, energy good, sleep good</td><td>Proceed with planned session</td></tr>
+        <tr><td>Tendon mildly above baseline (≤1/10), energy reduced</td><td>Reduce planned session by 25%, drop intensity</td></tr>
+        <tr><td>Tendon symptomatic (2–4/10), or 2+ poor sleep nights</td><td>Skip the hard session, replace with easy Z1 or rest</td></tr>
+        <tr><td>Tendon painful (&gt;4/10) or any sharp pain</td><td>Stop. Re-read Part 4. See PT before next session.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────── PART 8: RACE DAY ─────────── -->
+<section class="section" id="raceday">
+  <div class="section-eyebrow"><span class="section-num">08</span> Taper, Race Day &amp; Logistics</div>
+  <h2>The final 48 hours, the pacing strategy, the gear.</h2>
+
+  <div class="prose">
+    <h3>Taper logic</h3>
+    <p>~2 weeks of reduced volume (40–60% drop over taper), maintained or slightly increased <em>relative</em> intensity (keep doing strides and short hill reps), preserves and often improves fitness. Most performance gains from a good taper come from glycogen restoration, tendon repair, and small nervous-system adaptations.</p>
+    <p><strong>Resist the urge to "test" your fitness with extra hard workouts in the final two weeks.</strong> Every extra hard effort risks injury or fatigue with zero upside.</p>
+
+    <h3>Race-day pacing strategy</h3>
+    <p>The pacing principle: <strong>conserve aggressively in segments 1 and 2; finish strong in segments 3 and 4.</strong></p>
+  </div>
+
+  <div class="prose-wide">
+    <div class="segments">
+
+      <div class="segment">
+        <div>
+          <div class="segment-tag">Segment 1</div>
+          <div class="segment-name">SK Descent</div>
+          <div class="segment-stats">
+            <span>~7 miles</span>
+            <span>−4,800 ft</span>
+            <span>1:15–1:45 hr</span>
+          </div>
+        </div>
+        <div class="segment-body">
+          <ul>
+            <li>Slowest sustainable downhill technique. Quad savings here = quad reserves at the end.</li>
+            <li>Heart rate well below AeT — should feel like a warmup.</li>
+            <li>Trekking poles deployed.</li>
+            <li>Fuel: 80 g carbs, 0.5 L fluid.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div>
+          <div class="segment-tag">Segment 2</div>
+          <div class="segment-name">Box + N Rim Climb</div>
+          <div class="segment-stats">
+            <span>~14 miles</span>
+            <span>+5,800 ft</span>
+            <span>4–5 hr</span>
+          </div>
+        </div>
+        <div class="segment-body">
+          <ul>
+            <li>Steady Z2 effort. Run flats and gentle ups; hike anything over ~8% grade.</li>
+            <li>Fuel: 80–100 g carbs/hr, 0.5–0.75 L/hr.</li>
+            <li>This is the long, sustained section where rhythm and patience matter. Don't surge.</li>
+            <li>At N Rim turnaround: top off fluids, eat real food, briefly stretch, restart.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div>
+          <div class="segment-tag">Segment 3</div>
+          <div class="segment-name">N Rim Descent to River</div>
+          <div class="segment-stats">
+            <span>~14 miles</span>
+            <span>−5,800 ft</span>
+            <span>2:30–3:30 hr</span>
+          </div>
+        </div>
+        <div class="segment-body">
+          <ul>
+            <li><strong>Most dangerous segment.</strong> Quads now warmed up but not yet destroyed. Tempting to fly down.</li>
+            <li>Don't. Cruise. Use poles defensively. Land with bent knees, short stride.</li>
+            <li>Heart rate moderate (Z2). Effort relaxed even though pace is fast.</li>
+            <li>By now, eating may feel harder; force it.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="segment">
+        <div>
+          <div class="segment-tag">Segment 4 · The Crux</div>
+          <div class="segment-name">SK Climb to S Rim</div>
+          <div class="segment-stats">
+            <span>~7 miles</span>
+            <span>+4,800 ft</span>
+            <span>2:30–3:30 hr</span>
+          </div>
+        </div>
+        <div class="segment-body">
+          <ul>
+            <li>The crux. Hottest, hardest, most fatigued.</li>
+            <li>Hike all of it except briefly runnable flat sections at trailheads.</li>
+            <li>Pole work matters here. Plant aggressively, push with arms.</li>
+            <li>Fuel: continue 80 g/hr even if appetite is gone. Drop from gels to whatever you can stomach — fruit, soda, salted nuts, real food.</li>
+            <li>Heat: dunk shirt and hat at every water source. Eat ice if available. Slow down before overheating, not after.</li>
+            <li><strong>Mantra: short steps, steady breathing, don't stop unless you need to.</strong></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="prose">
+    <h3>Heat management</h3>
+    <ul>
+      <li>Start before sunrise — ideally 3–5 AM if temps will exceed 80°F at the bottom by midday</li>
+      <li>Goal: be on the climb up SK before noon if possible</li>
+      <li>Carry a buff or light cap that can be soaked</li>
+      <li>Dunk every shirt/hat opportunity in every water source</li>
+      <li>Chills, stop sweating, or nausea → heat illness warning, stop and cool down</li>
+    </ul>
+
+    <h3>Mandatory gear</h3>
+    <ul>
+      <li>Pack with 1.5–2 L hydration capacity</li>
+      <li>2× soft flasks (refill flexibility)</li>
+      <li>Water filter or purification tablets (canyon water system unreliable; tap closures happen mid-day)</li>
+      <li>Trekking poles</li>
+      <li>Headlamp + spare batteries</li>
+      <li>Light wind shell (for rim cold)</li>
+      <li>Light layer (rims are 20–30°F cooler than the bottom)</li>
+      <li>Trail running gaiters (sand and grit destroy feet)</li>
+      <li>Emergency blanket / bivy</li>
+      <li>First-aid kit (blister supplies, anti-chafe, ibuprofen)</li>
+      <li>Printed trail map (no cell service)</li>
+      <li>2,500+ calories of food</li>
+      <li>1,500+ mg sodium beyond what's in gels/drink mix</li>
+      <li>ID, parking pass, emergency contact card</li>
+    </ul>
+
+    <h3>The final 48 hours</h3>
+    <h4>Friday (race−1)</h4>
+    <ul>
+      <li>Travel to South Rim, arrive by early afternoon</li>
+      <li>Drive the trailhead access; identify parking</li>
+      <li>Walk 20–30 min easy at the rim to acclimate to altitude</li>
+      <li>Eat dinner by 6 PM — familiar, moderate-carb, low-fat, low-fiber</li>
+      <li>Lay out all gear, pack, recheck list twice</li>
+      <li>Bed by 8 PM. Alarm 2:30–3 AM.</li>
+    </ul>
+
+    <h4>Race morning</h4>
+    <ul>
+      <li>Wake 90+ min before start</li>
+      <li>Eat 100–150 g carbs (oatmeal, banana, toast, sports drink)</li>
+      <li>Coffee if normal for you</li>
+      <li>Don't try anything new</li>
+      <li>At trailhead: 30 g carb gel + 250 mL water 15 min before starting</li>
+      <li>Cold rim — warm layer on, knowing you'll strip in the first mile</li>
+    </ul>
+
+    <h4>The day after</h4>
+    <ul>
+      <li>Eat. Sleep. Walk only.</li>
+      <li>Foam-roll lightly.</li>
+      <li>Within a week: 30-min easy walk, then a 20-min jog if pain-free.</li>
+      <li>Do not return to structured training for at least 2 weeks. The eccentric damage is bigger than you think.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─────────── FOOTER / BIBLIOGRAPHY ─────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h2>Sources &amp; Bibliography</h2>
+    <p style="max-width: 720px; margin-top: 1em;">This plan is built from the most reputable mountain endurance and running biomechanics sources in the field. Key works are listed below; the plan synthesizes their guidance rather than following any one rigidly.</p>
+
+    <h3>Books</h3>
+    <ul class="bib-list">
+      <li>Dicharry, J. (2024). <em>Running Rewired: Reinvent Your Run for Stability, Strength, and Speed</em> (2nd ed.). VeloPress.</li>
+      <li>House, S., Johnston, S., &amp; Jornet, K. (2019). <em>Training for the Uphill Athlete</em>. Patagonia Books.</li>
+      <li>Koop, J. (2016). <em>Training Essentials for Ultrarunning</em>. VeloPress.</li>
+      <li>Dicharry, J. (2012). <em>Anatomy for Runners</em>. Skyhorse Publishing.</li>
+      <li>Magness, S. (2014). <em>The Science of Running</em>. Origin Press.</li>
+    </ul>
+
+    <h3>Peer-Reviewed Primary Sources</h3>
+    <ul class="bib-list">
+      <li>Beyer, R., Kongsgaard, M., et al. (2015). Heavy slow resistance versus eccentric training as treatment for Achilles tendinopathy: a randomized controlled trial. <em>American Journal of Sports Medicine</em>, 43(7), 1704–1711.</li>
+      <li>Blagrove, R. C., Howatson, G., &amp; Hayes, P. R. (2018). Effects of strength training on the physiological determinants of middle- and long-distance running performance: a systematic review. <em>Sports Medicine</em>, 48(5), 1117–1149.</li>
+      <li>Zanini, M., Folland, J. P., Wu, H., &amp; Blagrove, R. C. (2025). Strength training improves running economy durability and fatigued high-intensity performance in well-trained male runners. <em>Medicine &amp; Science in Sports &amp; Exercise</em>, 57(7), 1546–1558.</li>
+      <li>Llanos-Lagos, C., et al. (2024). The effect of strength training methods on middle- and long-distance runners' athletic performance: a systematic review with meta-analysis. <em>Sports Medicine</em>.</li>
+      <li>Seiler, S. (2010). What is best practice for training intensity and duration distribution in endurance athletes? <em>IJSPP</em>, 5(3), 276–291.</li>
+      <li>Cook, J. L., &amp; Purdam, C. R. (2009). Is tendon pathology a continuum? <em>British Journal of Sports Medicine</em>, 43(6), 409–416.</li>
+      <li>Silbernagel, K. G., et al. (2007). Continued sports activity, using a pain-monitoring model, during rehabilitation in patients with Achilles tendinopathy. <em>AJSM</em>, 35(6), 897–906.</li>
+      <li>Alvarez, R. G., et al. (2006). Stage I and II posterior tibial tendon dysfunction treated by a structured nonoperative management protocol. <em>Foot &amp; Ankle International</em>, 27(1), 2–8.</li>
+      <li>Kulig, K., et al. (2009). Nonsurgical management of posterior tibial tendon dysfunction with orthoses and resistive exercise: a randomized controlled trial. <em>Physical Therapy</em>, 89(1), 26–37.</li>
+      <li>Maharaj, J. N., et al. (2019). The mechanical function of the tibialis posterior muscle and its tendon during locomotion. <em>Journal of Biomechanics</em>, 88, 122–129.</li>
+      <li>Brindle, R. A., et al. (2014). Changing step width alters lower extremity biomechanics during running. <em>Gait &amp; Posture</em>, 39(1), 124–128.</li>
+      <li>Tyler, C. J., et al. (2016). The effects of heat adaptation on physiology, perception and exercise performance in the heat: a meta-analysis. <em>Sports Medicine</em>, 46(11), 1699–1724.</li>
+      <li>Zurawlew, M. J., et al. (2016). Post-exercise hot water immersion induces heat acclimation and improves endurance exercise performance in the heat. <em>Scand J Med Sci Sports</em>, 26(7), 745–754.</li>
+      <li>Vernillo, G., et al. (2017). Biomechanics and physiology of uphill and downhill running. <em>Sports Medicine</em>, 47(4), 615–629.</li>
+      <li>Gabbett, T. J. (2016). The training-injury prevention paradox. <em>British Journal of Sports Medicine</em>, 50(5), 273–280.</li>
+    </ul>
+
+    <h3>Trusted Coaching &amp; PT Resources</h3>
+    <ul class="bib-list">
+      <li><a href="https://evokeendurance.com">Evoke Endurance</a> — Scott Johnston's current platform; aerobic assessment, ME training, training philosophy</li>
+      <li><a href="https://uphillathlete.com">Uphill Athlete</a> — original publisher of <em>Training for the Uphill Athlete</em>; podcast and articles</li>
+      <li><a href="https://e3rehab.com">E3 Rehab</a> — evidence-based PT content; Marc Surdyka's tibialis posterior protocol</li>
+      <li><a href="https://trainright.com">CTS (Carmichael Training Systems)</a> — Jason Koop's coaching organization; R2R2R-specific articles</li>
+      <li><em>iRunFar</em>, <em>Trail Runner Magazine</em> — sport reporting and expert profiles (incl. 2025 UTMB coverage of Johnston's methodology)</li>
+    </ul>
+
+    <div class="signoff">
+      The two rules that should never be broken:<br>
+      <strong>1. The tendon's voice wins.</strong> Every time.<br>
+      <strong>2. Easy days are easy. Hard days are hard. Nothing lives in the middle.</strong><br><br>
+      Good luck. The canyon waits.
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ───── Phase tabs ─────
+  document.querySelectorAll('.phase-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const phase = tab.dataset.phase;
+      document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.phase-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.phase-content[data-phase="${phase}"]`).classList.add('active');
+      // Scroll the section into view smoothly
+      document.getElementById('schedule').scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  });
+
+  // ───── Week accordions ─────
+  document.querySelectorAll('.week-header').forEach(header => {
+    header.addEventListener('click', () => {
+      header.parentElement.classList.toggle('open');
+    });
+  });
+
+  // ───── Active nav link tracking ─────
+  const sections = document.querySelectorAll('.section[id]');
+  const navLinks = document.querySelectorAll('.nav-progress a');
+
+  function updateActiveNav() {
+    let current = '';
+    const offset = 120;
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top <= offset) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, {passive: true});
+  updateActiveNav();
+
+  // Close mobile menu on link click
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

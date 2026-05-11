@@ -15,6 +15,13 @@ const PLANS = [
     color: "#3d8b8a",
     path: "/uphill-skimo-base-plan",
   },
+  {
+    title: "Rim to Rim to Rim",
+    subtitle: "24-Week Program",
+    desc: "Grand Canyon double crossing: 42 mi, 11k ft of gain, in a day",
+    color: "#a8431f",
+    path: "/r2r2r",
+  },
 ];
 
 export default function Home() {
