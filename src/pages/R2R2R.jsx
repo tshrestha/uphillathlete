@@ -6,11 +6,10 @@ const FONTS_IMPORT =
 
 function extractParts(html) {
   const css = html.match(/<style>([\s\S]*?)<\/style>/)?.[1] ?? "";
-  const body =
-    html
-      .match(/<body>([\s\S]*?)<\/body>/)?.[1]
-      .replace(/<script>[\s\S]*?<\/script>/, "")
-      .trim() ?? "";
+  const body = html
+    .match(/<body>([\s\S]*?)<\/body>/)?.[1]
+    .replace(/<script>[\s\S]*?<\/script>/, "")
+    .trim() ?? "";
   return { css, body };
 }
 
@@ -78,28 +77,18 @@ export default function R2R2R() {
     };
 
     phaseTabs.forEach((tab) => tab.addEventListener("click", onPhaseTabClick));
-    weekHeaders.forEach((header) =>
-      header.addEventListener("click", onWeekHeaderClick),
-    );
+    weekHeaders.forEach((header) => header.addEventListener("click", onWeekHeaderClick));
     navLinks.forEach((link) => link.addEventListener("click", onNavLinkClick));
     window.addEventListener("scroll", updateActiveNav, { passive: true });
     updateActiveNav();
 
     return () => {
-      phaseTabs.forEach((tab) =>
-        tab.removeEventListener("click", onPhaseTabClick),
-      );
-      weekHeaders.forEach((header) =>
-        header.removeEventListener("click", onWeekHeaderClick),
-      );
-      navLinks.forEach((link) =>
-        link.removeEventListener("click", onNavLinkClick),
-      );
+      phaseTabs.forEach((tab) => tab.removeEventListener("click", onPhaseTabClick));
+      weekHeaders.forEach((header) => header.removeEventListener("click", onWeekHeaderClick));
+      navLinks.forEach((link) => link.removeEventListener("click", onNavLinkClick));
       window.removeEventListener("scroll", updateActiveNav);
     };
   }, []);
 
-  return (
-    <div ref={containerRef} dangerouslySetInnerHTML={{ __html: body }} />
-  );
+  return <div ref={containerRef} dangerouslySetInnerHTML={{ __html: body }} />;
 }

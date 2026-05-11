@@ -13,9 +13,11 @@ A self-contained training plan page exists as a standalone HTML file (`~/Downloa
 ## Capabilities
 
 ### New Capabilities
+
 - `r2r2r-page`: The Rim-to-Rim-to-Rim training plan page rendered at `/r2r2r`, including its visual styling and interactive behavior (phase tabs, expandable week accordions, scroll-tracked navigation).
 
 ### Modified Capabilities
+
 - `app-shell`: Add the `/r2r2r` route to the router's known routes.
 - `home-page`: The home page card list now includes the R2R2R plan.
 

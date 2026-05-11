@@ -3,6 +3,7 @@
 The repo is a Vite + React SPA using `react-router-dom` v7 with `BrowserRouter`. Pages live in `src/pages/*.jsx` and are registered as `<Route>` entries in `src/App.jsx`. The two existing plan pages (`AerobicBasePlan.jsx`, `UphillSkimoBasePlan.jsx`) are React components with inline styles on a dark theme (`#0f1114` bg, `#e8e4df` text, DM Sans + Source Serif 4).
 
 The source we are integrating, `~/Downloads/files/r2r2r.html`, is a single ~2,140-line standalone document with:
+
 - A 700-line `<style>` block (warm cream theme, Fraunces / Newsreader / JetBrains Mono via Google Fonts).
 - A long `<body>` (sticky nav, hero, sections, phase-tab schedule UI, expandable week cards, footer).
 - A ~50-line `<script>` at the end driving three interactions: phase tabs, week accordions, and scroll-tracked active nav links.
@@ -12,11 +13,13 @@ The goal is to expose this page at `/r2r2r` without re-theming or rewriting it, 
 ## Goals / Non-Goals
 
 **Goals:**
+
 - `/r2r2r` is reachable via React Router and renders the page faithfully (same visuals and interactions as the source HTML when opened directly).
 - The page content lives in the repo as a single source-controlled component.
 - No changes to existing pages, routes, or build config beyond adding one route.
 
 **Non-Goals:**
+
 - Re-skinning the page to match the dark theme of the other plan pages.
 - Adding a card on the Home page for this plan (can be a follow-up).
 - Porting the original imperative JS to idiomatic React state.
@@ -28,14 +31,16 @@ The goal is to expose this page at `/r2r2r` without re-theming or rewriting it, 
 ### Render the HTML via a thin React wrapper using `dangerouslySetInnerHTML` + injected `<style>` + a `useEffect` script attach
 
 **Choice:** Create `src/pages/R2R2R.jsx`. The component contains three string constants extracted verbatim from the source HTML — the CSS, the body markup, and the script — and:
+
 1. Injects the CSS into `document.head` via a `<style>` tag (scoped to the component lifetime).
 2. Renders the body markup via `dangerouslySetInnerHTML` into a container `<div>`.
 3. Attaches the original event handlers in a `useEffect` (running queries scoped to the component's container) and removes them on unmount.
 
 **Why over alternatives:**
-- *Convert HTML to JSX and port JS to hooks:* faithful and idiomatic but a large mechanical translation (1,300+ lines of body, plus rewriting `querySelectorAll`/`classList` toggling as React state). High risk of subtle bugs in JSX attribute renaming (`class` → `className`, `for` → `htmlFor`, self-closing tags) and CSS escape characters. Not worth the cost for a content-heavy page that won't share components with the rest of the app.
-- *Drop the HTML in `public/r2r2r.html` and link to it:* breaks the requirement that `/r2r2r` is a React Router route. Would also require either a hard-link out of the SPA or an iframe — iframe has known scroll/sizing issues and a hard navigation defeats the SPA shell.
-- *Server-side rewrite (`/r2r2r` → `/r2r2r.html`):* requires deploy-time config we don't have; also leaves the SPA.
+
+- _Convert HTML to JSX and port JS to hooks:_ faithful and idiomatic but a large mechanical translation (1,300+ lines of body, plus rewriting `querySelectorAll`/`classList` toggling as React state). High risk of subtle bugs in JSX attribute renaming (`class` → `className`, `for` → `htmlFor`, self-closing tags) and CSS escape characters. Not worth the cost for a content-heavy page that won't share components with the rest of the app.
+- _Drop the HTML in `public/r2r2r.html` and link to it:_ breaks the requirement that `/r2r2r` is a React Router route. Would also require either a hard-link out of the SPA or an iframe — iframe has known scroll/sizing issues and a hard navigation defeats the SPA shell.
+- _Server-side rewrite (`/r2r2r` → `/r2r2r.html`):_ requires deploy-time config we don't have; also leaves the SPA.
 
 ### Keep the page's original theme and fonts
 

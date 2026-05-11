@@ -13,10 +13,12 @@ The project has two standalone training plan JSX components (aerobic-base-plan.j
 ## Capabilities
 
 ### New Capabilities
+
 - `app-shell`: Vite + React app scaffolding with index.html, main entry point, and React Router setup
 - `home-page`: Landing page displaying training plan cards that route to individual plan views
 
 ### Modified Capabilities
+
 <!-- No existing specs to modify -->
 
 ## Impact

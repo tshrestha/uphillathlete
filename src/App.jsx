@@ -1,8 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import AerobicBasePlan from "./pages/AerobicBasePlan";
-import UphillSkimoBasePlan from "./pages/UphillSkimoBasePlan";
+import Home from "./pages/Home";
 import R2R2R from "./pages/R2R2R";
+import UphillSkimoBasePlan from "./pages/UphillSkimoBasePlan";
 
 export default function App() {
   return (
