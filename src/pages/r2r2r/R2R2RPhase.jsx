@@ -11,6 +11,19 @@ import {
   STRENGTH_PROGRAMS,
   WORKOUT_TYPES,
 } from "./data";
+import {
+  FS_9,
+  FS_10,
+  FS_11,
+  FS_11_5,
+  FS_12,
+  FS_12_5,
+  FS_13,
+  FS_14,
+  FS_15,
+  FS_22,
+  FS_26,
+} from "../../styles/fontSizes";
 
 const VALID_IDS = PHASES.map((p) => p.id);
 
@@ -66,7 +79,7 @@ export default function R2R2RPhase() {
       <div
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          fontSize: "11px",
+          fontSize: FS_11,
           fontWeight: 700,
           color: phase.color,
           width: "18px",
@@ -78,14 +91,14 @@ export default function R2R2RPhase() {
       </div>
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "2px" }}>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: "#e8e4df" }}>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_13, fontWeight: 600, color: "#e8e4df" }}>
             {ex.name}
           </span>
           {ex.sets !== "—" && (
             <span
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: phase.color,
                 fontWeight: 600,
                 whiteSpace: "nowrap",
@@ -96,7 +109,7 @@ export default function R2R2RPhase() {
             </span>
           )}
         </div>
-        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11.5px", color: "#888", lineHeight: 1.45 }}>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_11_5, color: "#888", lineHeight: 1.45 }}>
           {ex.rest && ex.rest !== "—" ? `Rest ${ex.rest}. ` : ""}
           {ex.notes}
         </div>
@@ -118,7 +131,7 @@ export default function R2R2RPhase() {
             borderRadius: "10px",
             color: isOpen ? phase.color : "#aaa",
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             fontWeight: 600,
             cursor: "pointer",
             display: "flex",
@@ -128,7 +141,7 @@ export default function R2R2RPhase() {
           }}
         >
           <span>{session.name}</span>
-          <span style={{ fontSize: "14px", transform: isOpen ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
+          <span style={{ fontSize: FS_14, transform: isOpen ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
         </button>
         {isOpen && (
           <div
@@ -184,7 +197,7 @@ export default function R2R2RPhase() {
           className="nav-link"
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "12px",
+            fontSize: FS_12,
             color: "#888",
             display: "inline-flex",
             alignItems: "center",
@@ -206,7 +219,7 @@ export default function R2R2RPhase() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 700,
             letterSpacing: "3px",
             textTransform: "uppercase",
@@ -217,17 +230,17 @@ export default function R2R2RPhase() {
           Phase {phase.num} · Weeks {phase.weeks[0]}–{phase.weeks[phase.weeks.length - 1]}
         </div>
         <h1
-          style={{ fontSize: "26px", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "10px" }}
+          style={{ fontSize: FS_26, fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "10px" }}
         >
           {phase.name}
         </h1>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#999", lineHeight: 1.55 }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_13, color: "#999", lineHeight: 1.55 }}>
           {phase.narrative}
         </p>
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "11px",
+            fontSize: FS_11,
             color: "#666",
             marginTop: "12px",
             display: "flex",
@@ -254,7 +267,7 @@ export default function R2R2RPhase() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -303,7 +316,7 @@ export default function R2R2RPhase() {
                       left: "50%",
                       transform: "translateX(-50%)",
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "11px",
+                      fontSize: FS_11,
                       fontWeight: 700,
                       color: barPhase.color,
                       whiteSpace: "nowrap",
@@ -327,7 +340,7 @@ export default function R2R2RPhase() {
                   flex: 1,
                   textAlign: "center",
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "9px",
+                  fontSize: FS_9,
                   color: weekNum === selectedWeek ? "#e8e4df" : inCurrent ? "#888" : "#444",
                   fontWeight: weekNum === selectedWeek ? 700 : 400,
                 }}
@@ -360,7 +373,7 @@ export default function R2R2RPhase() {
                   background: isSel ? `${phase.color}22` : "transparent",
                   color: isSel ? phase.color : "#888",
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "13px",
+                  fontSize: FS_13,
                   fontWeight: isSel ? 700 : 500,
                   position: "relative",
                 }}
@@ -390,7 +403,7 @@ export default function R2R2RPhase() {
       {/* Week Header */}
       <div style={{ padding: "0 24px 12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px", flexWrap: "wrap" }}>
-          <h2 style={{ fontSize: "22px", fontWeight: 700, letterSpacing: "-0.3px" }}>
+          <h2 style={{ fontSize: FS_22, fontWeight: 700, letterSpacing: "-0.3px" }}>
             Week {weekData.week} · {weekData.name}
           </h2>
           {weekData.deload && (
@@ -400,7 +413,7 @@ export default function R2R2RPhase() {
                 padding: "4px 12px",
                 borderRadius: "20px",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 600,
                 letterSpacing: "0.8px",
                 textTransform: "uppercase",
@@ -416,7 +429,7 @@ export default function R2R2RPhase() {
         <p
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             color: "#999",
             lineHeight: 1.5,
             marginBottom: "8px",
@@ -424,7 +437,7 @@ export default function R2R2RPhase() {
         >
           {weekData.note}
         </p>
-        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#666" }}>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#666" }}>
           Running: <span style={{ color: phase.color, fontWeight: 600 }}>{weekData.totalMiles} mi</span>
           {weekData.vert > 0 && (
             <>
@@ -450,7 +463,7 @@ export default function R2R2RPhase() {
             style={{
               padding: "8px 14px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12px",
+              fontSize: FS_12,
               fontWeight: activeTab === key ? 700 : 500,
               color: activeTab === key ? "#e8e4df" : "#666",
               borderBottom: activeTab === key ? "2px solid #e8e4df" : "2px solid transparent",
@@ -482,7 +495,7 @@ export default function R2R2RPhase() {
                 <div
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    fontSize: "11px",
+                    fontSize: FS_11,
                     fontWeight: 600,
                     color: "#666",
                     width: "32px",
@@ -495,7 +508,7 @@ export default function R2R2RPhase() {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: FS_14,
                     color: wt.color,
                     width: "16px",
                     textAlign: "center",
@@ -509,7 +522,7 @@ export default function R2R2RPhase() {
                   <div
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       fontWeight: 600,
                       color: d.type === "rest" ? "#666" : "#e8e4df",
                       marginBottom: "3px",
@@ -520,7 +533,7 @@ export default function R2R2RPhase() {
                   <div
                     style={{
                       fontFamily: "'Source Serif 4', Georgia, serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       color: "#aaa",
                       lineHeight: 1.5,
                     }}
@@ -540,7 +553,7 @@ export default function R2R2RPhase() {
                 border: `1px solid ${phase.color}26`,
                 borderRadius: "8px",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 fontStyle: "italic",
                 color: "#c9b8a8",
                 lineHeight: 1.55,
@@ -558,7 +571,7 @@ export default function R2R2RPhase() {
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "15px",
+              fontSize: FS_15,
               fontWeight: 700,
               color: phase.color,
               marginBottom: "4px",
@@ -569,7 +582,7 @@ export default function R2R2RPhase() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12.5px",
+              fontSize: FS_12_5,
               color: "#888",
               lineHeight: 1.5,
               marginBottom: "16px",
@@ -589,7 +602,7 @@ export default function R2R2RPhase() {
               border: `1px solid ${phase.color}26`,
               borderRadius: "8px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "11.5px",
+              fontSize: FS_11_5,
               color: "#c9b8a8",
               lineHeight: 1.55,
             }}
@@ -618,7 +631,7 @@ export default function R2R2RPhase() {
               <span
                 style={{
                   fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: "12px",
+                  fontSize: FS_12,
                   fontWeight: 700,
                   color: phase.color,
                   minWidth: "130px",
@@ -626,7 +639,7 @@ export default function R2R2RPhase() {
               >
                 {n.code}
               </span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12.5px", color: "#aaa", lineHeight: 1.5 }}>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12_5, color: "#aaa", lineHeight: 1.5 }}>
                 {n.desc}
               </span>
             </div>
@@ -644,7 +657,7 @@ export default function R2R2RPhase() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "13px",
+                  fontSize: FS_13,
                   fontWeight: 600,
                   color: "#e8e4df",
                   marginBottom: "2px",
@@ -652,7 +665,7 @@ export default function R2R2RPhase() {
               >
                 {z.zone} <span style={{ color: "#666", fontWeight: 400 }}>· {z.hr}</span>
               </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#888", lineHeight: 1.5 }}>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#888", lineHeight: 1.5 }}>
                 {z.feel} — <em>{z.use}</em>
               </div>
             </div>
@@ -670,7 +683,7 @@ export default function R2R2RPhase() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12.5px",
+                  fontSize: FS_12_5,
                   fontWeight: 600,
                   color: "#ccc",
                   marginBottom: "2px",
@@ -681,7 +694,7 @@ export default function R2R2RPhase() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12.5px",
+                  fontSize: FS_12_5,
                   color: phase.color,
                   lineHeight: 1.5,
                 }}
@@ -695,7 +708,7 @@ export default function R2R2RPhase() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12.5px",
+              fontSize: FS_12_5,
               color: "#aaa",
               lineHeight: 1.55,
               marginBottom: "8px",
@@ -706,7 +719,7 @@ export default function R2R2RPhase() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12px",
+              fontSize: FS_12,
               color: "#888",
               lineHeight: 1.55,
               marginBottom: "12px",
@@ -727,7 +740,7 @@ export default function R2R2RPhase() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12.5px",
+                  fontSize: FS_12_5,
                   fontWeight: 600,
                   color: "#e8e4df",
                   marginBottom: "2px",
@@ -735,7 +748,7 @@ export default function R2R2RPhase() {
               >
                 {ex.name}
               </div>
-              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#888", lineHeight: 1.5 }}>
+              <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#888", lineHeight: 1.5 }}>
                 {ex.notes}
               </div>
             </div>
@@ -747,7 +760,7 @@ export default function R2R2RPhase() {
               <p
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12.5px",
+                  fontSize: FS_12_5,
                   color: "#aaa",
                   lineHeight: 1.55,
                   marginBottom: "14px",
@@ -769,7 +782,7 @@ export default function R2R2RPhase() {
                   <div
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       fontWeight: 700,
                       color: phase.color,
                       marginBottom: "2px",
@@ -780,7 +793,7 @@ export default function R2R2RPhase() {
                   <div
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "11.5px",
+                      fontSize: FS_11_5,
                       color: "#888",
                       marginBottom: "8px",
                     }}
@@ -789,11 +802,11 @@ export default function R2R2RPhase() {
                   </div>
                   {s.bullets.map((b, j) => (
                     <div key={j} style={{ display: "flex", gap: "8px", marginBottom: "4px" }}>
-                      <span style={{ color: phase.color, fontSize: "11px", flexShrink: 0 }}>•</span>
+                      <span style={{ color: phase.color, fontSize: FS_11, flexShrink: 0 }}>•</span>
                       <span
                         style={{
                           fontFamily: "'DM Sans', sans-serif",
-                          fontSize: "12px",
+                          fontSize: FS_12,
                           color: "#aaa",
                           lineHeight: 1.5,
                         }}
@@ -808,9 +821,9 @@ export default function R2R2RPhase() {
               <SectionLabel>Heat Management</SectionLabel>
               {REFERENCE.raceDayPacing.heat.map((h, i) => (
                 <div key={i} style={{ display: "flex", gap: "8px", marginBottom: "6px" }}>
-                  <span style={{ color: phase.color, fontSize: "11px", flexShrink: 0 }}>•</span>
+                  <span style={{ color: phase.color, fontSize: FS_11, flexShrink: 0 }}>•</span>
                   <span
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12.5px", color: "#aaa", lineHeight: 1.55 }}
+                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12_5, color: "#aaa", lineHeight: 1.55 }}
                   >
                     {h}
                   </span>
@@ -832,7 +845,7 @@ export default function R2R2RPhase() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -847,7 +860,7 @@ export default function R2R2RPhase() {
             <span
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 700,
                 color: phase.color,
                 flexShrink: 0,
@@ -856,7 +869,7 @@ export default function R2R2RPhase() {
             >
               {String(i + 1).padStart(2, "0")}
             </span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12.5px", color: "#aaa", lineHeight: 1.55 }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12_5, color: "#aaa", lineHeight: 1.55 }}>
               {c}
             </span>
           </div>
@@ -870,7 +883,7 @@ export default function R2R2RPhase() {
               border: `1px solid ${phase.color}26`,
               borderRadius: "8px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "11.5px",
+              fontSize: FS_11_5,
               fontStyle: "italic",
               color: "#c9b8a8",
               lineHeight: 1.55,
@@ -899,14 +912,14 @@ export default function R2R2RPhase() {
               className="nav-link"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: "#888",
                 display: "flex",
                 flexDirection: "column",
                 gap: "4px",
               }}
             >
-              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
+              <span style={{ fontSize: FS_10, letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
                 ← Previous
               </span>
               <span style={{ color: prevPhase.color, fontWeight: 600 }}>
@@ -920,14 +933,14 @@ export default function R2R2RPhase() {
               className="nav-link"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: "#888",
                 display: "flex",
                 flexDirection: "column",
                 gap: "4px",
               }}
             >
-              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
+              <span style={{ fontSize: FS_10, letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
                 ←
               </span>
               <span>Plan overview</span>
@@ -940,7 +953,7 @@ export default function R2R2RPhase() {
               className="nav-link"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: "#888",
                 display: "flex",
                 flexDirection: "column",
@@ -948,7 +961,7 @@ export default function R2R2RPhase() {
                 textAlign: "right",
               }}
             >
-              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
+              <span style={{ fontSize: FS_10, letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
                 Next →
               </span>
               <span style={{ color: nextPhase.color, fontWeight: 600 }}>
@@ -962,7 +975,7 @@ export default function R2R2RPhase() {
               className="nav-link"
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: "#888",
                 display: "flex",
                 flexDirection: "column",
@@ -970,7 +983,7 @@ export default function R2R2RPhase() {
                 textAlign: "right",
               }}
             >
-              <span style={{ fontSize: "10px", letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
+              <span style={{ fontSize: FS_10, letterSpacing: "2px", textTransform: "uppercase", color: "#555" }}>
                 →
               </span>
               <span>Plan overview</span>
@@ -986,7 +999,7 @@ function SectionLabel({ children, mt }) {
     <div
       style={{
         fontFamily: "'DM Sans', sans-serif",
-        fontSize: "10px",
+        fontSize: FS_10,
         fontWeight: 600,
         letterSpacing: "2px",
         textTransform: "uppercase",

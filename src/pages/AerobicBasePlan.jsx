@@ -1,4 +1,17 @@
 import { useState } from "react";
+import {
+  FS_9,
+  FS_10,
+  FS_11,
+  FS_11_5,
+  FS_12,
+  FS_12_5,
+  FS_13,
+  FS_14,
+  FS_15,
+  FS_22,
+  FS_26,
+} from "../styles/fontSizes";
 
 const PHASES = [
   {
@@ -490,7 +503,7 @@ export default function TrainingPlan() {
       <div
         style={{
           fontFamily: "'DM Sans', sans-serif",
-          fontSize: "11px",
+          fontSize: FS_11,
           fontWeight: 700,
           color: "#d4785c",
           width: "18px",
@@ -502,13 +515,13 @@ export default function TrainingPlan() {
       </div>
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "2px" }}>
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", fontWeight: 600, color: "#e8e4df" }}>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_13, fontWeight: 600, color: "#e8e4df" }}>
             {ex.name}
           </span>
           <span
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12px",
+              fontSize: FS_12,
               color: "#d4785c",
               fontWeight: 600,
               whiteSpace: "nowrap",
@@ -518,7 +531,7 @@ export default function TrainingPlan() {
             {ex.sets}
           </span>
         </div>
-        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "11.5px", color: "#888", lineHeight: 1.45 }}>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_11_5, color: "#888", lineHeight: 1.45 }}>
           Rest {ex.rest}. {ex.notes}
         </div>
       </div>
@@ -539,7 +552,7 @@ export default function TrainingPlan() {
             borderRadius: "10px",
             color: isOpen ? "#d4785c" : "#aaa",
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             fontWeight: 600,
             cursor: "pointer",
             display: "flex",
@@ -549,7 +562,7 @@ export default function TrainingPlan() {
           }}
         >
           <span>{session.name}</span>
-          <span style={{ fontSize: "14px", transform: isOpen ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
+          <span style={{ fontSize: FS_14, transform: isOpen ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
         </button>
         {isOpen && (
           <div
@@ -606,7 +619,7 @@ export default function TrainingPlan() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 700,
             letterSpacing: "3px",
             textTransform: "uppercase",
@@ -617,11 +630,11 @@ export default function TrainingPlan() {
           12-Week Program
         </div>
         <h1
-          style={{ fontSize: "26px", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "8px" }}
+          style={{ fontSize: FS_26, fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "8px" }}
         >
           Aerobic Base + Strength
         </h1>
-        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "13px", color: "#888", lineHeight: 1.5 }}>
+        <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_13, color: "#888", lineHeight: 1.5 }}>
           Running plan: Johnston, Seiler, Lydiard · Strength: Lauersen, Beattie, Blagrove
         </p>
       </div>
@@ -631,7 +644,7 @@ export default function TrainingPlan() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -674,7 +687,7 @@ export default function TrainingPlan() {
                       left: "50%",
                       transform: "translateX(-50%)",
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "11px",
+                      fontSize: FS_11,
                       fontWeight: 700,
                       color: p.color,
                       whiteSpace: "nowrap",
@@ -695,7 +708,7 @@ export default function TrainingPlan() {
                 flex: 1,
                 textAlign: "center",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "9px",
+                fontSize: FS_9,
                 color: i + 1 === selectedWeek ? "#e8e4df" : "#555",
                 fontWeight: i + 1 === selectedWeek ? 700 : 400,
               }}
@@ -729,7 +742,7 @@ export default function TrainingPlan() {
                   background: isSel ? `${p.color}22` : "transparent",
                   color: isSel ? p.color : "#888",
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "13px",
+                  fontSize: FS_13,
                   fontWeight: isSel ? 700 : 500,
                   position: "relative",
                 }}
@@ -759,14 +772,14 @@ export default function TrainingPlan() {
       {/* Week Header */}
       <div style={{ padding: "0 24px 12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px", flexWrap: "wrap" }}>
-          <h2 style={{ fontSize: "22px", fontWeight: 700, letterSpacing: "-0.3px" }}>Week {weekData.week}</h2>
+          <h2 style={{ fontSize: FS_22, fontWeight: 700, letterSpacing: "-0.3px" }}>Week {weekData.week}</h2>
           <span
             style={{
               display: "inline-block",
               padding: "4px 12px",
               borderRadius: "20px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "11px",
+              fontSize: FS_11,
               fontWeight: 600,
               letterSpacing: "0.8px",
               textTransform: "uppercase",
@@ -784,7 +797,7 @@ export default function TrainingPlan() {
                 padding: "4px 12px",
                 borderRadius: "20px",
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 600,
                 letterSpacing: "0.8px",
                 textTransform: "uppercase",
@@ -800,7 +813,7 @@ export default function TrainingPlan() {
         <p
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             color: "#999",
             lineHeight: 1.5,
             marginBottom: "4px",
@@ -808,7 +821,7 @@ export default function TrainingPlan() {
         >
           {weekData.note}
         </p>
-        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#666" }}>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#666" }}>
           Running: <span style={{ color: phase.color, fontWeight: 600 }}>{weekData.totalMiles} mi</span>
           <span style={{ margin: "0 8px", color: "#333" }}>|</span>
           Strength: <span style={{ color: "#d4785c", fontWeight: 600 }}>{isDeload ? "1×" : "2×"}/week</span>
@@ -830,7 +843,7 @@ export default function TrainingPlan() {
             style={{
               padding: "8px 14px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12px",
+              fontSize: FS_12,
               fontWeight: activeTab === key ? 700 : 500,
               color: activeTab === key ? "#e8e4df" : "#666",
               borderBottom: activeTab === key ? "2px solid #e8e4df" : "2px solid transparent",
@@ -862,7 +875,7 @@ export default function TrainingPlan() {
                 <div
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    fontSize: "11px",
+                    fontSize: FS_11,
                     fontWeight: 600,
                     color: "#666",
                     width: "32px",
@@ -875,7 +888,7 @@ export default function TrainingPlan() {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: FS_14,
                     color: wt.color,
                     width: "16px",
                     textAlign: "center",
@@ -889,7 +902,7 @@ export default function TrainingPlan() {
                   <div
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       fontWeight: 600,
                       color: d.type === "rest" ? "#666" : "#e8e4df",
                       marginBottom: "2px",
@@ -905,7 +918,7 @@ export default function TrainingPlan() {
                   <div
                     style={{
                       fontFamily: "'Source Serif 4', Georgia, serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       color: "#888",
                       lineHeight: 1.45,
                     }}
@@ -925,7 +938,7 @@ export default function TrainingPlan() {
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "15px",
+              fontSize: FS_15,
               fontWeight: 700,
               color: "#d4785c",
               marginBottom: "4px",
@@ -936,7 +949,7 @@ export default function TrainingPlan() {
           <p
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "12.5px",
+              fontSize: FS_12_5,
               color: "#888",
               lineHeight: 1.5,
               marginBottom: "16px",
@@ -956,7 +969,7 @@ export default function TrainingPlan() {
               border: "1px solid rgba(212,120,92,0.12)",
               borderRadius: "8px",
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "11.5px",
+              fontSize: FS_11_5,
               color: "#c49580",
               lineHeight: 1.55,
             }}
@@ -975,7 +988,7 @@ export default function TrainingPlan() {
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "10px",
+              fontSize: FS_10,
               fontWeight: 600,
               letterSpacing: "2px",
               textTransform: "uppercase",
@@ -1014,7 +1027,7 @@ export default function TrainingPlan() {
                 <div
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    fontSize: "13px",
+                    fontSize: FS_13,
                     fontWeight: 600,
                     color: z.color,
                     marginBottom: "2px",
@@ -1022,7 +1035,7 @@ export default function TrainingPlan() {
                 >
                   {z.name}
                 </div>
-                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#888" }}>
+                <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#888" }}>
                   {z.hr} — {z.feel}
                 </div>
               </div>
@@ -1033,7 +1046,7 @@ export default function TrainingPlan() {
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "10px",
+              fontSize: FS_10,
               fontWeight: 600,
               letterSpacing: "2px",
               textTransform: "uppercase",
@@ -1076,7 +1089,7 @@ export default function TrainingPlan() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "13px",
+                  fontSize: FS_13,
                   fontWeight: 600,
                   color: "#ccc",
                   marginBottom: "3px",
@@ -1084,7 +1097,7 @@ export default function TrainingPlan() {
               >
                 {item.title}
               </div>
-              <div style={{ fontSize: "12.5px", color: "#888", lineHeight: 1.5 }}>{item.desc}</div>
+              <div style={{ fontSize: FS_12_5, color: "#888", lineHeight: 1.5 }}>{item.desc}</div>
             </div>
           ))}
 
@@ -1092,7 +1105,7 @@ export default function TrainingPlan() {
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
-              fontSize: "10px",
+              fontSize: FS_10,
               fontWeight: 600,
               letterSpacing: "2px",
               textTransform: "uppercase",
@@ -1132,7 +1145,7 @@ export default function TrainingPlan() {
               <span
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "11px",
+                  fontSize: FS_11,
                   fontWeight: 700,
                   color: "#d4785c",
                   flexShrink: 0,
@@ -1141,7 +1154,7 @@ export default function TrainingPlan() {
               >
                 •
               </span>
-              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12px", color: "#888", lineHeight: 1.55 }}>
+              <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12, color: "#888", lineHeight: 1.55 }}>
                 {item.text}
               </span>
             </div>
@@ -1160,7 +1173,7 @@ export default function TrainingPlan() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -1193,7 +1206,7 @@ export default function TrainingPlan() {
             <span
               style={{
                 fontFamily: "'DM Sans', sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 700,
                 color: "#4a9e6e",
                 flexShrink: 0,
@@ -1202,7 +1215,7 @@ export default function TrainingPlan() {
             >
               {p.num}
             </span>
-            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: "12.5px", color: "#888", lineHeight: 1.5 }}>
+            <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12_5, color: "#888", lineHeight: 1.5 }}>
               {p.text}
             </span>
           </div>
@@ -1216,7 +1229,7 @@ export default function TrainingPlan() {
             border: "1px solid rgba(74,158,110,0.12)",
             borderRadius: "8px",
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "11.5px",
+            fontSize: FS_11_5,
             color: "#7ab894",
             lineHeight: 1.55,
           }}

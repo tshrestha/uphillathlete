@@ -1,4 +1,17 @@
 import { useState } from "react";
+import {
+  FS_9,
+  FS_10,
+  FS_11,
+  FS_11_5,
+  FS_12,
+  FS_12_5,
+  FS_13,
+  FS_14,
+  FS_15,
+  FS_22,
+  FS_25,
+} from "../styles/fontSizes";
 
 const PHASES = [
   {
@@ -605,7 +618,7 @@ export default function UphillPlan() {
       <div
         style={{
           fontFamily: "'DM Sans',sans-serif",
-          fontSize: "11px",
+          fontSize: FS_11,
           fontWeight: 700,
           color: "#d4785c",
           width: "18px",
@@ -617,14 +630,14 @@ export default function UphillPlan() {
       </div>
       <div style={{ flex: 1 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "2px" }}>
-          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "13px", fontWeight: 600, color: "#e8e4df" }}>
+          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_13, fontWeight: 600, color: "#e8e4df" }}>
             {ex.name}
           </span>
           {ex.sets !== "—" && (
             <span
               style={{
                 fontFamily: "'DM Sans',sans-serif",
-                fontSize: "12px",
+                fontSize: FS_12,
                 color: "#d4785c",
                 fontWeight: 600,
                 whiteSpace: "nowrap",
@@ -635,7 +648,7 @@ export default function UphillPlan() {
             </span>
           )}
         </div>
-        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "11.5px", color: "#888", lineHeight: 1.45 }}>
+        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_11_5, color: "#888", lineHeight: 1.45 }}>
           {ex.rest !== "—" ? `Rest ${ex.rest}. ` : ""}
           {ex.notes}
         </div>
@@ -657,7 +670,7 @@ export default function UphillPlan() {
             borderRadius: "10px",
             color: open ? "#d4785c" : "#aaa",
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             fontWeight: 600,
             cursor: "pointer",
             display: "flex",
@@ -666,7 +679,7 @@ export default function UphillPlan() {
           }}
         >
           <span>{s.name}</span>
-          <span style={{ fontSize: "14px", transform: open ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
+          <span style={{ fontSize: FS_14, transform: open ? "rotate(180deg)" : "none", transition: "0.2s" }}>▾</span>
         </button>
         {open && (
           <div
@@ -716,7 +729,7 @@ export default function UphillPlan() {
         <div
           style={{
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 700,
             letterSpacing: "3px",
             textTransform: "uppercase",
@@ -727,11 +740,11 @@ export default function UphillPlan() {
           12-Week Off-Season · 6–8 hrs/wk
         </div>
         <h1
-          style={{ fontSize: "25px", fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "6px" }}
+          style={{ fontSize: FS_25, fontWeight: 700, lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: "6px" }}
         >
           Uphill Base for Skimo
         </h1>
-        <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "13px", color: "#888", lineHeight: 1.5 }}>
+        <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_13, color: "#888", lineHeight: 1.5 }}>
           Johnston / Uphill Athlete methodology · 5,500→10,500 ft/wk · ME carries · Pole work
         </p>
       </div>
@@ -740,7 +753,7 @@ export default function UphillPlan() {
         <div
           style={{
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -783,7 +796,7 @@ export default function UphillPlan() {
                       left: "50%",
                       transform: "translateX(-50%)",
                       fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "10px",
+                      fontSize: FS_10,
                       fontWeight: 700,
                       color: p.color,
                       whiteSpace: "nowrap",
@@ -804,7 +817,7 @@ export default function UphillPlan() {
                 flex: 1,
                 textAlign: "center",
                 fontFamily: "'DM Sans',sans-serif",
-                fontSize: "9px",
+                fontSize: FS_9,
                 color: i + 1 === week ? "#e8e4df" : "#555",
                 fontWeight: i + 1 === week ? 700 : 400,
               }}
@@ -837,7 +850,7 @@ export default function UphillPlan() {
                   background: sel ? `${p.color}22` : "transparent",
                   color: sel ? p.color : "#888",
                   fontFamily: "'DM Sans',sans-serif",
-                  fontSize: "13px",
+                  fontSize: FS_13,
                   fontWeight: sel ? 700 : 500,
                   position: "relative",
                 }}
@@ -866,14 +879,14 @@ export default function UphillPlan() {
 
       <div style={{ padding: "0 24px 12px" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "6px", flexWrap: "wrap" }}>
-          <h2 style={{ fontSize: "22px", fontWeight: 700 }}>Week {wd.week}</h2>
+          <h2 style={{ fontSize: FS_22, fontWeight: 700 }}>Week {wd.week}</h2>
           <span
             style={{
               display: "inline-block",
               padding: "4px 12px",
               borderRadius: "20px",
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "11px",
+              fontSize: FS_11,
               fontWeight: 600,
               letterSpacing: "0.8px",
               textTransform: "uppercase",
@@ -891,7 +904,7 @@ export default function UphillPlan() {
                 padding: "4px 12px",
                 borderRadius: "20px",
                 fontFamily: "'DM Sans',sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 600,
                 letterSpacing: "0.8px",
                 textTransform: "uppercase",
@@ -907,7 +920,7 @@ export default function UphillPlan() {
         <p
           style={{
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "13px",
+            fontSize: FS_13,
             color: "#999",
             lineHeight: 1.5,
             marginBottom: "4px",
@@ -915,7 +928,7 @@ export default function UphillPlan() {
         >
           {wd.note}
         </p>
-        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "12px", color: "#666" }}>
+        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_12, color: "#666" }}>
           <span style={{ color: ph.color, fontWeight: 600 }}>~{wd.hours} hrs</span>
           <span style={{ margin: "0 8px", color: "#333" }}>|</span>
           Vert: <span style={{ color: "#8b5fbf", fontWeight: 600 }}>{wd.vert} ft</span>
@@ -941,7 +954,7 @@ export default function UphillPlan() {
             style={{
               padding: "8px 14px",
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "12px",
+              fontSize: FS_12,
               fontWeight: tab === k ? 700 : 500,
               color: tab === k ? "#e8e4df" : "#666",
               borderBottom: tab === k ? "2px solid #e8e4df" : "2px solid transparent",
@@ -972,7 +985,7 @@ export default function UphillPlan() {
                 <div
                   style={{
                     fontFamily: "'DM Sans',sans-serif",
-                    fontSize: "11px",
+                    fontSize: FS_11,
                     fontWeight: 600,
                     color: "#666",
                     width: "32px",
@@ -985,7 +998,7 @@ export default function UphillPlan() {
                 </div>
                 <div
                   style={{
-                    fontSize: "14px",
+                    fontSize: FS_14,
                     color: wt.color,
                     width: "16px",
                     textAlign: "center",
@@ -999,7 +1012,7 @@ export default function UphillPlan() {
                   <div
                     style={{
                       fontFamily: "'DM Sans',sans-serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       fontWeight: 600,
                       color: d.type === "rest" ? "#666" : "#e8e4df",
                       marginBottom: "2px",
@@ -1015,7 +1028,7 @@ export default function UphillPlan() {
                   <div
                     style={{
                       fontFamily: "'Source Serif 4',Georgia,serif",
-                      fontSize: "13px",
+                      fontSize: FS_13,
                       color: "#888",
                       lineHeight: 1.45,
                     }}
@@ -1034,7 +1047,7 @@ export default function UphillPlan() {
           <div
             style={{
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "15px",
+              fontSize: FS_15,
               fontWeight: 700,
               color: "#d4785c",
               marginBottom: "4px",
@@ -1045,7 +1058,7 @@ export default function UphillPlan() {
           <p
             style={{
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "12.5px",
+              fontSize: FS_12_5,
               color: "#888",
               lineHeight: 1.5,
               marginBottom: "16px",
@@ -1063,7 +1076,7 @@ export default function UphillPlan() {
               border: "1px solid rgba(139,95,191,0.12)",
               borderRadius: "8px",
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "11.5px",
+              fontSize: FS_11_5,
               color: "#b094d0",
               lineHeight: 1.55,
             }}
@@ -1081,7 +1094,7 @@ export default function UphillPlan() {
           <div
             style={{
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "10px",
+              fontSize: FS_10,
               fontWeight: 600,
               letterSpacing: "2px",
               textTransform: "uppercase",
@@ -1139,18 +1152,18 @@ export default function UphillPlan() {
             >
               <div style={{ display: "flex", gap: "8px", alignItems: "center", marginBottom: "4px" }}>
                 <div style={{ width: "4px", height: "16px", borderRadius: "2px", background: w.color }} />
-                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "13px", fontWeight: 600, color: w.color }}>
+                <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_13, fontWeight: 600, color: w.color }}>
                   {w.title}
                 </span>
               </div>
-              <div style={{ fontSize: "12.5px", color: "#888", lineHeight: 1.55, paddingLeft: "12px" }}>{w.desc}</div>
+              <div style={{ fontSize: FS_12_5, color: "#888", lineHeight: 1.55, paddingLeft: "12px" }}>{w.desc}</div>
             </div>
           ))}
 
           <div
             style={{
               fontFamily: "'DM Sans',sans-serif",
-              fontSize: "10px",
+              fontSize: FS_10,
               fontWeight: 600,
               letterSpacing: "2px",
               textTransform: "uppercase",
@@ -1172,7 +1185,7 @@ export default function UphillPlan() {
               <span
                 style={{
                   fontFamily: "'DM Sans',sans-serif",
-                  fontSize: "11px",
+                  fontSize: FS_11,
                   fontWeight: 700,
                   color: "#3d8b8a",
                   flexShrink: 0,
@@ -1180,7 +1193,7 @@ export default function UphillPlan() {
               >
                 •
               </span>
-              <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "12px", color: "#888", lineHeight: 1.55 }}>
+              <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_12, color: "#888", lineHeight: 1.55 }}>
                 {t}
               </span>
             </div>
@@ -1198,7 +1211,7 @@ export default function UphillPlan() {
         <div
           style={{
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -1223,7 +1236,7 @@ export default function UphillPlan() {
             <span
               style={{
                 fontFamily: "'DM Sans',sans-serif",
-                fontSize: "11px",
+                fontSize: FS_11,
                 fontWeight: 700,
                 color: "#3d8b8a",
                 flexShrink: 0,
@@ -1232,7 +1245,7 @@ export default function UphillPlan() {
             >
               {p.n}
             </span>
-            <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: "12.5px", color: "#888", lineHeight: 1.5 }}>
+            <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: FS_12_5, color: "#888", lineHeight: 1.5 }}>
               {p.t}
             </span>
           </div>
@@ -1245,7 +1258,7 @@ export default function UphillPlan() {
             border: "1px solid rgba(61,139,138,0.12)",
             borderRadius: "8px",
             fontFamily: "'DM Sans',sans-serif",
-            fontSize: "11.5px",
+            fontSize: FS_11_5,
             color: "#6db8b6",
             lineHeight: 1.55,
           }}

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { FS_10, FS_12, FS_12_5, FS_14, FS_20, FS_28 } from "../styles/fontSizes";
 
 const PLANS = [
   {
@@ -54,7 +55,7 @@ export default function Home() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 700,
             letterSpacing: "3px",
             textTransform: "uppercase",
@@ -66,7 +67,7 @@ export default function Home() {
         </div>
         <h1
           style={{
-            fontSize: "28px",
+            fontSize: FS_28,
             fontWeight: 700,
             lineHeight: 1.15,
             letterSpacing: "-0.5px",
@@ -78,7 +79,7 @@ export default function Home() {
         <p
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "14px",
+            fontSize: FS_14,
             color: "#888",
             lineHeight: 1.5,
           }}
@@ -91,7 +92,7 @@ export default function Home() {
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize: "10px",
+            fontSize: FS_10,
             fontWeight: 600,
             letterSpacing: "2px",
             textTransform: "uppercase",
@@ -119,7 +120,7 @@ export default function Home() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "10px",
+                  fontSize: FS_10,
                   fontWeight: 700,
                   letterSpacing: "2px",
                   textTransform: "uppercase",
@@ -131,7 +132,7 @@ export default function Home() {
               </div>
               <div
                 style={{
-                  fontSize: "20px",
+                  fontSize: FS_20,
                   fontWeight: 700,
                   letterSpacing: "-0.3px",
                   marginBottom: "6px",
@@ -142,7 +143,7 @@ export default function Home() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12.5px",
+                  fontSize: FS_12_5,
                   color: "#888",
                   lineHeight: 1.5,
                 }}
@@ -152,7 +153,7 @@ export default function Home() {
               <div
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
-                  fontSize: "12px",
+                  fontSize: FS_12,
                   fontWeight: 600,
                   color: plan.color,
                   marginTop: "12px",
@@ -161,7 +162,7 @@ export default function Home() {
                   gap: "6px",
                 }}
               >
-                View Plan <span style={{ fontSize: "14px" }}>→</span>
+                View Plan <span style={{ fontSize: FS_14 }}>→</span>
               </div>
             </Link>
           ))}
