@@ -10,6 +10,7 @@ import {
   getPhaseForWeek,
   getPhaseIndex,
   getWeeksForPhase,
+  HSR_PROGRAMS,
   isCurrentDay,
   PHASES,
   PLAN,
@@ -66,6 +67,7 @@ export default function R2R2RPhase() {
 
   const weekData = PLAN.find((w) => w.week === selectedWeek);
   const strengthProgram = STRENGTH_PROGRAMS[effectivePhaseId];
+  const hsrProgram = HSR_PROGRAMS[effectivePhaseId];
   const volumeData = PLAN.map((w) => w.totalMiles);
   const maxVol = Math.max(...volumeData);
 
@@ -553,7 +555,7 @@ export default function R2R2RPhase() {
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        {[["schedule", "Schedule"], ["strength", "Strength"], ["reference", "Reference"]].map(([key, label]) => (
+        {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "HSR"], ["reference", "Reference"]].map(([key, label]) => (
           <button
             key={key}
             className="tab-btn"
@@ -768,6 +770,56 @@ export default function R2R2RPhase() {
             <strong>Timing:</strong>{" "}
             Two sessions per week, separated by ≥48 hours. Always preceded by 5–10 min dynamic warm-up and the prehab
             routine. Strength on non-running days, or before easy runs — never before long runs or workouts.
+          </div>
+        </div>
+      )}
+
+      {/* HSR tab */}
+      {activeTab === "hsr" && (
+        <div style={{ padding: "16px 24px 20px" }}>
+          <div
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: FS_15,
+              fontWeight: 700,
+              color: phase.color,
+              marginBottom: "4px",
+            }}
+          >
+            {hsrProgram.title}
+          </div>
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: FS_12_5,
+              color: "#888",
+              lineHeight: 1.5,
+              marginBottom: "16px",
+            }}
+          >
+            {hsrProgram.subtitle}
+          </p>
+
+          {renderStrengthSession(hsrProgram.sessionA, "hsr-a")}
+          {renderStrengthSession(hsrProgram.sessionB, "hsr-b")}
+
+          <div
+            style={{
+              marginTop: "14px",
+              padding: "13px 15px",
+              background: `${phase.color}0d`,
+              border: `1px solid ${phase.color}26`,
+              borderRadius: "10px",
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: FS_11_5,
+              color: "#c9b8a8",
+              lineHeight: 1.6,
+            }}
+          >
+            <strong>Pain rule:</strong>{" "}
+            Up to 3/10 during loading is acceptable; symptoms must settle within 24 hours and not raise morning
+            baseline. If they don't, regress one loading step and re-test in 48 hours. The tendon's voice wins —
+            every time.
           </div>
         </div>
       )}

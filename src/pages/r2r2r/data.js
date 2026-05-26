@@ -816,6 +816,275 @@ export const STRENGTH_PROGRAMS = {
   },
 };
 
+export const HSR_PROGRAMS = {
+  "phase-1": {
+    title: "HSR Block · Tendon Reintroduction (Weeks 1–6)",
+    subtitle:
+      "3×/week, ≥48 hours apart. Tempo: 3s up, 3s down. Loading progression: 12RM (wks 1–2) → 10RM (wks 3–4) → 8RM (wks 5–6). Each session does the three core lifts; adjuncts rotate.",
+    sessionA: {
+      name: "HSR 1 (Mon) — Core + Foot Intrinsics",
+      exercises: [
+        {
+          name: "Bilateral heel raise (knee straight)",
+          sets: "3×12",
+          rest: "60s",
+          notes:
+            "Step or floor. Gastroc/Achilles emphasis. Slow lower into dorsiflexion. Load with dumbbells, pack, or vest.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "3×12",
+          rest: "60s",
+          notes: "Soleus emphasis. Same tempo. Progress load when reps feel controlled at top of range.",
+        },
+        {
+          name: "Single-leg heel raise on step",
+          sets: "3×10/side",
+          rest: "60s",
+          notes:
+            "Only once cleared without pain. Bodyweight first 2 weeks, then load. Most tib-post-specific movement.",
+        },
+        {
+          name: "Foot doming / short foot",
+          sets: "2×30s hold",
+          rest: "30s",
+          notes: "Foot intrinsics. Pair with eyes-closed balance if comfortable.",
+        },
+      ],
+    },
+    sessionB: {
+      name: "HSR 2 (Wed) — Core + Inversion",
+      exercises: [
+        {
+          name: "Bilateral heel raise (knee straight)",
+          sets: "3×12",
+          rest: "60s",
+          notes: "Same as Session 1. Maintain tempo discipline — no bounce at the bottom.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "3×12",
+          rest: "60s",
+          notes: "Soleus emphasis. Add ~5% load if last session felt easy at top of range.",
+        },
+        {
+          name: "Single-leg heel raise on step",
+          sets: "3×10/side",
+          rest: "60s",
+          notes: "Mirror Session 1. Match the weaker side first to preserve symmetry.",
+        },
+        {
+          name: "Resisted ankle inversion (band)",
+          sets: "3×15/side",
+          rest: "45s",
+          notes: "Slow controlled reps. Build toward 3×8 with heavier band as tendon tolerates.",
+        },
+      ],
+    },
+  },
+  "phase-2": {
+    title: "HSR Block · Heavy Loading (Weeks 7–12)",
+    subtitle:
+      "Same 3×/week pattern. Loading: 8RM (wks 7–10) → 6RM (wks 11–12). Tendon should tolerate heavy slow loading without next-morning flare. Plyometric primer introduces late.",
+    sessionA: {
+      name: "HSR 1 (Mon) — Heavy Bilateral",
+      exercises: [
+        {
+          name: "Bilateral heel raise (knee straight)",
+          sets: "4×8 → 4×6",
+          rest: "90s",
+          notes: "Progress 8RM → 6RM over the block. Heavy. Full range, slow tempo.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "4×8 → 4×6",
+          rest: "90s",
+          notes: "Soleus. Match load progression with straight-knee version.",
+        },
+        {
+          name: "Single-leg heel raise on step (weighted)",
+          sets: "3×8/side",
+          rest: "60s",
+          notes: "Loaded now. Protect form over load — the tib-post is the throughline.",
+        },
+        {
+          name: "Foot doming / short foot",
+          sets: "2×30s hold",
+          rest: "30s",
+          notes: "Daily-level work — maintain even on heavy weeks.",
+        },
+      ],
+    },
+    sessionB: {
+      name: "HSR 2 (Wed) — Heavy + Inversion",
+      exercises: [
+        {
+          name: "Bilateral heel raise (knee straight)",
+          sets: "4×8 → 4×6",
+          rest: "90s",
+          notes: "Match Session 1 loads.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "4×8 → 4×6",
+          rest: "90s",
+          notes: "Soleus. Heavy.",
+        },
+        {
+          name: "Single-leg heel raise on step (weighted)",
+          sets: "3×8/side",
+          rest: "60s",
+          notes: "Force production for the downhill demand.",
+        },
+        {
+          name: "Resisted ankle inversion (band)",
+          sets: "3×10/side",
+          rest: "60s",
+          notes: "Heavier band. Anti-pronation strength.",
+        },
+        {
+          name: "Pogo hops primer (wks 11–12 only)",
+          sets: "3×20",
+          rest: "60s",
+          notes: "Soft landing, minimal contact time. Only if tendon stayed quiet through Phase 2.",
+        },
+      ],
+    },
+  },
+  "phase-3": {
+    title: "HSR Maintenance + Elastic (Weeks 13–18)",
+    subtitle:
+      "HSR shifts to maintenance — preserve adaptations while running volume rises. Elastic / SSC work added now that tendon tolerates impact. Cap: 2 explicit sessions/week.",
+    sessionA: {
+      name: "HSR 1 (Mon) — Maintenance + Pogo",
+      exercises: [
+        {
+          name: "Bilateral heel raise (knee straight)",
+          sets: "3×6 @ 6RM",
+          rest: "90s",
+          notes: "Maintain Phase 2 load. Reduced volume.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "3×6 @ 6RM",
+          rest: "90s",
+          notes: "Soleus maintenance.",
+        },
+        {
+          name: "Single-leg heel raise on step (weighted)",
+          sets: "3×8/side",
+          rest: "60s",
+          notes: "Single-leg priority — the work that protects descents.",
+        },
+        {
+          name: "Pogo hops",
+          sets: "3×20",
+          rest: "60s",
+          notes: "In place, soft landing. Minimal contact time. Trains tendon stiffness.",
+        },
+        {
+          name: "Foot doming / short foot",
+          sets: "2×30s hold",
+          rest: "30s",
+          notes: "Daily.",
+        },
+      ],
+    },
+    sessionB: {
+      name: "HSR 2 (Wed) — Single-Leg + Elastic",
+      exercises: [
+        {
+          name: "Single-leg heel raise on step (weighted)",
+          sets: "4×8/side",
+          rest: "60s",
+          notes: "Priority lift this session. Slow, controlled, heavy.",
+        },
+        {
+          name: "Resisted ankle inversion (band)",
+          sets: "3×10/side",
+          rest: "60s",
+          notes: "Anti-pronation strength. Heavy band.",
+        },
+        {
+          name: "Single-leg pogo hops",
+          sets: "3×15/side",
+          rest: "60s",
+          notes: "Once bilateral pogos are easy and pain-free. Quick ground contact.",
+        },
+        {
+          name: "Skipping for height (A/B skips)",
+          sets: "3×30m",
+          rest: "60s",
+          notes: "Elastic recoil. Drive knee up; quick foot off ground.",
+        },
+        {
+          name: "Lateral hops (low amplitude)",
+          sets: "3×15/dir",
+          rest: "45s",
+          notes: "Challenges inversion strength dynamically.",
+        },
+      ],
+    },
+  },
+  "phase-4": {
+    title: "HSR Race-Prep Maintenance (Weeks 19–24)",
+    subtitle:
+      "Preserve, do not push. Tendon protection through race week. By week 23 sessions shrink to movement-quality only. Week 24: pre-race shakeout only — no loaded HSR.",
+    sessionA: {
+      name: "HSR 1 (Mon) — Tendon Maintenance",
+      exercises: [
+        {
+          name: "Single-leg heel raise on step (weighted)",
+          sets: "3×6/side",
+          rest: "60s",
+          notes: "Maintain Phase 2/3 load. Don't chase PRs. Quality over load.",
+        },
+        {
+          name: "Bilateral heel raise (knee bent ~30°)",
+          sets: "2×6",
+          rest: "60s",
+          notes: "Reduced volume. Soleus maintenance.",
+        },
+        {
+          name: "Foot doming / short foot",
+          sets: "2×30s hold",
+          rest: "30s",
+          notes: "Keep arch active through race week.",
+        },
+      ],
+    },
+    sessionB: {
+      name: "HSR 2 (Wed) — Elastic Warmup Only",
+      exercises: [
+        {
+          name: "Pogo hops",
+          sets: "2×15",
+          rest: "60s",
+          notes: "Brief, easy. Tendon stiffness reminder — not a workout.",
+        },
+        {
+          name: "Single-leg heel raise (light)",
+          sets: "2×8/side",
+          rest: "45s",
+          notes: "Bodyweight or very light. Movement quality.",
+        },
+        {
+          name: "Resisted ankle inversion (band)",
+          sets: "2×10/side",
+          rest: "45s",
+          notes: "Light band. Activation, not strength building.",
+        },
+        {
+          name: "Week 23–24 note",
+          sets: "—",
+          rest: "—",
+          notes: "Drop to one session/week or none. Walk-only volume on race week.",
+        },
+      ],
+    },
+  },
+};
+
 export const REFERENCE = {
   notation: [
     { code: "Z1 / Z2 / Z3 / Z4", desc: "Intensity zones (see zone table below)" },
