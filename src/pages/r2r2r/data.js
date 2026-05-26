@@ -957,3 +957,63 @@ export function getWeeksForPhase(id) {
 export function getPhaseIndex(id) {
   return PHASES.findIndex((p) => p.id === id);
 }
+
+// Anchor: Week 1 Day 1 (Monday). Change this if the plan moves.
+export const PLAN_START_DATE = new Date(2026, 4, 11);
+
+const MS_PER_DAY = 24 * 60 * 60 * 1000;
+
+function startOfDay(date) {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+export function getDayDate(weekNum, dayIndex) {
+  const d = new Date(PLAN_START_DATE);
+  d.setDate(d.getDate() + (weekNum - 1) * 7 + dayIndex);
+  return d;
+}
+
+export function getCurrentWeek(today = new Date()) {
+  const days = Math.floor((startOfDay(today) - startOfDay(PLAN_START_DATE)) / MS_PER_DAY);
+  return Math.min(Math.max(Math.floor(days / 7) + 1, 1), 24);
+}
+
+export function getCurrentDayIndex(today = new Date()) {
+  return (today.getDay() + 6) % 7;
+}
+
+export function isCurrentDay(weekNum, dayIndex, today = new Date()) {
+  return getCurrentWeek(today) === weekNum && getCurrentDayIndex(today) === dayIndex;
+}
+
+export function formatDayDate(weekNum, dayIndex) {
+  return getDayDate(weekNum, dayIndex).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+}
+
+export function formatWeekRange(weekNum) {
+  const start = getDayDate(weekNum, 0);
+  const end = getDayDate(weekNum, 6);
+  const sameMonth = start.getMonth() === end.getMonth();
+  const startStr = start.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const endStr = end.toLocaleDateString("en-US", sameMonth ? { day: "numeric" } : { month: "short", day: "numeric" });
+  return `${startStr} – ${endStr}`;
+}
+
+export function formatPhaseDateRange(phase) {
+  const firstWeek = phase.weeks[0];
+  const lastWeek = phase.weeks[phase.weeks.length - 1];
+  const start = getDayDate(firstWeek, 0);
+  const end = getDayDate(lastWeek, 6);
+  const sameYear = start.getFullYear() === end.getFullYear();
+  const startStr = start.toLocaleDateString(
+    "en-US",
+    sameYear ? { month: "short", day: "numeric" } : { month: "short", day: "numeric", year: "numeric" },
+  );
+  const endStr = end.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+  return `${startStr} – ${endStr}`;
+}

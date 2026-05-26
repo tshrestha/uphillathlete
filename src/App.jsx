@@ -13,6 +13,7 @@ export default function App() {
         <Route path="/aerobic-base-plan" element={<AerobicBasePlan />} />
         <Route path="/uphill-skimo-base-plan" element={<UphillSkimoBasePlan />} />
         <Route path="/r2r2r" element={<R2R2R />} />
+        <Route path="/r2r2r/schedule" element={<R2R2RPhase />} />
         <Route path="/r2r2r/:phaseId" element={<R2R2RPhase />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
