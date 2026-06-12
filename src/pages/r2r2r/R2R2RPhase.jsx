@@ -1142,7 +1142,6 @@ export default function R2R2RPhase() {
           display: "flex",
           justifyContent: "space-between",
           gap: "16px",
-          flexWrap: "wrap",
         }}
       >
         <PhaseNavLink
@@ -1177,6 +1176,9 @@ function PhaseNavLink({ direction, to, eyebrow, title, titleColor }) {
         flexDirection: "column",
         gap: "5px",
         textAlign: direction === "next" ? "right" : "left",
+        flex: "1 1 0",
+        minWidth: 0,
+        alignItems: direction === "next" ? "flex-end" : "flex-start",
       }}
     >
       <span
@@ -1200,7 +1202,7 @@ function PhaseNavLink({ direction, to, eyebrow, title, titleColor }) {
           <span aria-hidden="true" style={{ fontSize: FS_13, lineHeight: 1, letterSpacing: 0 }}>→</span>
         )}
       </span>
-      <span style={titleColor ? { color: titleColor, fontWeight: 600 } : undefined}>{title}</span>
+      <span style={{ lineHeight: 1.45, ...(titleColor && { color: titleColor, fontWeight: 600 }) }}>{title}</span>
     </Link>
   );
 }
