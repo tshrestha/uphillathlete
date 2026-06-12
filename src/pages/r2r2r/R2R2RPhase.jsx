@@ -136,7 +136,9 @@ export default function R2R2RPhase() {
     return (
       <div key={key} style={{ marginBottom: "12px" }}>
         <button
+          type="button"
           className="strength-toggle"
+          aria-expanded={isOpen}
           onClick={() => setExpandedSession(isOpen ? null : key)}
           style={{
             width: "100%",
@@ -199,7 +201,8 @@ export default function R2R2RPhase() {
       <style>
         {`
         @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;600;700&display=swap');
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        html, body { background: #0f1114; }
         html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility; }
         a { text-decoration: none; color: inherit; }
         ::selection { background: rgba(232,228,223,0.18); color: #fff; }
@@ -207,6 +210,8 @@ export default function R2R2RPhase() {
         .week-btn {
           transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
           cursor: pointer;
+          background: transparent;
+          border: 1px solid rgba(255,255,255,0.1);
         }
         .week-btn:hover {
           transform: translateY(-1px);
@@ -230,51 +235,61 @@ export default function R2R2RPhase() {
           transition: height 0.3s ease, background 0.3s ease, opacity 0.18s ease, transform 0.18s ease;
           border-radius: 4px 4px 0 0;
           cursor: pointer;
+          border: none;
+          padding: 0;
+          appearance: none;
         }
         .vol-bar:hover { opacity: 0.92; transform: translateY(-1px); }
+        .vol-bar:focus-visible { outline: 2px solid rgba(232,228,223,0.4); outline-offset: 2px; }
 
         .nav-link { transition: color 0.18s ease, transform 0.18s ease; }
         .nav-link:hover { color: #e8e4df !important; }
         .back-link:hover { transform: translateX(-3px); }
         .phase-nav-prev:hover { transform: translateX(-3px); }
         .phase-nav-next:hover { transform: translateX(3px); }
+        .nav-eyebrow { color: #555; transition: color 0.18s ease; }
+        .nav-link:hover .nav-eyebrow { color: #8a8a8a; }
 
         .strength-toggle { transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease; }
         .strength-toggle:focus-visible { outline: 2px solid rgba(232,228,223,0.3); outline-offset: 2px; }
         .chevron { display: inline-block; transition: transform 0.24s cubic-bezier(0.4, 0, 0.2, 1); }
 
         .today-pill { box-shadow: 0 1px 3px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(255,255,255,0.06); }
+
+        @media (prefers-reduced-motion: reduce) {
+          .week-btn, .day-row, .tab-btn, .vol-bar, .nav-link, .strength-toggle, .chevron { transition: none; }
+          .week-btn:hover, .vol-bar:hover, .back-link:hover, .phase-nav-prev:hover, .phase-nav-next:hover { transform: none; }
+        }
       `}
       </style>
 
-      {/* Back link */}
-      <div style={{ padding: "18px 24px 0" }}>
-        <Link
-          to="/r2r2r"
-          className="nav-link back-link"
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: FS_12,
-            fontWeight: 500,
-            color: "#888",
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            letterSpacing: "0.2px",
-          }}
-        >
-          ← Plan overview
-        </Link>
-      </div>
-
       {/* Header */}
-      <div
+      <header
         style={{
-          padding: "20px 24px 22px",
+          padding: "18px 24px 22px",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           background: `linear-gradient(180deg, ${phase.color}1c 0%, ${phase.color}05 55%, transparent 100%)`,
         }}
       >
+        <div style={{ marginBottom: "20px" }}>
+          <Link
+            to="/r2r2r"
+            className="nav-link back-link"
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: FS_12,
+              fontWeight: 500,
+              color: "#888",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              letterSpacing: "0.2px",
+            }}
+          >
+            <span aria-hidden="true" style={{ fontSize: FS_14, lineHeight: 1 }}>←</span>
+            Plan overview
+          </Link>
+        </div>
         {isScheduleMode && (
           <div
             style={{
@@ -340,7 +355,7 @@ export default function R2R2RPhase() {
             Vert: <span style={{ color: "#e8e4df", fontWeight: 600 }}>{phase.vertRange}</span>
           </span>
         </div>
-      </div>
+      </header>
 
       {/* Volume Chart — all 24 weeks */}
       <div style={{ padding: "22px 24px 12px" }}>
@@ -352,7 +367,7 @@ export default function R2R2RPhase() {
             letterSpacing: "2.4px",
             textTransform: "uppercase",
             color: "#666",
-            marginBottom: "14px",
+            marginBottom: "24px",
           }}
         >
           24-Week Volume (mi) · Click any bar
@@ -372,10 +387,13 @@ export default function R2R2RPhase() {
             const inCurrentPhase = barPhase.id === effectivePhaseId;
             const isSel = weekNum === selectedWeek;
             return (
-              <div
+              <button
                 key={i}
+                type="button"
                 className="vol-bar"
                 onClick={() => handleBarClick(weekNum)}
+                aria-label={`Week ${weekNum} · ${v} mi`}
+                aria-pressed={isSel}
                 style={{
                   flex: 1,
                   height: `${(v / maxVol) * 100}%`,
@@ -406,7 +424,7 @@ export default function R2R2RPhase() {
                     {v}
                   </div>
                 )}
-              </div>
+              </button>
             );
           })}
         </div>
@@ -442,7 +460,9 @@ export default function R2R2RPhase() {
             return (
               <button
                 key={w.week}
+                type="button"
                 className="week-btn"
+                aria-pressed={isSel}
                 onClick={() => {
                   setSelectedWeek(w.week);
                   setExpandedSession(null);
@@ -450,15 +470,17 @@ export default function R2R2RPhase() {
                 style={{
                   width: "46px",
                   height: "42px",
-                  border: isSel ? `2px solid ${phase.color}` : "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "9px",
-                  background: isSel ? `${phase.color}24` : "transparent",
                   color: isSel ? phase.color : "#8a8a8a",
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: FS_13,
                   fontWeight: isSel ? 700 : 500,
                   position: "relative",
-                  boxShadow: isSel ? `0 2px 10px ${phase.color}26` : "none",
+                  ...(isSel && {
+                    border: `1px solid ${phase.color}`,
+                    background: `${phase.color}24`,
+                    boxShadow: `inset 0 0 0 1px ${phase.color}, 0 2px 10px ${phase.color}26`,
+                  }),
                 }}
               >
                 {w.week}
@@ -553,6 +575,12 @@ export default function R2R2RPhase() {
           display: "flex",
           gap: "2px",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
+          position: "sticky",
+          top: 0,
+          zIndex: 10,
+          background: "rgba(15,17,20,0.92)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
         }}
       >
         {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "HSR"], ["reference", "Reference"]].map(([key, label]) => (
@@ -592,15 +620,15 @@ export default function R2R2RPhase() {
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  padding: isToday ? "14px 14px" : "13px 0",
+                  padding: isToday ? "13px 16px 13px 21px" : "13px 0",
                   borderBottom: i < 6 ? "1px solid rgba(255,255,255,0.04)" : "none",
                   gap: "12px",
                   ...(isToday && {
                     background:
                       `linear-gradient(90deg, ${phase.color}26 0%, ${phase.color}0d 55%, transparent 100%)`,
                     borderLeft: `3px solid ${phase.color}`,
-                    marginLeft: "-15px",
-                    marginRight: "-12px",
+                    marginLeft: "-24px",
+                    marginRight: "-16px",
                     borderRadius: "0 10px 10px 0",
                   }),
                 }}
@@ -1106,9 +1134,10 @@ export default function R2R2RPhase() {
       </div>
 
       {/* Footer phase nav */}
-      <div
+      <nav
+        aria-label="Phase navigation"
         style={{
-          padding: "22px 24px 36px",
+          padding: "22px 24px calc(36px + env(safe-area-inset-bottom, 0px))",
           borderTop: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
           justifyContent: "space-between",
@@ -1116,92 +1145,63 @@ export default function R2R2RPhase() {
           flexWrap: "wrap",
         }}
       >
-        {prevPhase
-          ? (
-            <Link
-              to={`/r2r2r/${prevPhase.id}`}
-              className="nav-link phase-nav-prev"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: FS_12,
-                color: "#888",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-              }}
-            >
-              <span style={{ fontSize: FS_10, letterSpacing: "2.4px", textTransform: "uppercase", color: "#555", fontWeight: 600 }}>
-                ← Previous
-              </span>
-              <span style={{ color: prevPhase.color, fontWeight: 600 }}>
-                Phase {prevPhase.num} · {prevPhase.name}
-              </span>
-            </Link>
-          )
-          : (
-            <Link
-              to="/r2r2r"
-              className="nav-link phase-nav-prev"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: FS_12,
-                color: "#888",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-              }}
-            >
-              <span style={{ fontSize: FS_10, letterSpacing: "2.4px", textTransform: "uppercase", color: "#555", fontWeight: 600 }}>
-                ←
-              </span>
-              <span>Plan overview</span>
-            </Link>
-          )}
-        {nextPhase
-          ? (
-            <Link
-              to={`/r2r2r/${nextPhase.id}`}
-              className="nav-link phase-nav-next"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: FS_12,
-                color: "#888",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-                textAlign: "right",
-              }}
-            >
-              <span style={{ fontSize: FS_10, letterSpacing: "2.4px", textTransform: "uppercase", color: "#555", fontWeight: 600 }}>
-                Next →
-              </span>
-              <span style={{ color: nextPhase.color, fontWeight: 600 }}>
-                Phase {nextPhase.num} · {nextPhase.name}
-              </span>
-            </Link>
-          )
-          : (
-            <Link
-              to="/r2r2r"
-              className="nav-link phase-nav-next"
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: FS_12,
-                color: "#888",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-                textAlign: "right",
-              }}
-            >
-              <span style={{ fontSize: FS_10, letterSpacing: "2.4px", textTransform: "uppercase", color: "#555", fontWeight: 600 }}>
-                →
-              </span>
-              <span>Plan overview</span>
-            </Link>
-          )}
-      </div>
+        <PhaseNavLink
+          direction="prev"
+          to={prevPhase ? `/r2r2r/${prevPhase.id}` : "/r2r2r"}
+          eyebrow={prevPhase ? "Previous" : "Back"}
+          title={prevPhase ? `Phase ${prevPhase.num} · ${prevPhase.name}` : "Plan overview"}
+          titleColor={prevPhase ? prevPhase.color : undefined}
+        />
+        <PhaseNavLink
+          direction="next"
+          to={nextPhase ? `/r2r2r/${nextPhase.id}` : "/r2r2r"}
+          eyebrow="Next"
+          title={nextPhase ? `Phase ${nextPhase.num} · ${nextPhase.name}` : "Plan overview"}
+          titleColor={nextPhase ? nextPhase.color : undefined}
+        />
+      </nav>
     </div>
+  );
+}
+
+function PhaseNavLink({ direction, to, eyebrow, title, titleColor }) {
+  return (
+    <Link
+      to={to}
+      className={`nav-link phase-nav-${direction}`}
+      style={{
+        fontFamily: "'DM Sans', sans-serif",
+        fontSize: FS_12,
+        color: "#888",
+        display: "flex",
+        flexDirection: "column",
+        gap: "5px",
+        textAlign: direction === "next" ? "right" : "left",
+      }}
+    >
+      <span
+        className="nav-eyebrow"
+        style={{
+          fontSize: FS_10,
+          letterSpacing: "2.4px",
+          textTransform: "uppercase",
+          fontWeight: 600,
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "7px",
+          justifyContent: direction === "next" ? "flex-end" : "flex-start",
+        }}
+      >
+        {direction === "prev" && (
+          <span aria-hidden="true" style={{ fontSize: FS_13, lineHeight: 1, letterSpacing: 0 }}>←</span>
+        )}
+        {eyebrow}
+        {direction === "next" && (
+          <span aria-hidden="true" style={{ fontSize: FS_13, lineHeight: 1, letterSpacing: 0 }}>→</span>
+        )}
+      </span>
+      <span style={titleColor ? { color: titleColor, fontWeight: 600 } : undefined}>{title}</span>
+    </Link>
   );
 }
 
