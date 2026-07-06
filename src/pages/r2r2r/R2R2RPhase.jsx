@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import {
   formatDayDate,
@@ -64,6 +64,39 @@ export default function R2R2RPhase() {
     setExpandedSession(null);
     window.scrollTo(0, 0);
   }, [routePhaseId]);
+
+  const volScrollRef = useRef(null);
+  const volScrolledOnce = useRef(false);
+  const [volFades, setVolFades] = useState({ left: false, right: false });
+
+  const updateVolFades = () => {
+    const el = volScrollRef.current;
+    if (!el) return;
+    const left = el.scrollLeft > 2;
+    const right = el.scrollLeft < el.scrollWidth - el.clientWidth - 2;
+    setVolFades((f) => (f.left === left && f.right === right ? f : { left, right }));
+  };
+
+  useEffect(() => {
+    updateVolFades();
+    window.addEventListener("resize", updateVolFades);
+    return () => window.removeEventListener("resize", updateVolFades);
+  }, []);
+
+  // Keep the selected week's bar centered in the scrollable chart
+  useEffect(() => {
+    const el = volScrollRef.current;
+    if (!el) return;
+    const col = el.querySelector(`[data-week="${selectedWeek}"]`);
+    if (!col) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollTo({
+      left: col.offsetLeft - el.clientWidth / 2 + col.offsetWidth / 2,
+      behavior: reduced || !volScrolledOnce.current ? "auto" : "smooth",
+    });
+    volScrolledOnce.current = true;
+    updateVolFades();
+  }, [selectedWeek]);
 
   const weekData = PLAN.find((w) => w.week === selectedWeek);
   const strengthProgram = STRENGTH_PROGRAMS[effectivePhaseId];
@@ -242,6 +275,21 @@ export default function R2R2RPhase() {
         .vol-bar:hover { opacity: 0.92; transform: translateY(-1px); }
         .vol-bar:focus-visible { outline: 2px solid rgba(232,228,223,0.4); outline-offset: 2px; }
 
+        .vol-scroll {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .vol-scroll::-webkit-scrollbar { display: none; }
+        .vol-fade {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 36px;
+          pointer-events: none;
+          transition: opacity 0.25s ease;
+        }
+
         .nav-link { transition: color 0.18s ease, transform 0.18s ease; }
         .nav-link:hover { color: #e8e4df !important; }
         .back-link:hover { transform: translateX(-3px); }
@@ -367,88 +415,118 @@ export default function R2R2RPhase() {
             letterSpacing: "2.4px",
             textTransform: "uppercase",
             color: "#666",
-            marginBottom: "24px",
+            marginBottom: "6px",
           }}
         >
           24-Week Volume (mi) · Click any bar
         </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            gap: "3px",
-            height: "56px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
-          }}
-        >
-          {volumeData.map((v, i) => {
-            const weekNum = i + 1;
-            const barPhase = getPhaseForWeek(weekNum);
-            const inCurrentPhase = barPhase.id === effectivePhaseId;
-            const isSel = weekNum === selectedWeek;
-            return (
-              <button
-                key={i}
-                type="button"
-                className="vol-bar"
-                onClick={() => handleBarClick(weekNum)}
-                aria-label={`Week ${weekNum} · ${v} mi`}
-                aria-pressed={isSel}
-                style={{
-                  flex: 1,
-                  height: `${(v / maxVol) * 100}%`,
-                  background: isSel
-                    ? barPhase.color
-                    : inCurrentPhase
-                    ? `${barPhase.color}88`
-                    : `${barPhase.color}33`,
-                  boxShadow: isSel ? `0 0 0 2px ${barPhase.color}, 0 2px 8px ${barPhase.color}40` : "none",
-                  position: "relative",
-                }}
-              >
-                {isSel && (
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "-20px",
-                      left: "50%",
-                      transform: "translateX(-50%)",
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: FS_11,
-                      fontWeight: 700,
-                      color: barPhase.color,
-                      whiteSpace: "nowrap",
-                      letterSpacing: "0.2px",
-                    }}
-                  >
-                    {v}
-                  </div>
-                )}
-              </button>
-            );
-          })}
-        </div>
-        <div style={{ display: "flex", gap: "3px", marginTop: "6px" }}>
-          {volumeData.map((_, i) => {
-            const weekNum = i + 1;
-            const inCurrent = getPhaseForWeek(weekNum).id === effectivePhaseId;
-            return (
+        <div style={{ position: "relative" }}>
+          <div
+            ref={volScrollRef}
+            className="vol-scroll"
+            onScroll={updateVolFades}
+            style={{ overflowX: "auto", paddingTop: "20px" }}
+          >
+            <div style={{ width: "max-content", minWidth: "100%" }}>
               <div
-                key={i}
                 style={{
-                  flex: 1,
-                  textAlign: "center",
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: FS_9,
-                  color: weekNum === selectedWeek ? "#e8e4df" : inCurrent ? "#8a8a8a" : "#444",
-                  fontWeight: weekNum === selectedWeek ? 700 : 400,
-                  fontVariantNumeric: "tabular-nums",
+                  display: "flex",
+                  alignItems: "flex-end",
+                  gap: "3px",
+                  height: "56px",
+                  borderBottom: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
-                {weekNum}
+                {volumeData.map((v, i) => {
+                  const weekNum = i + 1;
+                  const barPhase = getPhaseForWeek(weekNum);
+                  const inCurrentPhase = barPhase.id === effectivePhaseId;
+                  const isSel = weekNum === selectedWeek;
+                  return (
+                    <button
+                      key={i}
+                      type="button"
+                      className="vol-bar"
+                      data-week={weekNum}
+                      onClick={() => handleBarClick(weekNum)}
+                      aria-label={`Week ${weekNum} · ${v} mi`}
+                      aria-pressed={isSel}
+                      style={{
+                        flex: "1 0 32px",
+                        height: `${(v / maxVol) * 100}%`,
+                        background: isSel
+                          ? barPhase.color
+                          : inCurrentPhase
+                          ? `${barPhase.color}88`
+                          : `${barPhase.color}33`,
+                        boxShadow: isSel ? `0 0 0 2px ${barPhase.color}, 0 2px 8px ${barPhase.color}40` : "none",
+                        position: "relative",
+                      }}
+                    >
+                      {isSel && (
+                        <div
+                          style={{
+                            position: "absolute",
+                            top: "-20px",
+                            left: "50%",
+                            transform: "translateX(-50%)",
+                            fontFamily: "'DM Sans', sans-serif",
+                            fontSize: FS_11,
+                            fontWeight: 700,
+                            color: barPhase.color,
+                            whiteSpace: "nowrap",
+                            letterSpacing: "0.2px",
+                          }}
+                        >
+                          {v}
+                        </div>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
-            );
-          })}
+              <div style={{ display: "flex", gap: "3px", marginTop: "6px" }}>
+                {volumeData.map((_, i) => {
+                  const weekNum = i + 1;
+                  const inCurrent = getPhaseForWeek(weekNum).id === effectivePhaseId;
+                  return (
+                    <div
+                      key={i}
+                      style={{
+                        flex: "1 0 32px",
+                        textAlign: "center",
+                        fontFamily: "'DM Sans', sans-serif",
+                        fontSize: FS_9,
+                        color: weekNum === selectedWeek ? "#e8e4df" : inCurrent ? "#8a8a8a" : "#444",
+                        fontWeight: weekNum === selectedWeek ? 700 : 400,
+                        fontVariantNumeric: "tabular-nums",
+                      }}
+                    >
+                      {weekNum}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            className="vol-fade"
+            style={{
+              left: 0,
+              background: "linear-gradient(90deg, #0f1114 0%, rgba(15,17,20,0) 100%)",
+              opacity: volFades.left ? 1 : 0,
+            }}
+          />
+          <div
+            aria-hidden="true"
+            className="vol-fade"
+            style={{
+              right: 0,
+              background: "linear-gradient(270deg, #0f1114 0%, rgba(15,17,20,0) 100%)",
+              opacity: volFades.right ? 1 : 0,
+            }}
+          />
         </div>
       </div>
 

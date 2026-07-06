@@ -265,11 +265,21 @@ export const PLAN = [
       "End-of-week check: tendon at baseline, energy back to normal, sleep undisturbed? If yes → rebuild in Week 10. If not → repeat this week. The race is 16 weeks out; there is room.",
     days: [
       { day: "Mon", type: "strength", desc: "Strength A (~80% loads — first week back) + HSR." },
-      { day: "Tue", type: "easy", desc: "Run 4 mi Z2." },
+      {
+        day: "Tue",
+        type: "easy",
+        desc:
+          "Run 4 mi Z2 — full sentences, nose-breathable. Smooth soft surfaces; cadence ~5% above default to spare the tendon.",
+      },
       { day: "Wed", type: "strength", desc: "Strength B (~80%) + HSR." },
       { day: "Thu", type: "easy", desc: "Run 5 mi Z2. No hills this week." },
       { day: "Fri", type: "rest", desc: "Rest." },
-      { day: "Sat", type: "long", desc: "Long Z2: 8 mi, 1,200 ft. Comfortable. Walk anything steep." },
+      {
+        day: "Sat",
+        type: "long",
+        desc:
+          "Long Z2: 8 mi, 1,200 ft. Comfortable; walk grades over ~8%. Restart gut training: 60 g carbs + 500 mL fluid per hour.",
+      },
       { day: "Sun", type: "easy", desc: "Run 3 mi Z2 — or bike 90 min Z2 if legs feel beat." },
     ],
   },
@@ -283,10 +293,24 @@ export const PLAN = [
     days: [
       { day: "Mon", type: "strength", desc: "Strength A + HSR (full loads if Week 9 stayed quiet)." },
       { day: "Tue", type: "easy", desc: "Run 6 mi Z2." },
-      { day: "Wed", type: "strength", desc: "Strength B + HSR + 8 × strides." },
-      { day: "Thu", type: "hills", desc: "Hills return: 5 mi total, 4 × 90 sec uphill Z3, jog or walk down." },
+      {
+        day: "Wed",
+        type: "strength",
+        desc:
+          "Strength B + HSR + 8 × strides: 15–20 sec at ~5K effort — fast but relaxed, never a sprint — on a gentle 4–6% uphill. Walk/jog 1–2 min between; start each one fully recovered.",
+      },
+      {
+        day: "Thu",
+        type: "hills",
+        desc:
+          "Hills return: 5 mi total. Warm up 15–20 min easy Z1–Z2. 4 × 90 sec uphill Z3 (RPE 7–8, 3–4 words per breath) on a smooth 4–8% grade. Recovery = easy jog/walk back down, ~2–3 min. Cool down 10 min Z1.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
-      { day: "Sat", type: "long", desc: "Long Z2: 11 mi, 2,000 ft vert." },
+      {
+        day: "Sat",
+        type: "long",
+        desc: "Long Z2: 11 mi, 2,000 ft vert. Hike grades over 8%. Fuel: 60 g carbs + 500–750 mL fluid per hour.",
+      },
       { day: "Sun", type: "easy", desc: "Run 4 mi Z2 (recovery shake-out)." },
     ],
   },
@@ -300,13 +324,24 @@ export const PLAN = [
     days: [
       { day: "Mon", type: "strength", desc: "Strength A + HSR." },
       { day: "Tue", type: "easy", desc: "Run 6 mi Z2." },
-      { day: "Wed", type: "strength", desc: "Strength B + HSR + strides." },
-      { day: "Thu", type: "hills", desc: "Hills: 6 mi, 5 × 2 min uphill Z3, downhill jog as recovery." },
+      {
+        day: "Wed",
+        type: "strength",
+        desc:
+          "Strength B + HSR + 8 × strides (15–20 sec, ~5K effort, relaxed; walk/jog 1–2 min full recovery between).",
+      },
+      {
+        day: "Thu",
+        type: "hills",
+        desc:
+          "Hills: 6 mi. Warm up 15–20 min easy. 5 × 2 min uphill Z3 on a 4–8% grade; recovery = easy jog down, ~2–3 min — if that feels too short, you're going too hard. Cool down 10–15 min Z1.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
       {
         day: "Sat",
         type: "long",
-        desc: "Long Z2: 13 mi, 2,800 ft vert. First time using trekking poles for sustained climb. Practice fueling.",
+        desc:
+          "Long Z2: 13 mi, 2,800 ft vert. First sustained trekking-pole climb: plant every other step, push through the arms. Hike grades over 8%. Fueling starts for real: 60–80 g carbs, 500–750 mL fluid, 500–1,000 mg sodium per hour.",
       },
       { day: "Sun", type: "easy", desc: "Run 6 mi Z2." },
     ],
@@ -323,14 +358,23 @@ export const PLAN = [
     days: [
       { day: "Mon", type: "strength", desc: "Strength A + HSR." },
       { day: "Tue", type: "easy", desc: "Run 7 mi Z2." },
-      { day: "Wed", type: "strength", desc: "Strength B + strides." },
-      { day: "Thu", type: "hills", desc: "Hills: 6 mi, 5 × 3 min uphill Z3." },
+      {
+        day: "Wed",
+        type: "strength",
+        desc: "Strength B + 8 × strides (15–20 sec, ~5K effort, relaxed; full recovery between).",
+      },
+      {
+        day: "Thu",
+        type: "hills",
+        desc:
+          "Hills: 6 mi. Warm up 20 min easy. 5 × 3 min uphill Z3 — settle in, don't peg the first rep. Easy jog down between. Cool down 10–15 min.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
       {
         day: "Sat",
         type: "long",
         desc:
-          "Long Z2: 15 mi, 3,400 ft vert. TP for ups. Include a deliberate 1–2 miles of controlled downhill cruising.",
+          "Long Z2: 15 mi, 3,400 ft vert. TP for ups. 1–2 mi of controlled downhill cruising on ~8–10% grade: short quick strides, cadence up ~10 spm, land under your hips, lean from the ankles — flow, don't brake. Fuel 60–80 g carbs/hr.",
       },
       { day: "Sun", type: "easy", desc: "Run 6 mi Z2." },
     ],
@@ -347,16 +391,25 @@ export const PLAN = [
     days: [
       { day: "Mon", type: "strength", desc: "Strength shifts to ME block + HSR maintenance." },
       { day: "Tue", type: "easy", desc: "Run 7 mi Z2." },
-      { day: "Wed", type: "strength", desc: "Strength B (ME) + 8 × strides." },
+      { day: "Wed", type: "strength", desc: "Strength B (ME) + 8 × strides (15–20 sec, relaxed; full recovery)." },
       {
         day: "Thu",
         type: "me_carry",
         desc:
-          "ME session 1: 7 mi total. 4 × 8 min uphill at Z2 with 15 lb pack/vest. Walk fast on steep, jog mild. Goal: legs work, breathing comfortable. Easy jog down.",
+          "ME session 1: 7 mi total. Warm up 15 min easy. 4 × 8 min uphill with 15 lb (~10% bodyweight) of water in the pack, on the steepest smooth hill available (15%+ grade ideal). Cue: low-level leg burn the whole rep, breathing conversational — ignore HR. Recover 2–3 min easy walking. Dump the water at the top; descend light and easy.",
       },
       { day: "Fri", type: "rest", desc: "Rest." },
-      { day: "Sat", type: "long", desc: "Long Z2: 15 mi, 3,500 ft. TP for ups." },
-      { day: "Sun", type: "b2b", desc: "B2B: 6 mi Z2 on tired legs, 1,000 ft. First B2B. Walk if needed." },
+      {
+        day: "Sat",
+        type: "long",
+        desc: "Long Z2: 15 mi, 3,500 ft. TP for ups. Hike grades over 8%. Fuel 60–80 g carbs/hr.",
+      },
+      {
+        day: "Sun",
+        type: "b2b",
+        desc:
+          "B2B: 6 mi Z2 on tired legs, 1,000 ft. First B2B — the goal is time on feet on pre-fatigued legs, not pace. Honest Z2 cap; walk anything steep.",
+      },
     ],
   },
   {
@@ -370,12 +423,18 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A (ME) + HSR." },
       { day: "Tue", type: "easy", desc: "Run 8 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B (ME) + strides." },
-      { day: "Thu", type: "me_carry", desc: "ME session 2: 8 mi. 5 × 8 min uphill Z2 with 15 lb pack." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME session 2: 8 mi. 5 × 8 min uphill with 15 lb of water — steady leg burn, easy breathing. 2–3 min walk recoveries; dump the water at the top, jog down light.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
       {
         day: "Sat",
         type: "long",
-        desc: "Long Z2: 18 mi, 4,500 ft. Include 3 miles of sustained downhill at controlled pace.",
+        desc:
+          "Long Z2: 18 mi, 4,500 ft. Include 3 mi of sustained controlled downhill (~8–12% grade): short strides, quick cadence, no braking; poles in front with a light touch. Fuel 60–80 g carbs/hr.",
       },
       { day: "Sun", type: "b2b", desc: "B2B: 7 mi Z2 / 1,500 ft." },
     ],
@@ -391,9 +450,19 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A (ME) + HSR." },
       { day: "Tue", type: "easy", desc: "Run 8 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B (ME) + strides." },
-      { day: "Thu", type: "me_carry", desc: "ME: 8 mi. 4 × 12 min uphill Z2 with 18 lb pack." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME: 8 mi. 4 × 12 min uphill with 18 lb pack. Leg burn steady, breathing easy; 2–3 min walk recoveries; dump water at top. Johnston's rule: progress weight or duration, never both — if Week 14 felt hard, keep 15 lb and take only the longer reps.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
-      { day: "Sat", type: "long", desc: "Long Z2: 20 mi, 5,000 ft vert. First canyon-equivalent vertical day. TP." },
+      {
+        day: "Sat",
+        type: "long",
+        desc:
+          "Long Z2: 20 mi, 5,000 ft vert. First canyon-equivalent day — 250 ft/mi matches R2R2R's actual rate. TP. Hike grades over 8%; fuel 60–80 g carbs/hr.",
+      },
       { day: "Sun", type: "b2b", desc: "B2B: 8 mi Z2 / 1,500 ft." },
     ],
   },
@@ -422,17 +491,23 @@ export const PLAN = [
     totalMiles: 50,
     vert: 7500,
     note:
-      "Heat acclimation begins: 4 sauna sessions/week, 20–30 min post-exercise. Race-day fueling rehearsal on the long run.",
+      "Heat acclimation begins: 4 sauna sessions/week within 30 min post-exercise, 175–195°F. Start at 15 min, add 2–3 min per session toward 30. Hydrate 0.5 L with electrolytes before, 0.5–1 L after; if dizzy or nauseous, get out.",
     days: [
       { day: "Mon", type: "strength", desc: "Strength A (ME) + HSR + sauna 1." },
       { day: "Tue", type: "easy", desc: "Run 8 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B + sauna 2." },
-      { day: "Thu", type: "me_carry", desc: "ME: 9 mi. 5 × 10 min uphill Z2 with 20 lb pack + sauna 3 if time." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME: 9 mi. 5 × 10 min uphill with 20 lb of water — leg burn steady, breathing easy; 2–3 min walk recoveries; dump at top. Sauna 3 if time.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
       {
         day: "Sat",
         type: "long",
-        desc: "Long Z2: 22 mi, 5,500 ft. TP. Practice race-day fueling: 60–80 g carbs/hour.",
+        desc:
+          "Long Z2: 22 mi, 5,500 ft. TP. Race-day fueling rehearsal: 80–100 g carbs/hr (glucose+fructose mix), 500–750 mL fluid + 500–1,000 mg sodium per hour. Gels early, real food after hour 4.",
       },
       { day: "Sun", type: "b2b", desc: "B2B: 8 mi Z2 / 2,000 ft + sauna 4." },
     ],
@@ -450,12 +525,18 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A (ME) + HSR + sauna." },
       { day: "Tue", type: "easy", desc: "Run 9 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B + sauna." },
-      { day: "Thu", type: "me_carry", desc: "ME: 9 mi. 4 × 15 min uphill Z2 with 20 lb pack." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME: 9 mi. 4 × 15 min uphill with 20 lb pack; 2–3 min walk recoveries; dump water at top. That's ~1 hr of loaded climbing — the session cap. Don't add more.",
+      },
       { day: "Fri", type: "rest", desc: "Rest." },
       {
         day: "Sat",
         type: "long",
-        desc: "Long Z2: 24 mi, 6,000 ft. TP. Race-day fueling rehearsal. Bring all the gear you'd carry race day.",
+        desc:
+          "Long Z2: 24 mi, 6,000 ft. TP. Full dress rehearsal: race pack, filter, headlamp, layers. Fuel 80–100 g carbs + 500–750 mL fluid + 500–1,000 mg sodium per hour.",
       },
       { day: "Sun", type: "b2b", desc: "B2B: 10 mi Z2 / 2,000 ft + sauna." },
     ],
@@ -473,13 +554,18 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A (ME) + HSR + sauna." },
       { day: "Tue", type: "easy", desc: "Run 8 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B + sauna." },
-      { day: "Thu", type: "me_carry", desc: "ME: 8 mi. 3 × 20 min uphill Z2 with 20 lb pack." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME: 8 mi. 3 × 20 min uphill with 20 lb pack — the longest reps of the block. Leg burn steady, breathing easy; 2–3 min walk recoveries; dump water at top.",
+      },
       { day: "Fri", type: "rest", desc: "Rest. Sauna." },
       {
         day: "Sat",
         type: "long",
         desc:
-          "Big day: 26 mi, 7,000 ft. Biggest single training day. TP. Full fueling and gear simulation. Pre-dawn start for cold/heat transitions.",
+          "Big day: 26 mi, 7,000 ft. Biggest single training day. Pre-dawn start for cold/heat transitions. Descend conservatively — short quick strides, no braking, poles defensive. Fuel 80–100 g carbs + fluid + sodium hourly, by the watch, not by appetite.",
       },
       {
         day: "Sun",
@@ -517,13 +603,18 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A + HSR + sauna." },
       { day: "Tue", type: "easy", desc: "Run 8 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B + sauna." },
-      { day: "Thu", type: "me_carry", desc: "ME: 8 mi. 4 × 15 min uphill Z2 with 20 lb pack." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "ME: 8 mi. 4 × 15 min uphill with 20 lb pack — last full ME session. 2–3 min walk recoveries; dump water at top.",
+      },
       { day: "Fri", type: "rest", desc: "Rest + sauna." },
       {
         day: "Sat",
         type: "long",
         desc:
-          "Peak day: 28 mi, 8,000 ft. Last full R2R2R rehearsal. TP. All race-day gear, fueling, hydration. Try to run on hottest part of the day if safe.",
+          "Peak day: 28 mi, 8,000 ft. Last full R2R2R rehearsal — and your final big eccentric dose (repeated-bout protection lasts up to ~9 weeks; race is 3 out). All race-day gear. 80–100 g carbs/hr. Run the hottest part of the day if safe; practice dunking hat/shirt at water stops.",
       },
       { day: "Sun", type: "b2b", desc: "B2B: 12 mi Z2, 2,500 ft. Last hard B2B before race." },
     ],
@@ -539,7 +630,12 @@ export const PLAN = [
       { day: "Mon", type: "strength", desc: "Strength A (light, maintenance) + HSR + sauna." },
       { day: "Tue", type: "easy", desc: "Run 6 mi Z2." },
       { day: "Wed", type: "strength", desc: "Strength B (light) + sauna." },
-      { day: "Thu", type: "me_carry", desc: "Light ME: 6 mi. 3 × 8 min uphill Z2 with 15 lb pack. Sauna." },
+      {
+        day: "Thu",
+        type: "me_carry",
+        desc:
+          "Light ME: 6 mi. 3 × 8 min uphill with 15 lb — maintenance only, easy walk recoveries, nothing grinding. Sauna.",
+      },
       { day: "Fri", type: "rest", desc: "Rest + sauna." },
       { day: "Sat", type: "long", desc: "Long Z2: 18 mi, 4,000 ft. Comfortable, not stressful." },
       { day: "Sun", type: "easy", desc: "Run 6 mi Z2 + sauna." },
@@ -555,9 +651,17 @@ export const PLAN = [
     deload: true,
     days: [
       { day: "Mon", type: "strength", desc: "Strength (very light, 50% load, movement quality) + HSR + sauna." },
-      { day: "Tue", type: "easy", desc: "Run 5 mi Z2 + 4 × strides." },
+      {
+        day: "Tue",
+        type: "easy",
+        desc: "Run 5 mi Z2 + 4 × strides (15–20 sec, ~5K effort, relaxed and smooth; 1–2 min full recovery between).",
+      },
       { day: "Wed", type: "rest", desc: "Rest + sauna." },
-      { day: "Thu", type: "easy", desc: "Run 4 mi Z2 + 4 × strides." },
+      {
+        day: "Thu",
+        type: "easy",
+        desc: "Run 4 mi Z2 + 4 × strides (15–20 sec, relaxed — keep the legs' feel, don't chase fitness).",
+      },
       { day: "Fri", type: "rest", desc: "Rest + sauna." },
       { day: "Sat", type: "long", desc: "Long Z2: 10 mi, 2,000 ft. Easy." },
       { day: "Sun", type: "easy", desc: "Run 4 mi Z2 + sauna." },
@@ -573,7 +677,7 @@ export const PLAN = [
     callout:
       "Two rules that should never be broken: (1) The tendon's voice wins. (2) Easy days are easy, hard days are hard, nothing lives in the middle.",
     days: [
-      { day: "Mon", type: "race_taper", desc: "Run 4 mi Z2 + strides + sauna." },
+      { day: "Mon", type: "race_taper", desc: "Run 4 mi Z2 + 4 × strides (15–20 sec, relaxed) + sauna." },
       { day: "Tue", type: "race_taper", desc: "Run 3 mi Z2 (very easy) + sauna." },
       {
         day: "Wed",
