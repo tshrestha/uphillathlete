@@ -57,6 +57,18 @@ export default function R2R2RPhase() {
   const [selectedWeek, setSelectedWeek] = useState(initialWeek);
   const [activeTab, setActiveTab] = useState("schedule");
   const [expandedSession, setExpandedSession] = useState(null);
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches,
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const onChange = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  const padX = isMobile ? 16 : 24;
 
   useEffect(() => {
     setSelectedWeek(isScheduleMode ? currentWeek : phase.weeks[0]);
@@ -147,7 +159,7 @@ export default function R2R2RPhase() {
           {isObj &&
             Array.isArray(s.subs) &&
             s.subs.map((sub, k) => (
-              <div key={k} style={{ display: "flex", gap: "7px", margin: "2px 0 0 30px" }}>
+              <div key={k} style={{ display: "flex", gap: "7px", margin: isMobile ? "2px 0 0 22px" : "2px 0 0 30px" }}>
                 <span style={{ color: phase.color, fontSize: FS_9, flexShrink: 0, paddingTop: "4px", opacity: 0.75 }}>
                   ▸
                 </span>
@@ -448,7 +460,7 @@ export default function R2R2RPhase() {
       {/* Header */}
       <header
         style={{
-          padding: "18px 24px 22px",
+          padding: isMobile ? "14px 16px 18px" : "18px 24px 22px",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
           background: `linear-gradient(180deg, ${phase.color}1c 0%, ${phase.color}05 55%, transparent 100%)`,
         }}
@@ -540,7 +552,7 @@ export default function R2R2RPhase() {
       </header>
 
       {/* Volume Chart — all 24 weeks */}
-      <div style={{ padding: "22px 24px 12px" }}>
+      <div style={{ padding: `18px ${padX}px 12px` }}>
         <div
           style={{
             fontFamily: "'DM Sans', sans-serif",
@@ -586,7 +598,7 @@ export default function R2R2RPhase() {
                       aria-label={`Week ${weekNum} · ${v} mi`}
                       aria-pressed={isSel}
                       style={{
-                        flex: "1 0 32px",
+                        flex: isMobile ? "1 0 24px" : "1 0 32px",
                         height: `${(v / maxVol) * 100}%`,
                         background: isSel
                           ? barPhase.color
@@ -627,7 +639,7 @@ export default function R2R2RPhase() {
                     <div
                       key={i}
                       style={{
-                        flex: "1 0 32px",
+                        flex: isMobile ? "1 0 24px" : "1 0 32px",
                         textAlign: "center",
                         fontFamily: "'DM Sans', sans-serif",
                         fontSize: FS_9,
@@ -665,8 +677,8 @@ export default function R2R2RPhase() {
       </div>
 
       {/* Week Selector — only current phase */}
-      <div style={{ padding: "10px 24px 14px" }}>
-        <div style={{ display: "flex", gap: "7px", flexWrap: "wrap" }}>
+      <div style={{ padding: `10px ${padX}px 14px` }}>
+        <div style={{ display: "flex", gap: isMobile ? "6px" : "7px", flexWrap: "wrap" }}>
           {phaseWeeks.map((w) => {
             const isSel = w.week === selectedWeek;
             return (
@@ -680,8 +692,8 @@ export default function R2R2RPhase() {
                   setExpandedSession(null);
                 }}
                 style={{
-                  width: "46px",
-                  height: "42px",
+                  width: isMobile ? "42px" : "46px",
+                  height: isMobile ? "40px" : "42px",
                   borderRadius: "9px",
                   color: isSel ? phase.color : "#8a8a8a",
                   fontFamily: "'DM Sans', sans-serif",
@@ -718,7 +730,7 @@ export default function R2R2RPhase() {
       </div>
 
       {/* Week Header */}
-      <div style={{ padding: "2px 24px 14px" }}>
+      <div style={{ padding: `2px ${padX}px 14px` }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px", flexWrap: "wrap" }}>
           <h2 style={{ fontSize: FS_22, fontWeight: 700, letterSpacing: "-0.4px", lineHeight: 1.15 }}>
             Week {weekData.week} · {weekData.name}
@@ -782,8 +794,9 @@ export default function R2R2RPhase() {
 
       {/* Tabs */}
       <div
+        className="vol-scroll"
         style={{
-          padding: "0 24px",
+          padding: isMobile ? "0 12px" : "0 24px",
           display: "flex",
           gap: "2px",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
@@ -793,6 +806,7 @@ export default function R2R2RPhase() {
           background: "rgba(15,17,20,0.92)",
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
+          overflowX: "auto",
         }}
       >
         {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "Tendon"], ["reference", "Reference"]].map(([key, label]) => (
@@ -804,7 +818,7 @@ export default function R2R2RPhase() {
               setExpandedSession(null);
             }}
             style={{
-              padding: "10px 14px",
+              padding: isMobile ? "12px 11px" : "10px 14px",
               fontFamily: "'DM Sans', sans-serif",
               fontSize: FS_12,
               fontWeight: activeTab === key ? 700 : 500,
@@ -812,6 +826,8 @@ export default function R2R2RPhase() {
               borderBottom: activeTab === key ? "2px solid #e8e4df" : "2px solid transparent",
               marginBottom: "-1px",
               letterSpacing: "0.2px",
+              whiteSpace: "nowrap",
+              flexShrink: 0,
             }}
           >
             {label}
@@ -821,7 +837,7 @@ export default function R2R2RPhase() {
 
       {/* Schedule tab */}
       {activeTab === "schedule" && (
-        <div style={{ padding: "14px 24px 20px" }}>
+        <div style={{ padding: `14px ${padX}px 20px` }}>
           {weekData.days.map((d, i) => {
             const wt = WORKOUT_TYPES[d.type];
             const isToday = isCurrentDay(weekData.week, i);
@@ -832,22 +848,22 @@ export default function R2R2RPhase() {
                 style={{
                   display: "flex",
                   alignItems: "flex-start",
-                  padding: isToday ? "13px 16px 13px 21px" : "13px 0",
+                  padding: isToday ? (isMobile ? "12px 10px 12px 13px" : "13px 16px 13px 21px") : "13px 0",
                   borderBottom: i < 6 ? "1px solid rgba(255,255,255,0.04)" : "none",
-                  gap: "12px",
+                  gap: isMobile ? "9px" : "12px",
                   ...(isToday && {
                     background:
                       `linear-gradient(90deg, ${phase.color}26 0%, ${phase.color}0d 55%, transparent 100%)`,
                     borderLeft: `3px solid ${phase.color}`,
-                    marginLeft: "-24px",
-                    marginRight: "-16px",
+                    marginLeft: `-${padX}px`,
+                    marginRight: isMobile ? "-10px" : "-16px",
                     borderRadius: "0 10px 10px 0",
                   }),
                 }}
               >
                 <div
                   style={{
-                    width: "54px",
+                    width: isMobile ? "40px" : "54px",
                     flexShrink: 0,
                     paddingTop: "2px",
                   }}
@@ -879,12 +895,12 @@ export default function R2R2RPhase() {
                 </div>
                 <div
                   style={{
-                    fontSize: FS_14,
+                    fontSize: isMobile ? FS_12 : FS_14,
                     color: wt.color,
-                    width: "16px",
+                    width: isMobile ? "13px" : "16px",
                     textAlign: "center",
                     flexShrink: 0,
-                    paddingTop: "1px",
+                    paddingTop: isMobile ? "3px" : "1px",
                     lineHeight: 1,
                   }}
                 >
@@ -1003,7 +1019,7 @@ export default function R2R2RPhase() {
 
       {/* Strength tab */}
       {activeTab === "strength" && (
-        <div style={{ padding: "16px 24px 20px" }}>
+        <div style={{ padding: `16px ${padX}px 20px` }}>
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
@@ -1052,7 +1068,7 @@ export default function R2R2RPhase() {
 
       {/* HSR tab */}
       {activeTab === "hsr" && (
-        <div style={{ padding: "16px 24px 20px" }}>
+        <div style={{ padding: `16px ${padX}px 20px` }}>
           <div
             style={{
               fontFamily: "'DM Sans', sans-serif",
@@ -1102,7 +1118,7 @@ export default function R2R2RPhase() {
 
       {/* Reference tab */}
       {activeTab === "reference" && (
-        <div style={{ padding: "16px 24px 20px" }}>
+        <div style={{ padding: `16px ${padX}px 20px` }}>
           <SectionLabel>Notation</SectionLabel>
           {REFERENCE.notation.map((n, i) => (
             <div
@@ -1253,7 +1269,7 @@ export default function R2R2RPhase() {
       {/* Phase self-check */}
       <div
         style={{
-          padding: "22px 24px 26px",
+          padding: `22px ${padX}px 26px`,
           borderTop: "1px solid rgba(255,255,255,0.06)",
           background: "rgba(255,255,255,0.01)",
         }}
@@ -1314,7 +1330,7 @@ export default function R2R2RPhase() {
       <nav
         aria-label="Phase navigation"
         style={{
-          padding: "22px 24px calc(36px + env(safe-area-inset-bottom, 0px))",
+          padding: `22px ${padX}px calc(36px + env(safe-area-inset-bottom, 0px))`,
           borderTop: "1px solid rgba(255,255,255,0.06)",
           display: "flex",
           justifyContent: "space-between",
