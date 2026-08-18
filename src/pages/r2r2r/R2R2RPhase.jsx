@@ -113,14 +113,68 @@ export default function R2R2RPhase() {
     }
   };
 
-  const renderExercise = (ex, i) => (
+  const renderDaySteps = (steps, isToday) =>
+    steps.map((s, j) => {
+      const isObj = typeof s === "object" && s !== null;
+      return (
+        <div key={j} style={{ marginBottom: "4px" }}>
+          <div style={{ display: "flex", gap: "8px" }}>
+            <span
+              style={{
+                fontFamily: "'DM Sans', sans-serif",
+                fontSize: FS_10,
+                fontWeight: 700,
+                color: phase.color,
+                flexShrink: 0,
+                paddingTop: "3px",
+                minWidth: "14px",
+                textAlign: "right",
+              }}
+            >
+              {j + 1}
+            </span>
+            <span
+              style={{
+                fontFamily: "'Source Serif 4', Georgia, serif",
+                fontSize: FS_12_5,
+                color: isToday ? "#d8d4cf" : "#aaa",
+                lineHeight: 1.5,
+              }}
+            >
+              {isObj ? s.name : s}
+            </span>
+          </div>
+          {isObj &&
+            Array.isArray(s.subs) &&
+            s.subs.map((sub, k) => (
+              <div key={k} style={{ display: "flex", gap: "7px", margin: "2px 0 0 30px" }}>
+                <span style={{ color: phase.color, fontSize: FS_9, flexShrink: 0, paddingTop: "4px", opacity: 0.75 }}>
+                  ▸
+                </span>
+                <span
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: FS_11_5,
+                    color: isToday ? "#b9b2a8" : "#928a80",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {sub}
+                </span>
+              </div>
+            ))}
+        </div>
+      );
+    });
+
+  const renderExercise = (ex, i, arr) => (
     <div
       key={i}
       style={{
         display: "flex",
         gap: "10px",
-        padding: "10px 0",
-        borderBottom: "1px solid rgba(255,255,255,0.04)",
+        padding: "12px 0",
+        borderBottom: i < arr.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
       }}
     >
       <div
@@ -131,35 +185,115 @@ export default function R2R2RPhase() {
           color: phase.color,
           width: "18px",
           flexShrink: 0,
-          paddingTop: "2px",
+          paddingTop: "3px",
         }}
       >
         {String(i + 1).padStart(2, "0")}
       </div>
-      <div style={{ flex: 1 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginBottom: "2px" }}>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            columnGap: "8px",
+            rowGap: "5px",
+            marginBottom: ex.items || ex.notes ? "6px" : 0,
+          }}
+        >
           <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_13, fontWeight: 600, color: "#e8e4df" }}>
             {ex.name}
           </span>
-          {ex.sets !== "—" && (
+          {ex.sets && ex.sets !== "—" && (
             <span
               style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: FS_12,
-                color: phase.color,
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: FS_10,
                 fontWeight: 600,
+                color: phase.color,
+                background: `${phase.color}1a`,
+                border: `1px solid ${phase.color}33`,
+                borderRadius: "5px",
+                padding: "2px 7px",
                 whiteSpace: "nowrap",
-                marginLeft: 8,
               }}
             >
               {ex.sets}
             </span>
           )}
+          {ex.rest && ex.rest !== "—" && (
+            <span
+              style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: FS_10,
+                color: "#9a9186",
+                background: "rgba(255,255,255,0.045)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "5px",
+                padding: "2px 7px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              rest {ex.rest}
+            </span>
+          )}
         </div>
-        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_11_5, color: "#888", lineHeight: 1.45 }}>
-          {ex.rest && ex.rest !== "—" ? `Rest ${ex.rest}. ` : ""}
-          {ex.notes}
-        </div>
+        {Array.isArray(ex.items) &&
+          ex.items.map((item, j) => {
+            const isObj = typeof item === "object" && item !== null;
+            return (
+              <div key={j} style={{ marginBottom: isObj ? "6px" : "3px" }}>
+                <div style={{ display: "flex", gap: "7px" }}>
+                  <span style={{ color: phase.color, fontSize: FS_10, flexShrink: 0, paddingTop: "3px" }}>▸</span>
+                  <span
+                    style={{
+                      fontFamily: "'DM Sans', sans-serif",
+                      fontSize: FS_12,
+                      fontWeight: isObj ? 600 : 400,
+                      color: isObj ? "#cec7bc" : "#b5aca1",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    {isObj ? item.label : item}
+                  </span>
+                </div>
+                {isObj &&
+                  Array.isArray(item.subs) &&
+                  item.subs.map((sub, k) => (
+                    <div key={k} style={{ display: "flex", gap: "7px", margin: "2px 0 0 18px" }}>
+                      <span
+                        style={{ color: phase.color, fontSize: FS_9, flexShrink: 0, paddingTop: "4px", opacity: 0.7 }}
+                      >
+                        –
+                      </span>
+                      <span
+                        style={{
+                          fontFamily: "'DM Sans', sans-serif",
+                          fontSize: FS_11_5,
+                          color: "#9a9186",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        {sub}
+                      </span>
+                    </div>
+                  ))}
+              </div>
+            );
+          })}
+        {ex.notes && (
+          <div
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: FS_11_5,
+              color: "#888",
+              lineHeight: 1.5,
+              marginTop: ex.items ? "5px" : 0,
+            }}
+          >
+            {ex.notes}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -661,7 +795,7 @@ export default function R2R2RPhase() {
           WebkitBackdropFilter: "blur(8px)",
         }}
       >
-        {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "HSR"], ["reference", "Reference"]].map(([key, label]) => (
+        {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "Tendon"], ["reference", "Reference"]].map(([key, label]) => (
           <button
             key={key}
             className="tab-btn"
@@ -761,7 +895,8 @@ export default function R2R2RPhase() {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
+                      columnGap: "8px",
+                      rowGap: "5px",
                       marginBottom: "4px",
                       flexWrap: "wrap",
                     }}
@@ -775,8 +910,26 @@ export default function R2R2RPhase() {
                         letterSpacing: "0.1px",
                       }}
                     >
-                      {wt.label}
+                      {d.title || wt.label}
                     </span>
+                    {(d.stats || []).map((st, j) => (
+                      <span
+                        key={j}
+                        style={{
+                          fontFamily: "'JetBrains Mono', monospace",
+                          fontSize: FS_10,
+                          fontWeight: j === 0 ? 600 : 400,
+                          color: j === 0 ? phase.color : "#9a9186",
+                          background: j === 0 ? `${phase.color}1a` : "rgba(255,255,255,0.045)",
+                          border: `1px solid ${j === 0 ? `${phase.color}33` : "rgba(255,255,255,0.08)"}`,
+                          borderRadius: "5px",
+                          padding: "2px 7px",
+                          whiteSpace: "nowrap",
+                        }}
+                      >
+                        {st}
+                      </span>
+                    ))}
                     {isToday && (
                       <span
                         className="today-pill"
@@ -796,16 +949,33 @@ export default function R2R2RPhase() {
                       </span>
                     )}
                   </div>
-                  <div
-                    style={{
-                      fontFamily: "'Source Serif 4', Georgia, serif",
-                      fontSize: FS_13,
-                      color: isToday ? "#d8d4cf" : "#aaa",
-                      lineHeight: 1.55,
-                    }}
-                  >
-                    {d.desc}
-                  </div>
+                  {Array.isArray(d.steps) && renderDaySteps(d.steps, isToday)}
+                  {d.desc && (
+                    <div
+                      style={{
+                        fontFamily: "'Source Serif 4', Georgia, serif",
+                        fontSize: FS_13,
+                        color: isToday ? "#d8d4cf" : "#aaa",
+                        lineHeight: 1.55,
+                      }}
+                    >
+                      {d.desc}
+                    </div>
+                  )}
+                  {d.notes && (
+                    <div
+                      style={{
+                        fontFamily: "'Source Serif 4', Georgia, serif",
+                        fontSize: FS_12,
+                        fontStyle: "italic",
+                        color: isToday ? "#b5aca1" : "#847e74",
+                        lineHeight: 1.5,
+                        marginTop: d.steps ? "5px" : 0,
+                      }}
+                    >
+                      {d.notes}
+                    </div>
+                  )}
                 </div>
               </div>
             );
@@ -1033,17 +1203,23 @@ export default function R2R2RPhase() {
           >
             {REFERENCE.hsrProtocol.summary}
           </p>
-          <p
-            style={{
-              fontFamily: "'DM Sans', sans-serif",
-              fontSize: FS_12,
-              color: "#888",
-              lineHeight: 1.55,
-              marginBottom: "12px",
-            }}
-          >
-            <strong style={{ color: "#ccc" }}>Progression:</strong> {REFERENCE.hsrProtocol.progression}
-          </p>
+          <div style={{ marginBottom: "12px" }}>
+            {REFERENCE.hsrProtocol.rules.map((rule, i) => (
+              <div key={i} style={{ display: "flex", gap: "8px", marginBottom: "4px" }}>
+                <span style={{ color: phase.color, fontSize: FS_10, flexShrink: 0, paddingTop: "3px" }}>▸</span>
+                <span
+                  style={{
+                    fontFamily: "'DM Sans', sans-serif",
+                    fontSize: FS_12,
+                    color: "#b5aca1",
+                    lineHeight: 1.5,
+                  }}
+                >
+                  {rule}
+                </span>
+              </div>
+            ))}
+          </div>
           {REFERENCE.hsrProtocol.exercises.map((ex, i) => (
             <div
               key={i}
@@ -1071,83 +1247,6 @@ export default function R2R2RPhase() {
             </div>
           ))}
 
-          {effectivePhaseId === "phase-4" && (
-            <>
-              <SectionLabel mt>Race-Day Pacing</SectionLabel>
-              <p
-                style={{
-                  fontFamily: "'DM Sans', sans-serif",
-                  fontSize: FS_12_5,
-                  color: "#aaa",
-                  lineHeight: 1.55,
-                  marginBottom: "14px",
-                }}
-              >
-                {REFERENCE.raceDayPacing.intro}
-              </p>
-              {REFERENCE.raceDayPacing.segments.map((s, i) => (
-                <div
-                  key={i}
-                  style={{
-                    marginBottom: "14px",
-                    padding: "14px 15px",
-                    background: "rgba(255,255,255,0.02)",
-                    border: `1px solid ${phase.color}26`,
-                    borderRadius: "10px",
-                  }}
-                >
-                  <div
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: FS_13,
-                      fontWeight: 700,
-                      color: phase.color,
-                      marginBottom: "2px",
-                    }}
-                  >
-                    {s.name}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "'DM Sans', sans-serif",
-                      fontSize: FS_11_5,
-                      color: "#888",
-                      marginBottom: "8px",
-                    }}
-                  >
-                    {s.stats}
-                  </div>
-                  {s.bullets.map((b, j) => (
-                    <div key={j} style={{ display: "flex", gap: "8px", marginBottom: "4px" }}>
-                      <span style={{ color: phase.color, fontSize: FS_11, flexShrink: 0 }}>•</span>
-                      <span
-                        style={{
-                          fontFamily: "'DM Sans', sans-serif",
-                          fontSize: FS_12,
-                          color: "#aaa",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {b}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              ))}
-
-              <SectionLabel>Heat Management</SectionLabel>
-              {REFERENCE.raceDayPacing.heat.map((h, i) => (
-                <div key={i} style={{ display: "flex", gap: "8px", marginBottom: "6px" }}>
-                  <span style={{ color: phase.color, fontSize: FS_11, flexShrink: 0 }}>•</span>
-                  <span
-                    style={{ fontFamily: "'DM Sans', sans-serif", fontSize: FS_12_5, color: "#aaa", lineHeight: 1.55 }}
-                  >
-                    {h}
-                  </span>
-                </div>
-              ))}
-            </>
-          )}
         </div>
       )}
 

@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AerobicBasePlan from "./pages/AerobicBasePlan";
 import Home from "./pages/Home";
 import R2R2R from "./pages/R2R2R";
+import Analysis from "./pages/r2r2r/Analysis";
 import R2R2RPhase from "./pages/r2r2r/R2R2RPhase";
 import UphillSkimoBasePlan from "./pages/UphillSkimoBasePlan";
 
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/uphill-skimo-base-plan" element={<UphillSkimoBasePlan />} />
         <Route path="/r2r2r" element={<R2R2R />} />
         <Route path="/r2r2r/schedule" element={<R2R2RPhase />} />
+        <Route path="/r2r2r/analysis" element={<Analysis />} />
         <Route path="/r2r2r/:phaseId" element={<R2R2RPhase />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

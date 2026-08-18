@@ -420,6 +420,12 @@
       transition: height 0.3s;
     }
     .toc-card:hover::before { height: 100%; }
+    .toc-card-live {
+      border-color: var(--rust);
+      background: linear-gradient(135deg, rgba(168, 67, 31, 0.09) 0%, var(--bg-warm) 100%);
+    }
+    .toc-card-live::before { height: 100%; width: 3px; }
+    .toc-card-live .toc-num { color: var(--rust); font-weight: 700; }
     .toc-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.7rem;
@@ -807,6 +813,7 @@
           <a href="#phases">05 · Phases</a>
           <a href="#programs">06 · Programs</a>
           <a href="#raceday">07 · Race Day</a>
+          <a href="/r2r2r/analysis">→ Analysis</a>
         </nav>
         <button
           class="menu-toggle"
@@ -1131,6 +1138,14 @@
           <div class="toc-title">Taper &amp; Race Day</div>
           <div class="toc-desc">
             Pacing strategy, gear, logistics, the final 48 hours.
+          </div>
+        </a>
+        <a href="/r2r2r/analysis" class="toc-card toc-card-live">
+          <div class="toc-num">LIVE DATA</div>
+          <div class="toc-title">Fitness Analysis</div>
+          <div class="toc-desc">
+            What 41 exported activities say about the engine, the legs, and the
+            tendon — twelve weeks in.
           </div>
         </a>
       </div>
