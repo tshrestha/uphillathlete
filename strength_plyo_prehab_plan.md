@@ -43,7 +43,7 @@ Everything in the gym is heavy and crisp — 2 reps in reserve (RPE 8), nothing 
 | Day | Session | Logic |
 | --- | --- | --- |
 | Mon | **Session A** | Non-run day; most recovered gym day of the week |
-| Tue | Easy Z2 run (HR ≤140 · RPE 5–6) | Genuinely easy — full sentences; your intensity-distribution fix stands |
+| Tue | Easy Z2 run (HR ≤145 · RPE 5–6) | Cap raised from 140 after the Aug 18 drift test (+3.1% at HR 145). Probe test at HR 148–150 scheduled Sep 1 — pass and the cap rises again |
 | Wed | **Session B** | Stacks with Thursday — concentrated mid-week leg stress |
 | Thu | Uphill intervals — rotation: SteadyState → Tempo → VO2 (see below) | One uphill-specific stimulus per week; deload weeks are easy runs |
 | Fri | Rest + 5-min tendon micro-dose only | Absorption day before the weekend |
@@ -51,6 +51,8 @@ Everything in the gym is heavy and crisp — 2 reps in reserve (RPE 8), nothing 
 | Sun | Easy B2B run | — |
 
 Same-day run + lift: **run first, lift second, ≥6 h apart.** Never lift heavy the day before the Saturday long run.
+
+**Run volume policy (added Aug 2026):** resume at ~45 mpw, build **≤10% per build week to 50 mpw**, then hold. Deload weeks run ~30 (60%). The extra miles come from a 5th weekly run — an easy 6-miler Wednesday AM before the PM lift — and longer Sundays, not a bigger Saturday. The 10% cap is a ceiling, not a target (Buist 2008 found no injury protection from strict 10% grading; the real governors are ACWR ~0.8–1.3 and the tendon's 24-h rule). Volume holds at 50 through MAX blocks: concurrent-training interference (Wilson 2012) costs strength gains, not running — running is the priority, so the bar moves slower and that's accepted.
 
 ### Shared components (identical in every session, both blocks)
 
