@@ -551,7 +551,7 @@ export default function R2R2RPhase() {
         </div>
       </header>
 
-      {/* Volume Chart — all 24 weeks */}
+      {/* Volume Chart — every week */}
       <div style={{ padding: `18px ${padX}px 12px` }}>
         <div
           style={{
@@ -564,7 +564,7 @@ export default function R2R2RPhase() {
             marginBottom: "6px",
           }}
         >
-          24-Week Volume (mi) · Click any bar
+          {PLAN.length}-Week Running (mi) · Click any bar
         </div>
         <div style={{ position: "relative" }}>
           <div
@@ -787,6 +787,13 @@ export default function R2R2RPhase() {
             <>
               <span style={{ margin: "0 8px", color: "#3a3a3a" }}>·</span>
               Vert: <span style={{ color: "#e8e4df", fontWeight: 600 }}>{weekData.vert.toLocaleString()} ft</span>
+              {weekData.vertFoot && ` (≥${weekData.vertFoot.toLocaleString()} on foot)`}
+            </>
+          )}
+          {weekData.hours && (
+            <>
+              <span style={{ margin: "0 8px", color: "#3a3a3a" }}>·</span>
+              Time: <span style={{ color: "#e8e4df", fontWeight: 600 }}>{weekData.hours} h</span>
             </>
           )}
         </div>
