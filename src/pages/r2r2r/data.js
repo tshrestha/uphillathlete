@@ -85,7 +85,7 @@ export const PHASES = [
     volumeRange: "18 → 30 mi · 7.5–11.5 h",
     vertRange: "5,000 → 9,000 ft",
     narrative:
-      "Revised Oct 18 after the fitness review. Volume now counts as hours + vert across run, hike, bike and skin, with a running-mile floor that rebuilds ~10% a week (20 → 30 mi) to restore impact and tendon tolerance — Aug–Oct averaged 16 run mi/week. Only Thursday is hard: during the challenge 34% of running time sat above HR 160 and mountain days averaged 153–157, so mountain days are now Z2 — hike the moment HR passes the cap. The gym is two short sessions (Mon ~40 min heavy + tendon, Wed ~30 min single-leg + tendon); the plyo ladder restarts at L2. Nov trails: microspikes on Chautauqua and Green Mountain.",
+      "Revised Oct 18 after the fitness review. Volume now counts as hours + vert across run, hike, bike and skin, with a running-mile floor that rebuilds ~10% a week (20 → 30 mi) to restore impact and tendon tolerance — Aug–Oct averaged 16 run mi/week. Only Thursday is hard: during the challenge 34% of running time sat above HR 160 and mountain days averaged 153–157, so mountain days are now Z2 — hike the moment HR passes the cap. The gym is two short sessions: Mon ~40 min heavy + tendon, and Thu PM ~30 min single-leg + tendon, stacked on the quality day so Tue and Wed stay easy and the intervals start on fresh legs (revised Oct 22 — lifting Wednesday put next-day leg soreness on the week's only hard session). The plyo ladder restarts at L2. Nov trails: microspikes on Chautauqua and Green Mountain.",
     selfCheck: [
       "Easy cap is 150 (Oct 20 drift test: +3.8% Pa:HR at HR 155). Easy runs averaging at or under it?",
       "Mountain days: average HR at or under the cap (challenge days ran 153–157)?",
@@ -103,7 +103,7 @@ export const PHASES = [
     volumeRange: "23 → 35 mi · 7–12.5 h",
     vertRange: "4,500 → 10,500 ft",
     narrative:
-      "Skin days take over Saturday once resort uphill access opens (~early Dec) — resort routes first; backcountry only with avalanche training, a partner and the gear. The long run moves to Sunday so distance keeps building for the 50k (12 → 14 mi; the longest since mid-August was 11.2). On-foot + skin vert climbs to ~10,000 ft/week — past the challenge's 7,800 ft/week on-foot average — still at Z2. Plyo ladder L3 → L4. Holiday deload Dec 21–27. The block ends Jan 10: retest the drift and Green Mountain benchmarks, pick the 50k (~10,000 ft gain), anchor the next cycle.",
+      "Skin days take over Saturday once resort uphill access opens (~early Dec) — resort routes first; backcountry only with avalanche training, a partner and the gear. The long run moves to Sunday so distance keeps building for the 50k (12 → 14 mi; the longest since mid-August was 11.2). On-foot + skin vert climbs to ~10,000 ft/week — past the challenge's 7,800 ft/week on-foot average — still at Z2. Plyo ladder L3 → L4. With the long run on Sunday, Session A moves to Tuesday PM and Monday is rest or an easy spin, so plyos and depth drops get legs 48 h off the long run, not 24; Session B stays on Thursday PM. Holiday deload Dec 21–27. The block ends Jan 10: retest the drift and Green Mountain benchmarks, pick the 50k (~10,000 ft gain), anchor the next cycle.",
     selfCheck: [
       "Green Mountain benchmark: faster than 33.5 min at or below the Oct 7 HR (173)?",
       "Long run: 14 mi without a tendon response the next morning?",
@@ -506,7 +506,11 @@ export const PLAN = [
           },
           {
             name: "Plyometrics — L2",
-            subs: ["SL pogos 3×10/leg — 2-min rests", "Box jump w/ step-down 4×5 — 90s rests", "Lateral bound to stick 3×5/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×10/leg — 2-min rests",
+              "Box jump w/ step-down 4×5 — 90s rests",
+              "Lateral bound to stick 3×5/side — 2-min rests",
+            ],
           },
           "Back squat 3×4 @ 80% — 3-min rests",
           "Trap-bar deadlift 3×5 — 3 min",
@@ -534,7 +538,11 @@ export const PLAN = [
           "Step-off stick landings 3×6 — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -552,7 +560,12 @@ export const PLAN = [
         stats: ["16 mi", "4,500 ft", "RPE 5–6"],
         notes: "TP for ups; hike grades over 8%. Fuel 60–80 g carbs/hr.",
       },
-      { day: "Sun", type: "b2b", stats: ["7 mi", "1,500 ft", "RPE 5–6"], notes: "Time on feet on tired legs — honest Z2." },
+      {
+        day: "Sun",
+        type: "b2b",
+        stats: ["7 mi", "1,500 ft", "RPE 5–6"],
+        notes: "Time on feet on tired legs — honest Z2.",
+      },
     ],
   },
   {
@@ -595,7 +608,11 @@ export const PLAN = [
           "SL RDL 2×6/leg, moderate — 2-min rests",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -611,7 +628,8 @@ export const PLAN = [
     name: "Build · Drift Test",
     totalMiles: 48,
     vert: 7500,
-    note: "Second full week at plyo L2 — earn L3 with quiet mornings and crisp landings. Thursday rotation lands on uphill tempo.",
+    note:
+      "Second full week at plyo L2 — earn L3 with quiet mornings and crisp landings. Thursday rotation lands on uphill tempo.",
     callout:
       "⚠ Actual: 18 mi run · 13,100 ft · 11.8 h · 2 gym sessions. The flat drift test didn't run (Sep 1's trail run at HR 155 drifted 7.6% — AeT sits below 155). Verti challenge opened Sat Sep 5 with 5 Chautauqua laps (4,173 ft), then Mount Blue Sky by bike from Idaho Springs on Sunday: 55 mi, 8,146 ft, up to 4,239 m.",
     days: [
@@ -624,7 +642,11 @@ export const PLAN = [
           "Warm-up 8 min + primers",
           {
             name: "Plyometrics — L2",
-            subs: ["SL pogos 3×10/leg — 2-min rests", "Box jump w/ step-down 4×5 — 90s rests", "Lateral bound to stick 3×5/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×10/leg — 2-min rests",
+              "Box jump w/ step-down 4×5 — 90s rests",
+              "Lateral bound to stick 3×5/side — 2-min rests",
+            ],
           },
           "Back squat 3×4 @ 80% — 3-min rests",
           "Romanian deadlift 3×5 — 3 min",
@@ -664,7 +686,11 @@ export const PLAN = [
           "Step-off stick landings 3×6 — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -673,7 +699,8 @@ export const PLAN = [
         type: "hills",
         title: "Uphill Tempo",
         stats: ["3 × 10 min", "LT · RPE 8–9", "6–10% grade"],
-        notes: "Lactate threshold. Warm up 15–20 min easy; 2:1 work:rest — ~5-min jog-down recoveries. Short answers, hard breathing. Cool down 10 min.",
+        notes:
+          "Lactate threshold. Warm up 15–20 min easy; 2:1 work:rest — ~5-min jog-down recoveries. Short answers, hard breathing. Cool down 10 min.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -691,8 +718,10 @@ export const PLAN = [
     name: "Plyo L3 · Depth Intro",
     totalMiles: 50,
     vert: 8000,
-    note: "Ladder advances to L3: depth drops from 30 cm — the gym rehearsal for descent impact. Watch the 24-h tendon response closely this week.",
-    callout: "⚠ Actual: 7 mi run · 6,400 ft · 9.6 h · 1 gym session. San Juans backpacking trip, Sep 12–17 (2,300–3,800 m).",
+    note:
+      "Ladder advances to L3: depth drops from 30 cm — the gym rehearsal for descent impact. Watch the 24-h tendon response closely this week.",
+    callout:
+      "⚠ Actual: 7 mi run · 6,400 ft · 9.6 h · 1 gym session. San Juans backpacking trip, Sep 12–17 (2,300–3,800 m).",
     days: [
       {
         day: "Mon",
@@ -703,7 +732,11 @@ export const PLAN = [
           "Warm-up 8 min + primers",
           {
             name: "Plyometrics — L3",
-            subs: ["SL pogos 3×12/leg — 2-min rests", "Depth drop to stick, 30 cm 4×5 — 2-min rests", "Lateral bounds 3×6/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×12/leg — 2-min rests",
+              "Depth drop to stick, 30 cm 4×5 — 2-min rests",
+              "Lateral bounds 3×6/side — 2-min rests",
+            ],
           },
           "Back squat 3×4 @ 80% — 3-min rests",
           "Trap-bar deadlift 3×5 — 3 min",
@@ -728,7 +761,11 @@ export const PLAN = [
           "Step-off stick landings 3×6 — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -737,10 +774,16 @@ export const PLAN = [
         type: "hills",
         title: "Uphill VO2",
         stats: ["5 × 3 min", "VO2 · RPE 10", "10–15% grade"],
-        notes: "VO2max. Warm up 20 min; 1:1 work:rest — 3-min recoveries. 2–4 min reps are the VO2 sweet spot (Seiler & Sjursen 2004; Barnes 2013). Pace to finish rep 5, not to win rep 1.",
+        notes:
+          "VO2max. Warm up 20 min; 1:1 work:rest — 3-min recoveries. 2–4 min reps are the VO2 sweet spot (Seiler & Sjursen 2004; Barnes 2013). Pace to finish rep 5, not to win rep 1.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
-      { day: "Sat", type: "long", stats: ["18 mi", "5,000 ft", "RPE 5–6"], notes: "TP for ups. Fuel 60–80 g carbs/hr." },
+      {
+        day: "Sat",
+        type: "long",
+        stats: ["18 mi", "5,000 ft", "RPE 5–6"],
+        notes: "TP for ups. Fuel 60–80 g carbs/hr.",
+      },
       { day: "Sun", type: "b2b", stats: ["9 mi", "1,700 ft", "RPE 5–6"] },
     ],
   },
@@ -750,7 +793,8 @@ export const PLAN = [
     name: "Descent Focus",
     totalMiles: 50,
     vert: 8000,
-    note: "Second week at L3. Saturday carries the block's biggest sustained-descent dose — the repeated-bout effect is the cheapest quad insurance there is.",
+    note:
+      "Second week at L3. Saturday carries the block's biggest sustained-descent dose — the repeated-bout effect is the cheapest quad insurance there is.",
     callout:
       "⚠ Actual: 11 mi run · 11,700 ft (4,700 hiking, 3,900 running, 3,100 bike) · 18.6 h — the biggest week of the period by time · 0 gym. Sep 20: 11.2 mi / 3,855 ft from Chautauqua, the longest run of the period.",
     days: [
@@ -763,7 +807,11 @@ export const PLAN = [
           "Warm-up 8 min + primers",
           {
             name: "Plyometrics — L3",
-            subs: ["SL pogos 3×12/leg — 2-min rests", "Depth drop to stick, 30 cm 4×5 — 2-min rests", "Lateral bounds 3×6/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×12/leg — 2-min rests",
+              "Depth drop to stick, 30 cm 4×5 — 2-min rests",
+              "Lateral bounds 3×6/side — 2-min rests",
+            ],
           },
           "Back squat 3×4 @ 80% — 3-min rests",
           "Romanian deadlift 3×5 — 3 min",
@@ -787,7 +835,11 @@ export const PLAN = [
           "Step-off stick landings 3×6 — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -795,14 +847,16 @@ export const PLAN = [
         day: "Thu",
         type: "climb",
         stats: ["2 × 25 min", "RPE 7 · sub-LT", "4–8% grade"],
-        notes: "Longest SteadyState reps of the block — 50 min at intensity. 5-min jog-down recovery between reps; warm up 15–20 min.",
+        notes:
+          "Longest SteadyState reps of the block — 50 min at intensity. 5-min jog-down recovery between reps; warm up 15–20 min.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
         day: "Sat",
         type: "long",
         stats: ["18 mi", "5,000 ft", "4 mi descent", "RPE 5–6"],
-        notes: "Sustained controlled descent: short quick strides, cadence up, land under the hips, poles defensive. Fuel 60–80 g/hr.",
+        notes:
+          "Sustained controlled descent: short quick strides, cadence up, land under the hips, poles defensive. Fuel 60–80 g/hr.",
       },
       { day: "Sun", type: "b2b", stats: ["10 mi", "1,800 ft", "RPE 5–6"] },
     ],
@@ -826,7 +880,11 @@ export const PLAN = [
           "Warm-up 8 min + primers",
           {
             name: "Plyometrics — L4",
-            subs: ["Depth drops 40 cm 4×5 — 2-min rests", "SL lateral hops 3×8/leg — 2-min rests", "Bounding 3×20 m — 2-min rests"],
+            subs: [
+              "Depth drops 40 cm 4×5 — 2-min rests",
+              "SL lateral hops 3×8/leg — 2-min rests",
+              "Bounding 3×20 m — 2-min rests",
+            ],
           },
           "Back squat 3×4 @ 80% — 3-min rests",
           "Trap-bar deadlift 3×5 — 3 min",
@@ -851,7 +909,11 @@ export const PLAN = [
           "Step-off stick landings 3×6 — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -860,7 +922,8 @@ export const PLAN = [
         type: "hills",
         title: "Uphill Tempo",
         stats: ["3 × 10 min", "LT · RPE 8–9", "6–10% grade"],
-        notes: "Lactate threshold. 2:1 work:rest — ~5-min recoveries. Time-at-intensity capped at 30 min — keep the week pyramidal.",
+        notes:
+          "Lactate threshold. 2:1 work:rest — ~5-min recoveries. Time-at-intensity capped at 30 min — keep the week pyramidal.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       { day: "Sat", type: "long", stats: ["17 mi", "4,500 ft", "RPE 5–6"] },
@@ -896,7 +959,10 @@ export const PLAN = [
         type: "strength",
         title: "Session B — Light",
         stats: ["Deload"],
-        steps: ["Warm-up", "SL RDL 2×6/leg, moderate — 2 min", { name: "Tendon accessory", subs: ["Band inversion 3×12/foot — 60s", "Bodyweight SL heel raise 2×15/leg — 60s"] }],
+        steps: ["Warm-up", "SL RDL 2×6/leg, moderate — 2 min", {
+          name: "Tendon accessory",
+          subs: ["Band inversion 3×12/foot — 60s", "Bodyweight SL heel raise 2×15/leg — 60s"],
+        }],
       },
       { day: "Thu", type: "easy", stats: ["6 mi", "RPE 5–6"], notes: "No carry, no hills." },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
@@ -910,7 +976,8 @@ export const PLAN = [
     name: "MAX Week 1 · 4×5 @ 80%",
     totalMiles: 50,
     vert: 6000,
-    note: "First real 1RM push since the injury. Plyos hold at primer dose — the L4 level is banked, not lost. Bar speed honest, nothing grinding.",
+    note:
+      "First real 1RM push since the injury. Plyos hold at primer dose — the L4 level is banked, not lost. Bar speed honest, nothing grinding.",
     callout:
       "⚠ Actual: 8 mi run · 7,600 ft (4,400 MTB) · 7.1 h · 1 gym session. Oct 7: Green Mountain, Hayden TH → summit, in 33.5 min at HR 173 — 17% faster than Aug 22 and the new climbing benchmark. Sea-level travel from Oct 9. The challenge closed Oct 12 at 60.5k ft (~62k on Garmin's totals, which include a drive recorded inside the Oct 4 hike).",
     days: [
@@ -947,7 +1014,11 @@ export const PLAN = [
           "Lateral step-down 3×8/leg, 5-s lower — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -956,7 +1027,8 @@ export const PLAN = [
         type: "hills",
         title: "Uphill VO2",
         stats: ["5 × 3 min", "VO2 · RPE 10", "10–15% grade"],
-        notes: "VO2max. Warm up 20 min; 1:1 work:rest — 3-min recoveries. The best-evidenced session for the engine (Barnes 2013, Ferley 2013).",
+        notes:
+          "VO2max. Warm up 20 min; 1:1 work:rest — 3-min recoveries. The best-evidenced session for the engine (Barnes 2013, Ferley 2013).",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       { day: "Sat", type: "long", stats: ["17 mi", "4,200 ft", "RPE 5–6"] },
@@ -1001,7 +1073,11 @@ export const PLAN = [
           "Lateral step-down 3×8/leg, 5-s lower — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -1009,7 +1085,8 @@ export const PLAN = [
         day: "Thu",
         type: "climb",
         stats: ["2 × 20 min", "RPE 7 · sub-LT", "4–8% grade"],
-        notes: "SteadyState uphill intervals — 4–5 min jog-down recovery between reps. RPE 7: strong but sustainable, not threshold.",
+        notes:
+          "SteadyState uphill intervals — 4–5 min jog-down recovery between reps. RPE 7: strong but sustainable, not threshold.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       { day: "Sat", type: "long", stats: ["17 mi", "4,200 ft", "RPE 5–6"] },
@@ -1079,7 +1156,11 @@ export const PLAN = [
           "Weighted step-up 3×6/leg — 90s",
           {
             name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            subs: [
+              "Band inversion 3×12/foot — 60s rests",
+              "Bodyweight SL heel raise 2×15/leg — 60s rests",
+              "Toe yoga 2×10/foot",
+            ],
           },
         ],
       },
@@ -1116,7 +1197,8 @@ export const PLAN = [
     vert: 8000,
     vertFoot: 6000,
     hours: 10,
-    note: "Plyo L2 at full dose. Thursday rotation: Tempo. Saturday rehearses the pacing and fueling that faded in the back half of Oct 3.",
+    note:
+      "Plyo L2 at full dose. Thursday rotation: Tempo. Saturday rehearses the pacing and fueling that faded in the back half of Oct 3.",
     days: [
       {
         day: "Mon",
@@ -1127,7 +1209,11 @@ export const PLAN = [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L2",
-            subs: ["SL pogos 3×10/leg — 2-min rests", "Box jump w/ step-down 4×5 — 90s rests", "Lateral bound to stick 3×5/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×10/leg — 2-min rests",
+              "Box jump w/ step-down 4×5 — 90s rests",
+              "Lateral bound to stick 3×5/side — 2-min rests",
+            ],
           },
           "Trap-bar deadlift 3×5 @ ~77.5% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1145,25 +1231,29 @@ export const PLAN = [
       },
       {
         day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Tendon",
-        stats: ["~30 min", "AM 4 mi easy"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Lateral step-down 3×6/leg, 3-s lower — 90s",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
+        type: "easy",
+        stats: ["4 mi", "HR ≤150", "RPE 5–6"],
+        notes: "Easy only — Session B moves to Thursday PM so the intervals start on fresh legs.",
       },
       {
         day: "Thu",
         type: "hills",
-        title: "Uphill Tempo",
-        stats: ["3 × 8 min", "LT · RPE 8–9", "5 mi · 1,200 ft"],
-        notes: "6–10% grade. Warm up 15–20 min; ~4-min jog-down recoveries. Short answers, hard breathing — not VO2.",
+        title: "Uphill Tempo + Session B",
+        stats: ["3 × 8 min", "LT · RPE 8–9", "5 mi · 1,200 ft", "PM gym ~30 min"],
+        steps: [
+          "AM: Uphill Tempo 3 × 8 min on a 6–10% grade — warm up 15–20 min; ~4-min jog-down recoveries",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Tendon (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
+        ],
+        notes:
+          "Short answers, hard breathing — not VO2. Hard day hard: the lift rides on the quality day so Tue, Wed and Fri stay easy. One window only? Lift straight after the cool-down. Leave 2–3 reps in reserve — Saturday is ~42 h out.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -1201,7 +1291,11 @@ export const PLAN = [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L2",
-            subs: ["SL pogos 3×10/leg — 2-min rests", "Box jump w/ step-down 4×5 — 90s rests", "Lateral bound to stick 3×5/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×10/leg — 2-min rests",
+              "Box jump w/ step-down 4×5 — 90s rests",
+              "Lateral bound to stick 3×5/side — 2-min rests",
+            ],
           },
           "Back squat 3×5 @ 80% (RPE 8) — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1213,27 +1307,25 @@ export const PLAN = [
         notes: "Optional PM: 45-min easy spin, HR ≤125 — counts toward hours.",
       },
       { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Tendon",
-        stats: ["~30 min", "AM 5 mi easy"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Weighted step-up 3×6/leg — 90s",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
-      },
+      { day: "Wed", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Thu",
         type: "hills",
-        title: "Uphill VO2",
-        stats: ["5 × 3 min", "VO2 · RPE 10", "5 mi · 1,200 ft"],
-        notes: "10–15% grade. Warm up 20 min; 3-min jog/walk-down recoveries (1:1). Pace to finish rep 5, not to win rep 1.",
+        title: "Uphill VO2 + Session B",
+        stats: ["5 × 3 min", "VO2 · RPE 10", "5 mi · 1,200 ft", "PM gym ~30 min"],
+        steps: [
+          "AM: Uphill VO2 5 × 3 min on a 10–15% grade — warm up 20 min; 3-min jog/walk-down recoveries (1:1)",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Tendon (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
+        ],
+        notes: "Pace to finish rep 5, not to win rep 1.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -1260,7 +1352,8 @@ export const PLAN = [
     vert: 5000,
     vertFoot: 4000,
     hours: 7.5,
-    note: "⟳ RECOVERY week — runs, vert and gym deload together. Tendon HSR stays at full load (the tendon is never the deload).",
+    note:
+      "⟳ RECOVERY week — runs, vert and gym deload together. Tendon HSR stays at full load (the tendon is never the deload).",
     deload: true,
     callout:
       "Rebuild check: tendon at baseline after every mountain day? Easy runs at or under the cap? Both gym sessions done each week? If yes → week 28 builds toward 30 mi and plyo L3.",
@@ -1282,21 +1375,25 @@ export const PLAN = [
         ],
       },
       { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
+      { day: "Wed", type: "easy", stats: ["3 mi", "HR ≤150", "RPE 5–6"] },
       {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Light",
-        stats: ["Deload", "AM 3 mi easy"],
+        day: "Thu",
+        type: "easy",
+        title: "Easy + Session B Light",
+        stats: ["4 mi", "6 × 20 s strides", "PM gym light"],
         steps: [
-          "Plyo primer — pogo hops 2×12",
-          "SL RDL 2×6/leg, moderate — 90s",
+          "AM: 4 mi easy, finish with 6 × 20 s strides",
           {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            name: "PM: Session B — Light",
+            subs: [
+              "Plyo primer — pogo hops 2×12",
+              "SL RDL 2×6/leg, moderate — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
           },
         ],
+        notes: "No intervals this week.",
       },
-      { day: "Thu", type: "easy", stats: ["4 mi", "6 × 20 s strides"], notes: "No intervals this week." },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
         day: "Sat",
@@ -1327,7 +1424,11 @@ export const PLAN = [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L3",
-            subs: ["SL pogos 3×12/leg — 2-min rests", "Depth drop to stick, 30 cm 4×5 — 2-min rests", "Lateral bounds 3×6/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×12/leg — 2-min rests",
+              "Depth drop to stick, 30 cm 4×5 — 2-min rests",
+              "Lateral bounds 3×6/side — 2-min rests",
+            ],
           },
           "Trap-bar deadlift 3×5 @ 80% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1339,33 +1440,28 @@ export const PLAN = [
         notes: "First depth-drop week — watch the 24-h tendon response. Optional PM: 45-min easy spin, HR ≤125.",
       },
       { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Tendon",
-        stats: ["~30 min", "AM 4 mi easy"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Lateral step-down 3×6/leg, 3-s lower — 90s",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
-      },
+      { day: "Wed", type: "easy", stats: ["4 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Thu",
         type: "hills",
-        title: "Green Mountain Benchmark",
-        stats: ["1 climb", "RPE 8–9", "5 mi · 2,200 ft"],
+        title: "Green Mountain Benchmark + Session B",
+        stats: ["1 climb", "RPE 8–9", "5 mi · 2,200 ft", "PM gym ~30 min"],
         steps: [
           "Warm up 15 min easy on the flat",
           "Hayden TH → summit, one continuous threshold effort (RPE 8–9) — log time and average HR",
           "Descend easy; cool down 10 min",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Tendon (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
         ],
         notes:
-          "Baseline: Oct 7 — 33.5 min at HR 173 (Aug 22: 40.6 min at HR 168). Dry trail only — on snow or ice, run Uphill Tempo 3 × 10 min instead and move the benchmark.",
+          "Baseline: Oct 7 — 33.5 min at HR 173 (Aug 22: 40.6 min at HR 168). Oct 7 came 48 h after a lift; this one comes 72 h after Session A with two easy days before it. Dry trail only — on snow or ice, run Uphill Tempo 3 × 10 min instead and move the benchmark.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -1403,7 +1499,11 @@ export const PLAN = [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L3",
-            subs: ["SL pogos 3×12/leg — 2-min rests", "Depth drop to stick, 30 cm 4×5 — 2-min rests", "Lateral bounds 3×6/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×12/leg — 2-min rests",
+              "Depth drop to stick, 30 cm 4×5 — 2-min rests",
+              "Lateral bounds 3×6/side — 2-min rests",
+            ],
           },
           "Back squat 3×5 @ 80% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1422,7 +1522,15 @@ export const PLAN = [
         stats: ["2 × 20 min", "RPE 7 · sub-LT", "6 mi · 1,200 ft"],
         steps: [
           "AM: SteadyState uphill 2 × 20 min @ RPE 7 on a 4–8% grade — 4–5 min jog-down between; warm up 15 min",
-          "PM: Session B — pogo primer, SL RDL 3×6/leg, weighted step-up 3×6/leg, tendon accessory",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Tendon (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
         ],
       },
       {
@@ -1438,7 +1546,8 @@ export const PLAN = [
         type: "long",
         title: "Mountain Day",
         stats: ["6,000 ft", "~8 mi", "HR ≤150"],
-        notes: "50k fueling rehearsal: 70–90 g carbs/hr, 500–750 mL fluid/hr. Log lap times — they should hold across the day.",
+        notes:
+          "50k fueling rehearsal: 70–90 g carbs/hr, 500–750 mL fluid/hr. Log lap times — they should hold across the day.",
       },
       { day: "Sun", type: "b2b", stats: ["5 mi", "1,000 ft", "HR ≤150"] },
     ],
@@ -1457,14 +1566,26 @@ export const PLAN = [
     days: [
       {
         day: "Mon",
+        type: "rest",
+        title: "Rest or Easy Spin",
+        stats: ["optional 45 min", "HR ≤125"],
+        notes:
+          "Session A moves to Tuesday from here: with the long run on Sunday, plyos and depth drops get legs 48 h off it, not 24.",
+      },
+      {
+        day: "Tue",
         type: "strength",
         title: "Session A — Short Heavy",
-        stats: ["Plyo L3", "~40 min"],
+        stats: ["Plyo L3", "~40 min", "AM 8 mi easy"],
         steps: [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L3",
-            subs: ["SL pogos 3×12/leg — 2-min rests", "Depth drop to stick, 30 cm 4×5 — 2-min rests", "Lateral bounds 3×6/side — 2-min rests"],
+            subs: [
+              "SL pogos 3×12/leg — 2-min rests",
+              "Depth drop to stick, 30 cm 4×5 — 2-min rests",
+              "Lateral bounds 3×6/side — 2-min rests",
+            ],
           },
           "Trap-bar deadlift 3×5 @ 80% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1473,31 +1594,28 @@ export const PLAN = [
             subs: ["Weighted SL heel raise 4×6/leg — 3s/3s — 2-min rests", "Seated calf raise 3×8 — 3s/3s — 90s rests"],
           },
         ],
-        notes: "Optional PM: 45-min easy spin, HR ≤125.",
+        notes: "Run first (HR ≤150, cadence 175+), lift ≥6 h later.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Skimo",
-        stats: ["~30 min", "AM 5 mi hilly · 1,000 ft"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Weighted step-up 3×6/leg — 90s",
-          "Cossack squat 2×6/side — adductors for skinning and skiing",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
-      },
+      { day: "Wed", type: "easy", stats: ["5 mi", "1,000 ft", "HR ≤150"], notes: "Hilly, easy." },
       {
         day: "Thu",
         type: "hills",
-        title: "Uphill VO2",
-        stats: ["5 × 3 min", "VO2 · RPE 10", "5 mi · 1,200 ft"],
-        notes: "10–15% grade; 3-min recoveries (1:1). Last rep as strong as the first.",
+        title: "Uphill VO2 + Session B",
+        stats: ["5 × 3 min", "VO2 · RPE 10", "5 mi · 1,200 ft", "PM gym ~30 min"],
+        steps: [
+          "AM: Uphill VO2 5 × 3 min on a 10–15% grade — 3-min recoveries (1:1)",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Skimo (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Cossack squat 2×6/side — adductors for skinning and skiing",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
+        ],
+        notes: "Last rep as strong as the first.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -1528,11 +1646,12 @@ export const PLAN = [
     note: "⟳ RECOVERY week. Plyos drop to L3-light; tendon HSR at full load.",
     deload: true,
     days: [
+      { day: "Mon", type: "rest", title: "Rest or Easy Spin", stats: ["optional 45 min", "HR ≤125"] },
       {
-        day: "Mon",
+        day: "Tue",
         type: "strength",
         title: "Session A — Light",
-        stats: ["Deload", "Plyo L3 light"],
+        stats: ["Deload", "Plyo L3 light", "AM 5 mi easy"],
         steps: [
           "Warm-up + primers",
           {
@@ -1543,21 +1662,24 @@ export const PLAN = [
           "Tendon at full load: weighted SL heel raise 4×6/leg (2 min)",
         ],
       },
-      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
+      { day: "Wed", type: "easy", stats: ["4 mi", "HR ≤150", "RPE 5–6"] },
       {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Light",
-        stats: ["Deload", "AM 4 mi easy"],
+        day: "Thu",
+        type: "easy",
+        title: "Easy + Session B Light",
+        stats: ["5 mi", "6 × 20 s strides", "PM gym light"],
         steps: [
-          "SL RDL 2×6/leg, moderate — 90s",
+          "AM: 5 mi easy, finish with 6 × 20 s strides",
           {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            name: "PM: Session B — Light",
+            subs: [
+              "SL RDL 2×6/leg, moderate — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
           },
         ],
+        notes: "No intervals.",
       },
-      { day: "Thu", type: "easy", stats: ["5 mi", "6 × 20 s strides"], notes: "No intervals." },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
         day: "Sat",
@@ -1577,18 +1699,24 @@ export const PLAN = [
     vert: 9000,
     vertFoot: 8500,
     hours: 11.5,
-    note: "The ladder tops out at L4 for this cycle (40 cm depth drops, bounding). Long run 13 mi the day after a skin day.",
+    note:
+      "The ladder tops out at L4 for this cycle (40 cm depth drops, bounding). Long run 13 mi the day after a skin day.",
     days: [
+      { day: "Mon", type: "rest", title: "Rest or Easy Spin", stats: ["optional 45 min", "HR ≤125"] },
       {
-        day: "Mon",
+        day: "Tue",
         type: "strength",
         title: "Session A — Short Heavy",
-        stats: ["Plyo L4", "~40 min"],
+        stats: ["Plyo L4", "~40 min", "AM 8 mi easy"],
         steps: [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L4",
-            subs: ["Depth drops 40 cm 4×5 — 2-min rests", "SL lateral hops 3×8/leg — 2-min rests", "Bounding 3×20 m — 2-min rests"],
+            subs: [
+              "Depth drops 40 cm 4×5 — 2-min rests",
+              "SL lateral hops 3×8/leg — 2-min rests",
+              "Bounding 3×20 m — 2-min rests",
+            ],
           },
           "Back squat 3×5 @ 80% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1597,31 +1725,28 @@ export const PLAN = [
             subs: ["Weighted SL heel raise 4×6/leg — 3s/3s — 2-min rests", "Seated calf raise 3×8 — 3s/3s — 90s rests"],
           },
         ],
-        notes: "Bank L4 — it carries into the next cycle. Optional PM: 45-min easy spin, HR ≤125.",
+        notes: "Bank L4 — it carries into the next cycle.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"] },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Skimo",
-        stats: ["~30 min", "AM 6 mi hilly · 1,200 ft"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Lateral step-down 3×6/leg, 3-s lower — 90s",
-          "Cossack squat 2×6/side",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
-      },
+      { day: "Wed", type: "easy", stats: ["6 mi", "1,200 ft", "HR ≤150"], notes: "Hilly, easy." },
       {
         day: "Thu",
         type: "hills",
-        title: "Uphill Tempo",
-        stats: ["3 × 10 min", "LT · RPE 8–9", "6 mi · 1,500 ft"],
-        notes: "6–10% grade; ~5-min jog-down recoveries (2:1). Time at intensity capped at 30 min.",
+        title: "Uphill Tempo + Session B",
+        stats: ["3 × 10 min", "LT · RPE 8–9", "6 mi · 1,500 ft", "PM gym ~30 min"],
+        steps: [
+          "AM: Uphill Tempo 3 × 10 min on a 6–10% grade — ~5-min jog-down recoveries (2:1)",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Skimo (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Cossack squat 2×6/side",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
+        ],
+        notes: "Time at intensity capped at 30 min.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       {
@@ -1642,32 +1767,40 @@ export const PLAN = [
     vert: 4500,
     vertFoot: 4500,
     hours: 7.5,
-    note: "⟳ The deload lands on the holidays by design. Enjoy them; keep the micro-dose daily and the tendon HSR at full load.",
+    note:
+      "⟳ The deload lands on the holidays by design. Enjoy them; keep the micro-dose daily and the tendon HSR at full load.",
     deload: true,
     days: [
+      { day: "Mon", type: "rest", title: "Rest or Easy Spin", stats: ["optional 45 min", "HR ≤125"] },
       {
-        day: "Mon",
+        day: "Tue",
         type: "strength",
         title: "Session A — Light",
-        stats: ["Deload"],
+        stats: ["Deload", "AM 5 mi easy"],
         steps: [
           "Warm-up + plyo primer — pogos 2×12",
           "Back squat 3×5 @ 70% — 3 min",
           "Tendon at full load: weighted SL heel raise 4×6/leg (2 min)",
         ],
       },
-      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
+      { day: "Wed", type: "easy", stats: ["4 mi", "HR ≤150", "RPE 5–6"] },
       {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Light",
-        stats: ["Deload", "AM 4 mi easy"],
+        day: "Thu",
+        type: "easy",
+        title: "Easy + Session B Light",
+        stats: ["5 mi", "6 × 20 s strides", "PM gym light"],
         steps: [
-          "SL RDL 2×6/leg, moderate — 90s",
-          { name: "Tendon accessory", subs: ["Band inversion 3×12/foot — 60s", "Bodyweight SL heel raise 2×15/leg — 60s"] },
+          "AM: 5 mi easy, finish with 6 × 20 s strides",
+          {
+            name: "PM: Session B — Light",
+            subs: [
+              "SL RDL 2×6/leg, moderate — 90s",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg",
+            ],
+          },
         ],
+        notes: "Christmas Eve — Session B Light is ~15 min with one dumbbell; do it at home.",
       },
-      { day: "Thu", type: "easy", stats: ["5 mi", "6 × 20 s strides"] },
       { day: "Fri", type: "rest", notes: "Christmas — rest + micro-dose." },
       { day: "Sat", type: "skin", title: "Skin or Hike — Easy", stats: ["3,000 ft", "~2.5 h", "HR ≤140"] },
       { day: "Sun", type: "b2b", title: "Long Run — Easy", stats: ["10 mi", "1,000 ft", "HR ≤150"] },
@@ -1684,16 +1817,21 @@ export const PLAN = [
     note:
       "The biggest week of the cycle: challenge-level vert at Z2 instead of the challenge's HR, plus a 14-mi long run. The 35-mi floor arrives here.",
     days: [
+      { day: "Mon", type: "rest", title: "Rest or Easy Spin", stats: ["optional 45 min", "HR ≤125"] },
       {
-        day: "Mon",
+        day: "Tue",
         type: "strength",
         title: "Session A — Short Heavy",
-        stats: ["Plyo L4", "~40 min"],
+        stats: ["Plyo L4", "~40 min", "AM 8 mi easy"],
         steps: [
           "Warm-up 5 min + primers",
           {
             name: "Plyometrics — L4",
-            subs: ["Depth drops 40 cm 4×5 — 2-min rests", "SL lateral hops 3×8/leg — 2-min rests", "Bounding 3×20 m — 2-min rests"],
+            subs: [
+              "Depth drops 40 cm 4×5 — 2-min rests",
+              "SL lateral hops 3×8/leg — 2-min rests",
+              "Bounding 3×20 m — 2-min rests",
+            ],
           },
           "Trap-bar deadlift 3×5 @ 80% — 3-min rests",
           "Bulgarian split squat 3×6/leg — 90s",
@@ -1702,30 +1840,27 @@ export const PLAN = [
             subs: ["Weighted SL heel raise 4×6/leg — 3s/3s — 2-min rests", "Seated calf raise 3×8 — 3s/3s — 90s rests"],
           },
         ],
-        notes: "Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"] },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Skimo",
-        stats: ["~30 min", "AM 6 mi hilly · 1,200 ft"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Weighted step-up 3×6/leg — 90s",
-          "Cossack squat 2×6/side",
-          {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
-          },
-        ],
-      },
+      { day: "Wed", type: "easy", stats: ["6 mi", "1,200 ft", "HR ≤150"], notes: "Hilly, easy." },
       {
         day: "Thu",
         type: "climb",
-        stats: ["2 × 25 min", "RPE 7 · sub-LT", "7 mi · 1,800 ft"],
-        notes: "Longest SteadyState reps of the cycle — 50 min at intensity. 5-min jog-down between; warm up 15–20 min.",
+        title: "SteadyState + Session B",
+        stats: ["2 × 25 min", "RPE 7 · sub-LT", "7 mi · 1,800 ft", "PM gym ~30 min"],
+        steps: [
+          "AM: SteadyState 2 × 25 min — warm up 15–20 min; 5-min jog-down between",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Skimo (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Cossack squat 2×6/side",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
+        ],
+        notes: "Longest SteadyState reps of the cycle — 50 min at intensity.",
       },
       { day: "Fri", type: "rest", notes: "New Year's Day — rest + micro-dose." },
       {
@@ -1740,7 +1875,7 @@ export const PLAN = [
         type: "b2b",
         title: "Long Run",
         stats: ["14 mi", "2,000 ft", "HR ≤150"],
-        notes: "On tired legs — the 50k rehearsal. Next-morning tendon check before Monday's plyos.",
+        notes: "On tired legs — the 50k rehearsal. Next-morning tendon check before Tuesday's plyos.",
       },
     ],
   },
@@ -1756,65 +1891,53 @@ export const PLAN = [
     callout:
       "End of the cycle. Run the self-check, compare both benchmarks, pick the 50k (~10,000 ft gain), and anchor the next cycle: an ME block that ends 10 days before race day.",
     days: [
-      {
-        day: "Mon",
-        type: "strength",
-        title: "Session A — Short Heavy",
-        stats: ["Plyo L4", "log loads"],
-        steps: [
-          "Warm-up 5 min + primers",
-          {
-            name: "Plyometrics — L4",
-            subs: ["Depth drops 40 cm 4×5 — 2-min rests", "SL lateral hops 3×8/leg — 2-min rests", "Bounding 3×20 m — 2-min rests"],
-          },
-          "Back squat 3×5 @ 80% — 3-min rests",
-          "Bulgarian split squat 3×6/leg — 90s",
-          {
-            name: "Tendon finisher",
-            subs: ["Weighted SL heel raise 4×6/leg — 3s/3s — 2-min rests", "Seated calf raise 3×8 — 3s/3s — 90s rests"],
-          },
-        ],
-        notes: "Log the working weights — the next cycle's percentages start here.",
-      },
+      { day: "Mon", type: "rest", title: "Rest or Easy Spin", stats: ["optional 45 min", "HR ≤125"] },
       {
         day: "Tue",
         type: "easy",
-        title: "AeT Drift Test",
-        stats: ["60 min", "cap + 3 bpm", "flat"],
+        title: "AeT Drift Test + Session A",
+        stats: ["60 min", "cap + 3 bpm", "flat", "PM gym ~40 min"],
         steps: [
           "Warm up 10 min easy",
           "60 min continuous at the pace that settles HR at ~153 (cap + 3), then hold that pace — 3 × Wash Park loop like Oct 20, no stops",
           "Cool down 5 min easy",
-        ],
-        notes: "Pa:HR 3.5–5% → 153 is the next cycle's cap; under 3.5% → retest at 158; over 5% → 150 stands. Compare with Oct 20: HR 155 at 9:43/mi, +3.8%.",
-      },
-      {
-        day: "Wed",
-        type: "strength",
-        title: "Session B — Single-Leg + Skimo",
-        stats: ["~30 min", "AM 6 mi easy"],
-        steps: [
-          "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
-          "SL RDL 3×6/leg, heavy DB — 90s",
-          "Lateral step-down 3×6/leg, 3-s lower — 90s",
-          "Cossack squat 2×6/side",
           {
-            name: "Tendon accessory",
-            subs: ["Band inversion 3×12/foot — 60s rests", "Bodyweight SL heel raise 2×15/leg — 60s rests", "Toe yoga 2×10/foot"],
+            name: "PM, ≥6 h later: Session A — Short Heavy (~40 min)",
+            subs: [
+              "Warm-up 5 min + primers",
+              "Plyo L4 — depth drops 40 cm 4×5, SL lateral hops 3×8/leg, bounding 3×20 m — 2-min rests",
+              "Back squat 3×5 @ 80% — 3-min rests. Log the working weights — the next cycle's percentages start here",
+              "Bulgarian split squat 3×6/leg — 90s",
+              "Tendon finisher — weighted SL heel raise 4×6/leg (2 min), seated calf raise 3×8 (90s) — 3s/3s",
+            ],
           },
         ],
+        notes:
+          "Pa:HR 3.5–5% → 153 is the next cycle's cap; under 3.5% → retest at 158; over 5% → 150 stands. Compare with Oct 20: HR 155 at 9:43/mi, +3.8% — but Oct 20 ran ~19 h after Monday's squats; this one has no lift the day before.",
       },
+      { day: "Wed", type: "easy", stats: ["6 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Thu",
         type: "hills",
-        title: "Green Mountain Benchmark",
-        stats: ["1 climb", "RPE 8–9", "5 mi · 2,200 ft"],
+        title: "Green Mountain Benchmark + Session B",
+        stats: ["1 climb", "RPE 8–9", "5 mi · 2,200 ft", "PM gym ~30 min"],
         steps: [
           "Warm up 15 min easy on the flat",
           "Hayden TH → summit, one continuous threshold effort — log time and average HR",
           "Descend easy; cool down 10 min",
+          {
+            name: "PM, ≥6 h later: Session B — Single-Leg + Skimo (~30 min)",
+            subs: [
+              "Plyo primer — pogo hops 2×15, A-skip 2×30 m",
+              "SL RDL 3×6/leg, heavy DB — 90s",
+              "Weighted step-up 3×6/leg — 90s",
+              "Cossack squat 2×6/side",
+              "Tendon accessory — band inversion 3×12/foot, bodyweight SL heel raise 2×15/leg, toe yoga 2×10/foot",
+            ],
+          },
         ],
-        notes: "Compare with Oct 7 (33.5 min, HR 173) and week 28. Snow or ice → Uphill Tempo 3 × 10 min and skip the comparison.",
+        notes:
+          "Compare with Oct 7 (33.5 min, HR 173) and week 28. Snow or ice → Uphill Tempo 3 × 10 min and skip the comparison.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
       { day: "Sat", type: "skin", title: "Skin Day", stats: ["4,500 ft", "~4 h", "HR ≤150"] },
@@ -1850,7 +1973,8 @@ export const STRENGTH_PROGRAMS = {
           name: "HSR Calf Circuit",
           sets: "3×12",
           rest: "60s",
-          notes: "Bilateral heel raise on step (3s up, 3s down). Straight knee + bent knee. Single-leg when cleared. Full protocol in the Tendon tab.",
+          notes:
+            "Bilateral heel raise on step (3s up, 3s down). Straight knee + bent knee. Single-leg when cleared. Full protocol in the Tendon tab.",
         },
       ],
     },
@@ -1928,7 +2052,12 @@ export const STRENGTH_PROGRAMS = {
           rest: "45s",
           notes: "Lift top leg slowly. Glute med activation.",
         },
-        { name: "HSR Calf", sets: "3×8 (heavy)", rest: "60s", notes: "Progress load, 3s eccentric. Full protocol in the Tendon tab." },
+        {
+          name: "HSR Calf",
+          sets: "3×8 (heavy)",
+          rest: "60s",
+          notes: "Progress load, 3s eccentric. Full protocol in the Tendon tab.",
+        },
       ],
     },
     sessionB: {
@@ -1978,11 +2107,19 @@ export const STRENGTH_PROGRAMS = {
           items: [
             {
               label: "L2 (wks 15–17)",
-              subs: ["SL pogos 3×10/leg — 2 min", "Box jump w/ step-down 4×5 — 90s", "Lateral bound to stick 3×5/side — 2 min"],
+              subs: [
+                "SL pogos 3×10/leg — 2 min",
+                "Box jump w/ step-down 4×5 — 90s",
+                "Lateral bound to stick 3×5/side — 2 min",
+              ],
             },
             {
               label: "L3 (wks 18–19)",
-              subs: ["SL pogos 3×12/leg — 2 min", "Depth drop to stick, 30 cm 4×5 — 2 min", "Lateral bounds 3×6/side — 2 min"],
+              subs: [
+                "SL pogos 3×12/leg — 2 min",
+                "Depth drop to stick, 30 cm 4×5 — 2 min",
+                "Lateral bounds 3×6/side — 2 min",
+              ],
             },
             {
               label: "L4 (wk 20)",
@@ -1997,7 +2134,12 @@ export const STRENGTH_PROGRAMS = {
           rest: "3 min",
           notes: "Maintenance heavy — protects running economy under fatigue. No grinding reps.",
         },
-        { name: "Trap-Bar DL or RDL (alternate wks)", sets: "3×5", rest: "3 min", notes: "Heavy — 2 reps in reserve (RPE 8)." },
+        {
+          name: "Trap-Bar DL or RDL (alternate wks)",
+          sets: "3×5",
+          rest: "3 min",
+          notes: "Heavy — 2 reps in reserve (RPE 8).",
+        },
         { name: "Bulgarian Split Squat", sets: "3×6/leg", rest: "2 min", notes: "Heavy DBs. Both legs, then rest." },
         {
           name: "SL Heel Raise, weighted — tendon",
@@ -2031,9 +2173,24 @@ export const STRENGTH_PROGRAMS = {
           rest: "2 min",
           notes: "Heavy DB. Balance + posterior chain — the descent stabilizer.",
         },
-        { name: "Box Step-Off Stick Landing (30 cm)", sets: "3×6", rest: "90s", notes: "Stick 2s, step back up. Descent eccentric." },
-        { name: "Resisted Ankle Inversion (band) — tendon", sets: "3×12/foot", rest: "60s", notes: "2s out / 2s back." },
-        { name: "SL Heel Raise, bodyweight — tendon", sets: "2×15/leg", rest: "60s", notes: "Volume counterpart to Monday's heavy dose." },
+        {
+          name: "Box Step-Off Stick Landing (30 cm)",
+          sets: "3×6",
+          rest: "90s",
+          notes: "Stick 2s, step back up. Descent eccentric.",
+        },
+        {
+          name: "Resisted Ankle Inversion (band) — tendon",
+          sets: "3×12/foot",
+          rest: "60s",
+          notes: "2s out / 2s back.",
+        },
+        {
+          name: "SL Heel Raise, bodyweight — tendon",
+          sets: "2×15/leg",
+          rest: "60s",
+          notes: "Volume counterpart to Monday's heavy dose.",
+        },
         { name: "Toe Yoga", sets: "2×10/foot", notes: "Foot intrinsics." },
       ],
     },
@@ -2067,7 +2224,12 @@ export const STRENGTH_PROGRAMS = {
           notes: "The priority lift. Every rep fast and crisp — grinding = too heavy.",
         },
         { name: "Trap-Bar Deadlift", sets: "mirrors squat", rest: "3 min", notes: "Same weekly ladder as the squat." },
-        { name: "Bulgarian Split Squat", sets: "3×6/leg", rest: "2 min", notes: "Heavy DBs — 2 reps in reserve (RPE 8)." },
+        {
+          name: "Bulgarian Split Squat",
+          sets: "3×6/leg",
+          rest: "2 min",
+          notes: "Heavy DBs — 2 reps in reserve (RPE 8).",
+        },
         {
           name: "SL Heel Raise, weighted — tendon",
           sets: "4×6/leg",
@@ -2093,15 +2255,30 @@ export const STRENGTH_PROGRAMS = {
           rest: "3 min",
           notes: "Heavy — 2 reps in reserve (RPE 8).",
         },
-        { name: "Single-Leg RDL", sets: "3×6/leg", rest: "2 min", notes: "Moderate-heavy DB. Balance + posterior chain." },
+        {
+          name: "Single-Leg RDL",
+          sets: "3×6/leg",
+          rest: "2 min",
+          notes: "Moderate-heavy DB. Balance + posterior chain.",
+        },
         {
           name: "Lateral Step-Down",
           sets: "3×8/leg",
           rest: "90s",
           notes: "5-second lower. Keeps descent eccentrics alive through the block.",
         },
-        { name: "Resisted Ankle Inversion (band) — tendon", sets: "3×12/foot", rest: "60s", notes: "2s out / 2s back." },
-        { name: "SL Heel Raise, bodyweight — tendon", sets: "2×15/leg", rest: "60s", notes: "Wednesday tendon volume." },
+        {
+          name: "Resisted Ankle Inversion (band) — tendon",
+          sets: "3×12/foot",
+          rest: "60s",
+          notes: "2s out / 2s back.",
+        },
+        {
+          name: "SL Heel Raise, bodyweight — tendon",
+          sets: "2×15/leg",
+          rest: "60s",
+          notes: "Wednesday tendon volume.",
+        },
         { name: "Toe Yoga", sets: "2×10/foot", notes: "Foot intrinsics." },
       ],
     },
@@ -2109,7 +2286,7 @@ export const STRENGTH_PROGRAMS = {
   "phase-5": {
     title: "Short Heavy · 2×/week (Weeks 24–29)",
     subtitle:
-      "Revised Oct 18. Aug–Oct averaged one gym session a week and the MAX block never started, so the gym is cut to the minimum effective dose: two short sessions that keep force and tendon capacity rising while vert and volume take priority. Nothing to failure; loads build 75% → 80% (RPE 7–8). The plyo ladder restarts at L2 and earns L3 in week 28 on quiet mornings and crisp landings.",
+      "Revised Oct 18. Aug–Oct averaged one gym session a week and the MAX block never started, so the gym is cut to the minimum effective dose: two short sessions that keep force and tendon capacity rising while vert and volume take priority. Nothing to failure; loads build 75% → 80% (RPE 7–8). The plyo ladder restarts at L2 and earns L3 in week 28 on quiet mornings and crisp landings. From week 25, Session B runs Thursday PM after the quality session, and step-ups replace the slow lateral step-downs: B now sits ~42 h before Saturday, whose descents supply that eccentric dose.",
     sessionA: {
       name: "Session A (Mon, ~40 min) — Plyo + Heavy",
       exercises: [
@@ -2124,11 +2301,19 @@ export const STRENGTH_PROGRAMS = {
             },
             {
               label: "L2 (wks 25–26)",
-              subs: ["SL pogos 3×10/leg — 2 min", "Box jump w/ step-down 4×5 — 90s", "Lateral bound to stick 3×5/side — 2 min"],
+              subs: [
+                "SL pogos 3×10/leg — 2 min",
+                "Box jump w/ step-down 4×5 — 90s",
+                "Lateral bound to stick 3×5/side — 2 min",
+              ],
             },
             {
               label: "L3 (wks 28–29)",
-              subs: ["SL pogos 3×12/leg — 2 min", "Depth drop to stick, 30 cm 4×5 — 2 min", "Lateral bounds 3×6/side — 2 min"],
+              subs: [
+                "SL pogos 3×12/leg — 2 min",
+                "Depth drop to stick, 30 cm 4×5 — 2 min",
+                "Lateral bounds 3×6/side — 2 min",
+              ],
             },
           ],
           notes: "Advance only on quiet mornings + crisp landings. Stop any set that gets loud or slow.",
@@ -2150,7 +2335,7 @@ export const STRENGTH_PROGRAMS = {
       ],
     },
     sessionB: {
-      name: "Session B (Wed PM, ~30 min) — Single-Leg + Tendon",
+      name: "Session B (Thu PM, ~30 min) — Single-Leg + Tendon",
       exercises: [
         {
           name: "Plyo Primer",
@@ -2161,13 +2346,24 @@ export const STRENGTH_PROGRAMS = {
         },
         { name: "Single-Leg RDL", sets: "3×6/leg", rest: "90s", notes: "Heavy DB. The descent stabilizer." },
         {
-          name: "Weighted Step-Up or Lateral Step-Down (alternate wks)",
+          name: "Weighted Step-Up",
           sets: "3×6/leg",
           rest: "90s",
-          notes: "Step-down with a 3-s lower — the eccentric that runnable descents ask for.",
+          notes:
+            "Knee-height box, drive through full hip extension. Leave 2–3 reps in reserve — Saturday is ~42 h out.",
         },
-        { name: "Resisted Ankle Inversion (band) — tendon", sets: "3×12/foot", rest: "60s", notes: "2s out / 2s back." },
-        { name: "SL Heel Raise, bodyweight — tendon", sets: "2×15/leg", rest: "60s", notes: "Volume counterpart to Monday's heavy dose." },
+        {
+          name: "Resisted Ankle Inversion (band) — tendon",
+          sets: "3×12/foot",
+          rest: "60s",
+          notes: "2s out / 2s back.",
+        },
+        {
+          name: "SL Heel Raise, bodyweight — tendon",
+          sets: "2×15/leg",
+          rest: "60s",
+          notes: "Volume counterpart to Monday's heavy dose.",
+        },
         { name: "Toe Yoga", sets: "2×10/foot", notes: "Foot intrinsics." },
       ],
     },
@@ -2175,9 +2371,9 @@ export const STRENGTH_PROGRAMS = {
   "phase-6": {
     title: "Short Heavy + Skimo · 2×/week (Weeks 30–35)",
     subtitle:
-      "Same two short sessions, with the ladder at L3 → L4 and one skimo accessory: adductor strength for skinning and skiing. Loads hold at ~80% (RPE 8). Log week 35's working weights — the next cycle's percentages start there.",
+      "Same two short sessions, with the ladder at L3 → L4 and one skimo accessory: adductor strength for skinning and skiing. Loads hold at ~80% (RPE 8). Log week 35's working weights — the next cycle's percentages start there. With the long run on Sunday, Session A moves to Tuesday PM (Monday = rest or easy spin); Session B stays Thursday PM.",
     sessionA: {
-      name: "Session A (Mon, ~40 min) — Plyo + Heavy",
+      name: "Session A (Tue PM, ~40 min) — Plyo + Heavy",
       exercises: [
         {
           name: "Plyometrics — ladder level",
@@ -2186,7 +2382,11 @@ export const STRENGTH_PROGRAMS = {
           items: [
             {
               label: "L3 (wk 30)",
-              subs: ["SL pogos 3×12/leg — 2 min", "Depth drop to stick, 30 cm 4×5 — 2 min", "Lateral bounds 3×6/side — 2 min"],
+              subs: [
+                "SL pogos 3×12/leg — 2 min",
+                "Depth drop to stick, 30 cm 4×5 — 2 min",
+                "Lateral bounds 3×6/side — 2 min",
+              ],
             },
             {
               label: "L4 (wks 32, 34–35)",
@@ -2195,14 +2395,19 @@ export const STRENGTH_PROGRAMS = {
           ],
           notes: "L4 gets banked for the next cycle; L5 downhill strides wait until then.",
         },
-        { name: "Back Squat or Trap-Bar DL (alternate wks)", sets: "3×5 @ 80%", rest: "3 min", notes: "RPE 8 — no grinding reps." },
+        {
+          name: "Back Squat or Trap-Bar DL (alternate wks)",
+          sets: "3×5 @ 80%",
+          rest: "3 min",
+          notes: "RPE 8 — no grinding reps.",
+        },
         { name: "Bulgarian Split Squat", sets: "3×6/leg", rest: "90s", notes: "Heavy DBs." },
         { name: "SL Heel Raise, weighted — tendon", sets: "4×6/leg", rest: "2 min", notes: "3s/3s. Permanent." },
         { name: "Seated Calf Raise, weighted — tendon", sets: "3×8", rest: "90s", notes: "Soleus." },
       ],
     },
     sessionB: {
-      name: "Session B (Wed PM, ~30 min) — Single-Leg + Skimo",
+      name: "Session B (Thu PM, ~30 min) — Single-Leg + Skimo",
       exercises: [
         {
           name: "Plyo Primer",
@@ -2212,14 +2417,19 @@ export const STRENGTH_PROGRAMS = {
         },
         { name: "Single-Leg RDL", sets: "3×6/leg", rest: "90s", notes: "Heavy DB." },
         {
-          name: "Weighted Step-Up or Lateral Step-Down (alternate wks)",
+          name: "Weighted Step-Up",
           sets: "3×6/leg",
           rest: "90s",
-          notes: "Step-up mimics the skin stride; step-down keeps descent eccentrics alive.",
+          notes: "Mimics the skin stride. Ski and long-run descents supply the eccentric dose.",
         },
         { name: "Cossack Squat", sets: "2×6/side", rest: "60s", notes: "Adductor durability for skinning and skiing." },
-        { name: "Resisted Ankle Inversion (band) — tendon", sets: "3×12/foot", rest: "60s", notes: "2s out / 2s back." },
-        { name: "SL Heel Raise, bodyweight — tendon", sets: "2×15/leg", rest: "60s", notes: "Wednesday tendon volume." },
+        {
+          name: "Resisted Ankle Inversion (band) — tendon",
+          sets: "3×12/foot",
+          rest: "60s",
+          notes: "2s out / 2s back.",
+        },
+        { name: "SL Heel Raise, bodyweight — tendon", sets: "2×15/leg", rest: "60s", notes: "Thursday tendon volume." },
         { name: "Toe Yoga", sets: "2×10/foot", notes: "Foot intrinsics." },
       ],
     },
@@ -2453,7 +2663,11 @@ export const HSR_PROGRAMS = {
         },
         {
           name: "Running cues",
-          items: ["Cadence 175+ on easy runs", "HR ≤145 on easy days — heavy legs make sloppy strides", "Poles on descents over ~2,000 ft"],
+          items: [
+            "Cadence 175+ on easy runs",
+            "HR ≤145 on easy days — heavy legs make sloppy strides",
+            "Poles on descents over ~2,000 ft",
+          ],
         },
       ],
     },
@@ -2532,7 +2746,7 @@ export const HSR_PROGRAMS = {
               subs: ["Weighted SL heel raise 4×6/leg — 2-min rests", "Seated calf raise 3×8 — 90s rests"],
             },
             {
-              label: "Wed — end of Session B",
+              label: "Thu PM — end of Session B",
               subs: ["Band inversion 3×12/foot", "Bodyweight SL heel raise 2×15/leg", "Toe yoga 2×10/foot"],
             },
           ],
@@ -2594,16 +2808,16 @@ export const HSR_PROGRAMS = {
           name: "In-gym tendon doses — performed inside Sessions A & B",
           items: [
             {
-              label: "Mon — end of Session A",
+              label: "Tue PM — end of Session A",
               subs: ["Weighted SL heel raise 4×6/leg — 2-min rests", "Seated calf raise 3×8 — 90s rests"],
             },
             {
-              label: "Wed — end of Session B",
+              label: "Thu PM — end of Session B",
               subs: ["Band inversion 3×12/foot", "Bodyweight SL heel raise 2×15/leg", "Toe yoga 2×10/foot"],
             },
           ],
           notes:
-            "Full detail in the Strength tab. After 6 consecutive symptom-free months, Wednesday's volume dose may drop — Monday's heavy dose never does.",
+            "Full detail in the Strength tab. After 6 consecutive symptom-free months, Session B's volume dose may drop — Session A's heavy dose never does.",
         },
         {
           name: "Flare protocol — morning pain above baseline for >24h",
@@ -2627,7 +2841,8 @@ export const REFERENCE = {
     { code: "HSR", desc: "Heavy slow resistance (tendon loading protocol)" },
     {
       code: "RPE",
-      desc: "Rate of perceived exertion, 1–10 (CTS/Koop run scale): 4–5 recovery · 5–6 endurance ('all day') · 7 SteadyState (sub-LT) · 8–9 Tempo (LT) · 10 VO2 intervals. Lifting uses its own RPE: gym RPE 8 = 2 reps in reserve.",
+      desc:
+        "Rate of perceived exertion, 1–10 (CTS/Koop run scale): 4–5 recovery · 5–6 endurance ('all day') · 7 SteadyState (sub-LT) · 8–9 Tempo (LT) · 10 VO2 intervals. Lifting uses its own RPE: gym RPE 8 = 2 reps in reserve.",
     },
     { code: "ME", desc: "Muscular endurance session" },
     { code: "B2B", desc: "Back-to-back (Saturday long + Sunday on tired legs)" },
@@ -2683,10 +2898,10 @@ export const REFERENCE = {
     summary:
       "Tendon work is permanent maintenance (Phase D). Tempo is always 3s up / 3s down, and it is never deloaded.",
     rules: [
-      "Heavy dose — Monday, in Session A: weighted SL heel raise 4×6/leg, 2-min rests",
-      "Volume dose — Wednesday, in Session B: bodyweight SL heel raise 2×15/leg, 60s rests",
+      "Heavy dose — in Session A (Mon; Tue PM from week 30): weighted SL heel raise 4×6/leg, 2-min rests",
+      "Volume dose — in Session B (Thu PM, after the quality run): bodyweight SL heel raise 2×15/leg, 60s rests",
       "Daily micro-dose — 5 min: doming, toe yoga, band inversion, SL balance, calf stretches",
-      "Hold at ~6RM. After 6 symptom-free months, Wednesday's dose may drop — Monday's never does",
+      "Hold at ~6RM. After 6 symptom-free months, Session B's dose may drop — Session A's never does",
       "Historical rehab ramp (wks 1–14): 12RM → 10RM → 8RM → 6RM",
     ],
     exercises: [

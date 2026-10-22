@@ -1,17 +1,5 @@
 import { useState } from "react";
-import {
-  FS_9,
-  FS_10,
-  FS_11,
-  FS_11_5,
-  FS_12,
-  FS_12_5,
-  FS_13,
-  FS_14,
-  FS_15,
-  FS_22,
-  FS_25,
-} from "../styles/fontSizes";
+import { FS_10, FS_11, FS_11_5, FS_12, FS_12_5, FS_13, FS_14, FS_15, FS_22, FS_25, FS_9 } from "../styles/fontSizes";
 
 const PHASES = [
   {

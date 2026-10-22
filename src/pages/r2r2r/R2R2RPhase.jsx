@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
+import { FS_10, FS_11, FS_11_5, FS_12, FS_12_5, FS_13, FS_14, FS_15, FS_22, FS_26, FS_9 } from "../../styles/fontSizes";
 import {
   formatDayDate,
   formatPhaseDateRange,
@@ -18,19 +19,6 @@ import {
   STRENGTH_PROGRAMS,
   WORKOUT_TYPES,
 } from "./data";
-import {
-  FS_9,
-  FS_10,
-  FS_11,
-  FS_11_5,
-  FS_12,
-  FS_12_5,
-  FS_13,
-  FS_14,
-  FS_15,
-  FS_22,
-  FS_26,
-} from "../../styles/fontSizes";
 
 const VALID_IDS = PHASES.map((p) => p.id);
 
@@ -156,9 +144,9 @@ export default function R2R2RPhase() {
               {isObj ? s.name : s}
             </span>
           </div>
-          {isObj &&
-            Array.isArray(s.subs) &&
-            s.subs.map((sub, k) => (
+          {isObj
+            && Array.isArray(s.subs)
+            && s.subs.map((sub, k) => (
               <div key={k} style={{ display: "flex", gap: "7px", margin: isMobile ? "2px 0 0 22px" : "2px 0 0 30px" }}>
                 <span style={{ color: phase.color, fontSize: FS_9, flexShrink: 0, paddingTop: "4px", opacity: 0.75 }}>
                   ▸
@@ -250,8 +238,8 @@ export default function R2R2RPhase() {
             </span>
           )}
         </div>
-        {Array.isArray(ex.items) &&
-          ex.items.map((item, j) => {
+        {Array.isArray(ex.items)
+          && ex.items.map((item, j) => {
             const isObj = typeof item === "object" && item !== null;
             return (
               <div key={j} style={{ marginBottom: isObj ? "6px" : "3px" }}>
@@ -269,9 +257,9 @@ export default function R2R2RPhase() {
                     {isObj ? item.label : item}
                   </span>
                 </div>
-                {isObj &&
-                  Array.isArray(item.subs) &&
-                  item.subs.map((sub, k) => (
+                {isObj
+                  && Array.isArray(item.subs)
+                  && item.subs.map((sub, k) => (
                     <div key={k} style={{ display: "flex", gap: "7px", margin: "2px 0 0 18px" }}>
                       <span
                         style={{ color: phase.color, fontSize: FS_9, flexShrink: 0, paddingTop: "4px", opacity: 0.7 }}
@@ -816,7 +804,9 @@ export default function R2R2RPhase() {
           overflowX: "auto",
         }}
       >
-        {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "Tendon"], ["reference", "Reference"]].map(([key, label]) => (
+        {[["schedule", "Schedule"], ["strength", "Strength"], ["hsr", "Tendon"], ["reference", "Reference"]].map((
+          [key, label],
+        ) => (
           <button
             key={key}
             className="tab-btn"
@@ -859,8 +849,7 @@ export default function R2R2RPhase() {
                   borderBottom: i < 6 ? "1px solid rgba(255,255,255,0.04)" : "none",
                   gap: isMobile ? "9px" : "12px",
                   ...(isToday && {
-                    background:
-                      `linear-gradient(90deg, ${phase.color}26 0%, ${phase.color}0d 55%, transparent 100%)`,
+                    background: `linear-gradient(90deg, ${phase.color}26 0%, ${phase.color}0d 55%, transparent 100%)`,
                     borderLeft: `3px solid ${phase.color}`,
                     marginLeft: `-${padX}px`,
                     marginRight: isMobile ? "-10px" : "-16px",
@@ -1117,8 +1106,8 @@ export default function R2R2RPhase() {
           >
             <strong>Pain rule:</strong>{" "}
             Up to 3/10 during loading is acceptable; symptoms must settle within 24 hours and not raise morning
-            baseline. If they don't, regress one loading step and re-test in 48 hours. The tendon's voice wins —
-            every time.
+            baseline. If they don't, regress one loading step and re-test in 48 hours. The tendon's voice wins — every
+            time.
           </div>
         </div>
       )}
@@ -1269,7 +1258,6 @@ export default function R2R2RPhase() {
               </div>
             </div>
           ))}
-
         </div>
       )}
 
