@@ -87,7 +87,7 @@ export const PHASES = [
     narrative:
       "Revised Oct 18 after the fitness review. Volume now counts as hours + vert across run, hike, bike and skin, with a running-mile floor that rebuilds ~10% a week (20 → 30 mi) to restore impact and tendon tolerance — Aug–Oct averaged 16 run mi/week. Only Thursday is hard: during the challenge 34% of running time sat above HR 160 and mountain days averaged 153–157, so mountain days are now Z2 — hike the moment HR passes the cap. The gym is two short sessions (Mon ~40 min heavy + tendon, Wed ~30 min single-leg + tendon); the plyo ladder restarts at L2. Nov trails: microspikes on Chautauqua and Green Mountain.",
     selfCheck: [
-      "Week 24 drift test: Pa:HR <5% at HR 148–150? Then the easy cap is 150; otherwise 145 stands.",
+      "Easy cap is 150 (Oct 20 drift test: +3.8% Pa:HR at HR 155). Easy runs averaging at or under it?",
       "Mountain days: average HR at or under the cap (challenge days ran 153–157)?",
       "Tendon: morning baseline after every plyo session and mountain day; runnable-descent L/R balance back under ~51.5%?",
       "Gym: both sessions done every week (Aug–Oct averaged one)?",
@@ -1063,7 +1063,7 @@ export const PLAN = [
           "Cool down 5 min easy",
         ],
         notes:
-          "Both earlier runs on this route held <3% drift at HR 145 (9:51–9:53/mi). Pa:HR <5% today → every 'HR ≤145' below becomes ≤150. Over 5% → 145 stands.",
+          "✓ Done Oct 20: 3 × Wash Park loop, 7.6 mi in 73 min. HR averaged 155 (above the 148–150 target) at 9:43/mi; Pa:HR drifted +3.8% over min 10–70. Under 5% → the easy cap is now 150 everywhere below. But that was Aug 18's pace (9:52 @ 145) at ~10 bpm more, 4 days back from sea level — don't read 155 as the new AeT.",
       },
       {
         day: "Wed",
@@ -1095,7 +1095,7 @@ export const PLAN = [
         day: "Sat",
         type: "long",
         title: "Mountain Day",
-        stats: ["4,000 ft", "~5 mi", "HR ≤145"],
+        stats: ["4,000 ft", "~5 mi", "HR ≤150"],
         notes:
           "Chautauqua laps or Green Mountain, poles. Hike the moment HR passes the cap — challenge mountain days averaged HR 153–157; this is the same vert at Z2 cost. 60–80 g carbs/hr.",
       },
@@ -1140,7 +1140,7 @@ export const PLAN = [
       {
         day: "Tue",
         type: "easy",
-        stats: ["6 mi", "HR ≤145", "RPE 5–6"],
+        stats: ["6 mi", "HR ≤150", "RPE 5–6"],
         notes: "Cadence 175+ — Aug–Oct flat runs averaged 172. Finish with 4 × 20 s relaxed strides.",
       },
       {
@@ -1170,7 +1170,7 @@ export const PLAN = [
         day: "Sat",
         type: "long",
         title: "Mountain Day",
-        stats: ["4,500 ft", "~7 mi", "HR ≤145"],
+        stats: ["4,500 ft", "~7 mi", "HR ≤150"],
         notes:
           "Even pacing: on Oct 3, laps 6–10 ran 16% slower at 9 bpm lower HR — that's fuel and pacing, not lungs. Start under the cap and eat every 30 min.",
       },
@@ -1212,7 +1212,7 @@ export const PLAN = [
         ],
         notes: "Optional PM: 45-min easy spin, HR ≤125 — counts toward hours.",
       },
-      { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤145", "RPE 5–6"], notes: "Cadence 175+." },
+      { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
       {
         day: "Wed",
         type: "strength",
@@ -1240,7 +1240,7 @@ export const PLAN = [
         day: "Sat",
         type: "long",
         title: "Mountain Day",
-        stats: ["5,000 ft", "~7 mi", "HR ≤145"],
+        stats: ["5,000 ft", "~7 mi", "HR ≤150"],
         notes: "Poles; hike the steeps. Fuel 60–80 g carbs/hr.",
       },
       {
@@ -1281,7 +1281,7 @@ export const PLAN = [
           "Tendon at full load: weighted SL heel raise 4×6/leg (2 min)",
         ],
       },
-      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "strength",
@@ -1338,7 +1338,7 @@ export const PLAN = [
         ],
         notes: "First depth-drop week — watch the 24-h tendon response. Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤145", "RPE 5–6"], notes: "Cadence 175+." },
+      { day: "Tue", type: "easy", stats: ["7 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
       {
         day: "Wed",
         type: "strength",
@@ -1372,13 +1372,13 @@ export const PLAN = [
         day: "Sat",
         type: "long",
         title: "Mountain Day",
-        stats: ["5,000 ft", "~6 mi", "HR ≤145"],
+        stats: ["5,000 ft", "~6 mi", "HR ≤150"],
         notes: "Microspikes on shaded north faces from here on.",
       },
       {
         day: "Sun",
         type: "b2b",
-        stats: ["5 mi", "500 ft", "HR ≤145"],
+        stats: ["5 mi", "500 ft", "HR ≤150"],
         notes: "Rolling, on tired legs — time on feet, not pace.",
       },
     ],
@@ -1414,7 +1414,7 @@ export const PLAN = [
         ],
         notes: "Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["6 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["6 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "climb",
@@ -1429,7 +1429,7 @@ export const PLAN = [
         day: "Thu",
         type: "easy",
         title: "Thanksgiving Easy",
-        stats: ["5 mi", "HR ≤145"],
+        stats: ["5 mi", "HR ≤150"],
         notes: "Turkey trot? Run it at easy effort.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
@@ -1437,10 +1437,10 @@ export const PLAN = [
         day: "Sat",
         type: "long",
         title: "Mountain Day",
-        stats: ["6,000 ft", "~8 mi", "HR ≤145"],
+        stats: ["6,000 ft", "~8 mi", "HR ≤150"],
         notes: "50k fueling rehearsal: 70–90 g carbs/hr, 500–750 mL fluid/hr. Log lap times — they should hold across the day.",
       },
-      { day: "Sun", type: "b2b", stats: ["5 mi", "1,000 ft", "HR ≤145"] },
+      { day: "Sun", type: "b2b", stats: ["5 mi", "1,000 ft", "HR ≤150"] },
     ],
   },
   // ─── PHASE 6 — SKIMO BASE · LONG RUN ───
@@ -1475,7 +1475,7 @@ export const PLAN = [
         ],
         notes: "Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤145", "RPE 5–6"], notes: "Cadence 175+." },
+      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"], notes: "Cadence 175+." },
       {
         day: "Wed",
         type: "strength",
@@ -1504,7 +1504,7 @@ export const PLAN = [
         day: "Sat",
         type: "skin",
         title: "First Skin Day",
-        stats: ["3,000 ft", "~2.5 h", "HR ≤145"],
+        stats: ["3,000 ft", "~2.5 h", "HR ≤150"],
         notes:
           "Resort uphill route. Technique over vert: long glide, efficient kick turns, push through the poles. Check boot fit — any medial-ankle or arch pressure is a tendon flag. Tape known hot spots.",
       },
@@ -1512,7 +1512,7 @@ export const PLAN = [
         day: "Sun",
         type: "b2b",
         title: "Long Run",
-        stats: ["12 mi", "1,500 ft", "HR ≤145"],
+        stats: ["12 mi", "1,500 ft", "HR ≤150"],
         notes: "Longest run since mid-August (11.2 mi, Sep 20). Rolling foothills; fuel 60 g carbs/hr.",
       },
     ],
@@ -1543,7 +1543,7 @@ export const PLAN = [
           "Tendon at full load: weighted SL heel raise 4×6/leg (2 min)",
         ],
       },
-      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "strength",
@@ -1566,7 +1566,7 @@ export const PLAN = [
         stats: ["3,000 ft", "~2.5 h", "HR ≤140"],
         notes: "Or a 3,500 ft mountain hike if the snow isn't there.",
       },
-      { day: "Sun", type: "b2b", title: "Long Run — Easy", stats: ["9 mi", "1,000 ft", "HR ≤145"] },
+      { day: "Sun", type: "b2b", title: "Long Run — Easy", stats: ["9 mi", "1,000 ft", "HR ≤150"] },
     ],
   },
   {
@@ -1599,7 +1599,7 @@ export const PLAN = [
         ],
         notes: "Bank L4 — it carries into the next cycle. Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "strength",
@@ -1628,10 +1628,10 @@ export const PLAN = [
         day: "Sat",
         type: "skin",
         title: "Skin Day",
-        stats: ["4,000 ft", "~3.5 h", "HR ≤145"],
+        stats: ["4,000 ft", "~3.5 h", "HR ≤150"],
         notes: "Fuel 60–80 g carbs/hr — cold suppresses thirst and appetite; drink on a timer.",
       },
-      { day: "Sun", type: "b2b", title: "Long Run", stats: ["13 mi", "1,800 ft", "HR ≤145"] },
+      { day: "Sun", type: "b2b", title: "Long Run", stats: ["13 mi", "1,800 ft", "HR ≤150"] },
     ],
   },
   {
@@ -1656,7 +1656,7 @@ export const PLAN = [
           "Tendon at full load: weighted SL heel raise 4×6/leg (2 min)",
         ],
       },
-      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["5 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "strength",
@@ -1670,7 +1670,7 @@ export const PLAN = [
       { day: "Thu", type: "easy", stats: ["5 mi", "6 × 20 s strides"] },
       { day: "Fri", type: "rest", notes: "Christmas — rest + micro-dose." },
       { day: "Sat", type: "skin", title: "Skin or Hike — Easy", stats: ["3,000 ft", "~2.5 h", "HR ≤140"] },
-      { day: "Sun", type: "b2b", title: "Long Run — Easy", stats: ["10 mi", "1,000 ft", "HR ≤145"] },
+      { day: "Sun", type: "b2b", title: "Long Run — Easy", stats: ["10 mi", "1,000 ft", "HR ≤150"] },
     ],
   },
   {
@@ -1704,7 +1704,7 @@ export const PLAN = [
         ],
         notes: "Optional PM: 45-min easy spin, HR ≤125.",
       },
-      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤145", "RPE 5–6"] },
+      { day: "Tue", type: "easy", stats: ["8 mi", "HR ≤150", "RPE 5–6"] },
       {
         day: "Wed",
         type: "strength",
@@ -1732,14 +1732,14 @@ export const PLAN = [
         day: "Sat",
         type: "skin",
         title: "Big Skin Day",
-        stats: ["5,000 ft", "~4.5 h", "HR ≤145"],
+        stats: ["5,000 ft", "~4.5 h", "HR ≤150"],
         notes: "Or a 6,000 ft mountain day if conditions are poor. Fuel 70–90 g carbs/hr.",
       },
       {
         day: "Sun",
         type: "b2b",
         title: "Long Run",
-        stats: ["14 mi", "2,000 ft", "HR ≤145"],
+        stats: ["14 mi", "2,000 ft", "HR ≤150"],
         notes: "On tired legs — the 50k rehearsal. Next-morning tendon check before Monday's plyos.",
       },
     ],
@@ -1783,10 +1783,10 @@ export const PLAN = [
         stats: ["60 min", "cap + 3 bpm", "flat"],
         steps: [
           "Warm up 10 min easy",
-          "60 min continuous at the current easy cap + 3 bpm — same home out-and-back, no stops",
+          "60 min continuous at the pace that settles HR at ~153 (cap + 3), then hold that pace — 3 × Wash Park loop like Oct 20, no stops",
           "Cool down 5 min easy",
         ],
-        notes: "Pa:HR <5% → the cap rises 3 bpm for the next cycle. Compare pace at HR with week 24.",
+        notes: "Pa:HR 3.5–5% → 153 is the next cycle's cap; under 3.5% → retest at 158; over 5% → 150 stands. Compare with Oct 20: HR 155 at 9:43/mi, +3.8%.",
       },
       {
         day: "Wed",
@@ -1817,8 +1817,8 @@ export const PLAN = [
         notes: "Compare with Oct 7 (33.5 min, HR 173) and week 28. Snow or ice → Uphill Tempo 3 × 10 min and skip the comparison.",
       },
       { day: "Fri", type: "rest", notes: "Rest + micro-dose." },
-      { day: "Sat", type: "skin", title: "Skin Day", stats: ["4,500 ft", "~4 h", "HR ≤145"] },
-      { day: "Sun", type: "b2b", title: "Long Run", stats: ["13 mi", "1,800 ft", "HR ≤145"] },
+      { day: "Sat", type: "skin", title: "Skin Day", stats: ["4,500 ft", "~4 h", "HR ≤150"] },
+      { day: "Sun", type: "b2b", title: "Long Run", stats: ["13 mi", "1,800 ft", "HR ≤150"] },
     ],
   },
 ];
